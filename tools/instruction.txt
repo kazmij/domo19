@@ -1,0 +1,46 @@
+Instalacja i praca lokalna:
+===================================================================
+1. Wersja PHP musi być min. 7.1
+2. Pobieramy repozytorium git za pomocą konsoli: git clone https://github.com/JAAQOB/domo2019.git - to polecenie utworzy nam katalog o tej własnie nazwie
+3. Trzeba utworzyć wirtualny host kierujący do katalogu /web w projekcie.
+4. Wgrywamy bazę z pliku tools/domo.dump.sql
+5. Rozpakowujemy plik tools/media.zip tak aby w kaatalogu web/uploads znajdował się katalog media z tego zip.
+6. Wchodzimy do bazy danych i wykonujemy zapytanie: UPDATE page__site SET host = 'domo2019.goalpage.pl' WHERE page__site.id = 4; gdzie domo2019.goalpage.pl zamienaimy na nasz lokalny host wcześniej utworzony.
+7. Za pomocą composer instalujemy zależności PHP. Jeśli w katalogu projektu jest plik comopsoer.phar to wykonujemy: php composer.phar install
+        Compsoer poprosi o dane: (!!!!!!gdy jakieś są niewymienione poniżej to naciskamy ENTER pomijając je!!!!!!!)
+            - database_name - nasza nazwa bazy
+            - database_user - nazwa usera bazy
+            - database_password - hasło bazy (ENTER jeśli puste)
+            - uglifyjs2_path - ścieżka absolutna do uglifyjs2 (W Windows gdzieś to jest C:/Program Files/Node../../uglifyjs)
+            - uglifycss_path - j.w tylko nazwa pliku to: uglifycss
+            - node_path - ścieżka do nodejs
+            - node_modules_path - trzeba powtórzyć to co wpiszmy wyżej
+8. Będą w konsoli w katalogu projektu głownym wykonujemy polecenia po kolei:
+    git pull origin master - update z repo
+    php bin/console doctrine:schema:update --force - odświeża bazę
+    php bin/console cache:clear - czyści cache
+    php bin/console assets:install - isntaluje assety
+    php bin/console assetic:dump - minifikuje js i robi CSS z less
+    php bin/console sonata:page:cleanup-snapshots --site=all - czyści obrazy strony
+    php bin/console sonata:page:create-snapshots --site=all - tworzy nowe obrazy stron
+9. W razie zmian i jesli coś nie działa trzeba wykonać te wszyskie komendy po kolei
+10. Praca z less: w katalogu web/less są pliki less. Polecam edytować głownie: custom.less. Jeśli chcemy na żywo mieć zmiany to podczas pracy uruchamiamy komendę: php bin/console assetic:watch .
+   Ta komedna w czasie rzeczywistym odświeża CSS or JS.
+11. Istniejące szablony statyczne pocięte przez (Adriana?) są tu: web/templates - tam wszystko jest co dostałem od koderów.
+12. Admin jest pod adresem: /admin, dane to admin/wakcylion19
+13. W adminie przechodzimy https://www.awesomescreenshot.com/image/3824706/8a66006e347b1325285f69117daf2ec1 gdzie znajdują sie wszystkie strony.
+14. Edytujemy strony klikajać w nie i potem przechodząc do https://www.awesomescreenshot.com/image/3824712/0695174416e456eb8cc997b6354de654 Jeśli nie ma zaznaczonego bloku to go tworzymy wybierając z listy i naciskamy "+"
+
+
+Dostęp i praca na serverze:
+====================================================================
+1. Adres strony: http://domo2019.goalpage.pl/ nazwa i haslo htaccess: jaaqob/test
+2. Admin http://domo2019.goalpage.pl/ nazwa/hasło: admin/wakcylion19
+3. Katalog na serverze: /home/jaaqobtest/domains/goalpage.pl/public_html/domo2019/domo2019
+4. Aktualizacja strony: będąc w katalogu głownym dajemy: sh .up_server - poprosi nas o dane do git i to tyle spraw z serverem
+
+
+
+
+
+

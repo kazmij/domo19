@@ -2,7 +2,7 @@
 # Set parameters here that may be different on each deployment target of the app, e.g. development, staging, production.
 # https://symfony.com/doc/current/best_practices/configuration.html#infrastructure-related-configuration
 parameters:
-    database_host: 127.0.0.1
+    database_host: localhost
     database_port: ~
     database_name: symfony
     database_user: root
@@ -11,18 +11,20 @@ parameters:
     #database_path: '%kernel.project_dir%/var/data/data.sqlite'
 
     mailer_transport: smtp
-    mailer_host: 127.0.0.1
-    mailer_user: ~
-    mailer_password: ~
+    mailer_port: 465
+    mailer_host: mail.jaaqob.pl
+    mailer_user: test-mail@jaaqob.pl
+    mailer_password: b9RPFx1v4Q
+    mailer_encryption: ssl
 
     # A secret key that's used to generate certain security-related tokens
     secret: ThisTokenIsNotSoSecretChangeIt
-    base_assets_path: /backend/
-    base_routes_prefix: /backend
+    base_assets_path: /
+    base_routes_prefix: ''
 
     locale: pl
 
-    jwt_key_pass_phrase: jurajska
+    jwt_key_pass_phrase: domo2019
 
     recaptcha_public_key: ~
     recaptcha_private_key: ~
