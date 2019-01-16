@@ -12,7 +12,7 @@ use Symfony\Component\HttpFoundation\Request;
 // Feel free to remove this, extend it, or make something more sophisticated.
 
 $allowedServers = ['188.165.254.122'];
-if (!in_array($_SERVER['SERVER_ADDR'], $allowedServers) || (isset($_SERVER['HTTP_CLIENT_IP'])
+if (!in_array($_SERVER['SERVER_ADDR'], $allowedServers) && (isset($_SERVER['HTTP_CLIENT_IP'])
     || isset($_SERVER['HTTP_X_FORWARDED_FOR'])
     || !(in_array(@$_SERVER['REMOTE_ADDR'], ['127.0.0.1', '::1', '188.165.254.122'], true) || PHP_SAPI === 'cli-server')) && !isset($_SERVER['HTTP_X_VARNISH'])
 ) {
