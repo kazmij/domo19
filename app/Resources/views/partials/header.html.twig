@@ -1,0 +1,146 @@
+<section id="desktop-header" class="{{ desktop_header_class }}">
+    <div id="top-menu">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+
+                    <a href="/">
+                        {% include ':svg:headerLogo.html.twig' %}
+                    </a>
+                    <ul id="desktop-header-menu-bar">
+                        <li id="desktop-menu-button"
+                            class="desktop-header-menu-bar-item desktop-header-menu-bar-item-yellow desktop-header-menu-bar-item-menu-icon">
+                        </li>
+                        <li class="desktop-header-menu-bar-item desktop-header-menu-bar-item-dark desktop-header-menu-bar-item-phone">
+                            <a href="tel:+48520234262"><i class="fa fa-phone" aria-hidden="true"></i> 530 234 262</a>
+                        </li>
+                        <li class="desktop-header-menu-bar-item desktop-header-menu-bar-item-dark desktop-header-menu-bar-item-with-dropdown desktop-header-menu-bar-item-object-types">
+            <span>
+              Rodzaje projektów
+                {% include ':svg:headerArrowIcon.html.twig' %}
+            </span>
+                            <div class="desktop-header-menu-bar-dropown">
+                                {{ knp_menu_render('ApplicationSonataMainBundle:Builder:topCategoriesMenu', {'allow_safe_labels': true}) }}
+                            </div>
+                        </li>
+                        <li class="desktop-header-menu-bar-item desktop-header-menu-bar-item-dark desktop-header-menu-bar-item-compare">
+                            <a href="">
+                                {% include ':svg:headerSlidersIcon.html.twig' %}
+                                <div id="sliders-badge" class="domo-badge" data-count="2"></div>
+                                <span>Porównywarka projektów</span>
+                            </a>
+                        </li>
+                        <li class="desktop-header-menu-bar-item desktop-header-menu-bar-item-dark desktop-header-menu-bar-item-with-dropdown desktop-header-menu-bar-item-good-to-know">
+            <span>
+              Warto wiedzieć
+                {% include ':svg:headerArrowIcon.html.twig' %}
+            </span>
+                            <div class="desktop-header-menu-bar-dropown">
+                                {{ knp_menu_render('ApplicationSonataMainBundle:Builder:worthKnowingMenu', {'allow_safe_labels': true}) }}
+                            </div>
+                        </li>
+                        <li class="desktop-header-menu-bar-item desktop-header-menu-bar-item-white desktop-header-menu-bar-item-closet">
+                            <a href="">
+                                {% include ':svg:headerClosetIcon.html.twig' %}
+                                <div id="closet-badge" class="domo-badge" data-count="1"></div>
+                                <span>Schowek</span>
+                            </a>
+                        </li>
+                        <li id="desktop-search-button"
+                            class="desktop-header-menu-bar-item desktop-header-menu-bar-item-yellow desktop-header-menu-bar-item-search">
+                            {% include ':svg:headerSearchIcon.html.twig' %}
+                        </li>
+                    </ul>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                {% if isHome %}
+                    <div class="row">
+                        <div class="col-xs-12">
+
+                            <div id="desktop-header-about">
+
+                                <h1>Największa baza projektów na polskim rynku.<br/>
+                                    Ponad 19 000 Pozycji!</h1>
+
+                                <p>DOMO to więcej niż same projekty - jeżeli tylko chcesz<br/>
+                                    zbudujemy Twój wymarzony dom od podstaw</p>
+
+                                <div class="buttons-holder buttons-holder-center">
+                                    <a href="/warto-wiedziec" class="button button-big button-filled button-filled-yellow">Dowiedz się
+                                        więcej</a>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+                {% endif %}
+
+                {% if isHome %}
+                    <div class="row">
+                        <div class="col-xs-12">
+                            {{ render_esi(controller(
+                                'Application\\Sonata\\OfferBundle\\Controller\\OfferController::topSearchAction'
+                            )) }}
+                        </div>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+
+        {% include ':partials:socialMedia.html.twig' %}
+
+    </div>
+
+    <div id="desktop-menu">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <nav>
+                        {% set menu = knp_menu_get('ApplicationSonataMainBundle:Builder:mainMenu', []) %}
+                        {% do menu.setChildrenAttribute('class', 'desktop-menu-main') %}
+                        {{ knp_menu_render(menu, {'allow_safe_labels': true}) }}
+                        <section class="desktop-menu-section">
+                            <header>
+                                <h1>Rodzaje projektów</h1>
+                            </header>
+                            <div>
+                                <div class="row">
+                                    <div class="col-xs-12 desktop-menu-section-projects-kinds">
+                                        {% set menu = knp_menu_get('ApplicationSonataMainBundle:Builder:topCategoriesMenu', []) %}
+                                        {% do menu.setChildrenAttribute('class', 'desktop-menu-default') %}
+                                        {{ knp_menu_render(menu, {'allow_safe_labels': true}) }}
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        <section class="desktop-menu-section">
+                            <header>
+                                <h1>Nasze usługi</h1>
+                            </header>
+                            {% set menu = knp_menu_get('ApplicationSonataMainBundle:Builder:ourServicesMenu', []) %}
+                            {% do menu.setChildrenAttribute('class', 'desktop-menu-default') %}
+                            {{ knp_menu_render(menu, {'allow_safe_labels': true}) }}
+                        </section>
+                        <section class="desktop-menu-section">
+                            <header>
+                                <h1>Warto wiedzieć</h1>
+                            </header>
+                            {% set menu = knp_menu_get('ApplicationSonataMainBundle:Builder:worthKnowingMenu', []) %}
+                            {% do menu.setChildrenAttribute('class', 'desktop-menu-default') %}
+                            {{ knp_menu_render(menu, {'allow_safe_labels': true}) }}
+                        </section>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="overlay"></section>

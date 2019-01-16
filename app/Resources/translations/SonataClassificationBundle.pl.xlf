@@ -1,0 +1,304 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:jms="urn:jms:translation" version="1.2">
+  <file date="2018-10-03T13:15:52Z" source-language="en" target-language="pl" datatype="plaintext" original="not.available">
+    <header>
+      <tool tool-id="JMSTranslationBundle" tool-name="JMSTranslationBundle" tool-version="1.1.0-DEV"/>
+      <note>The source node in most cases contains the sample message as written by the developer. If it looks like a dot-delimitted string such as "form.label.firstname", then the developer has not provided a default message.</note>
+    </header>
+    <body>
+      <trans-unit id="dea83c50de1755182621782b300ae99857c47d62" resname="breadcrumb.link_category_batch">
+        <source>breadcrumb.link_category_batch</source>
+        <target>Akcja grupowa</target>
+        <jms:reference-file>/home/kazmij/www/jaaqob/equalproperties/vendor/sonata-project/admin-bundle/src/Admin/BreadcrumbsBuilder.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="3dd997d6e218779b5eb6e358253f64689070aaff" resname="breadcrumb.link_category_create">
+        <source>breadcrumb.link_category_create</source>
+        <target>Nowa kategoria</target>
+        <jms:reference-file>/home/kazmij/www/jaaqob/equalproperties/vendor/sonata-project/admin-bundle/src/Admin/BreadcrumbsBuilder.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="4647fdf4070b94af85d9cfc62ece397431fcaa9e" resname="breadcrumb.link_category_delete">
+        <source>breadcrumb.link_category_delete</source>
+        <target>Usuń kategorię</target>
+        <jms:reference-file>/home/kazmij/www/jaaqob/equalproperties/vendor/sonata-project/admin-bundle/src/Admin/BreadcrumbsBuilder.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="12c5cbc3ea851ae66e978c0ae06e4517ef4a9cf5" resname="breadcrumb.link_category_edit">
+        <source>breadcrumb.link_category_edit</source>
+        <target>Edycja kategorii</target>
+        <jms:reference-file>/home/kazmij/www/jaaqob/equalproperties/vendor/sonata-project/admin-bundle/src/Admin/BreadcrumbsBuilder.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="20ced2ef26f66ddfad2d7f8b7710efcb45b32a84" resname="breadcrumb.link_category_list">
+        <source>breadcrumb.link_category_list</source>
+        <target>Lista kategorii</target>
+        <jms:reference-file>/home/kazmij/www/jaaqob/equalproperties/vendor/sonata-project/admin-bundle/src/Admin/BreadcrumbsBuilder.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="0c2a10366e63207459a95c8f9acfacc429566ffa" resname="breadcrumb.link_category_update">
+        <source>breadcrumb.link_category_update</source>
+        <target>Aktualizacja kategorii</target>
+        <jms:reference-file>/home/kazmij/www/jaaqob/equalproperties/vendor/sonata-project/admin-bundle/src/Admin/BreadcrumbsBuilder.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="cef30b038311186136d8374757664ff72704a723" resname="breadcrumb.link_collection_batch">
+        <source>breadcrumb.link_collection_batch</source>
+        <target>Akcje grupowe</target>
+        <jms:reference-file>/home/kazmij/www/jaaqob/equalproperties/vendor/sonata-project/admin-bundle/src/Admin/BreadcrumbsBuilder.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="8e72ef78f9cb34d441104c1f95f8e9d57bbbdbba" resname="breadcrumb.link_collection_create">
+        <source>breadcrumb.link_collection_create</source>
+        <target>Nowa kolekcja</target>
+        <jms:reference-file>/home/kazmij/www/jaaqob/equalproperties/vendor/sonata-project/admin-bundle/src/Admin/BreadcrumbsBuilder.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="efa03dd261601a847bcd9013508dd98e1716afa1" resname="breadcrumb.link_collection_delete">
+        <source>breadcrumb.link_collection_delete</source>
+        <target>Usuń kolekcję</target>
+        <jms:reference-file>/home/kazmij/www/jaaqob/equalproperties/vendor/sonata-project/admin-bundle/src/Admin/BreadcrumbsBuilder.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="e06640773d7745083112538aa21bf728395b4d7b" resname="breadcrumb.link_collection_edit">
+        <source>breadcrumb.link_collection_edit</source>
+        <target>Edycja kolekcji</target>
+        <jms:reference-file>/home/kazmij/www/jaaqob/equalproperties/vendor/sonata-project/admin-bundle/src/Admin/BreadcrumbsBuilder.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="51c3c96af25b9566ecbf00767cb5f3c2fc1e9f3a" resname="breadcrumb.link_collection_list">
+        <source>breadcrumb.link_collection_list</source>
+        <target>Lista kolekcji</target>
+        <jms:reference-file>/home/kazmij/www/jaaqob/equalproperties/vendor/sonata-project/admin-bundle/src/Admin/BreadcrumbsBuilder.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="c0f630754b41bc8cf68510e2922dc6165aff966b" resname="breadcrumb.link_collection_update">
+        <source>breadcrumb.link_collection_update</source>
+        <target>Aktualizacja kolekcji</target>
+        <jms:reference-file>/home/kazmij/www/jaaqob/equalproperties/vendor/sonata-project/admin-bundle/src/Admin/BreadcrumbsBuilder.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="f0502e82f592103d01586e2ddd5ad4b512c427d5" resname="breadcrumb.link_context_batch">
+        <source>breadcrumb.link_context_batch</source>
+        <target>Akcja grupowa</target>
+        <jms:reference-file>/home/kazmij/www/jaaqob/equalproperties/vendor/sonata-project/admin-bundle/src/Admin/BreadcrumbsBuilder.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="683f0880690a431b06685584992a889af7538809" resname="breadcrumb.link_context_create">
+        <source>breadcrumb.link_context_create</source>
+        <target>Nowy kontekst</target>
+        <jms:reference-file>/home/kazmij/www/jaaqob/equalproperties/vendor/sonata-project/admin-bundle/src/Admin/BreadcrumbsBuilder.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="e17e021df42dfda70f76baae39750c489d532667" resname="breadcrumb.link_context_delete">
+        <source>breadcrumb.link_context_delete</source>
+        <target>Usuń kontekst</target>
+        <jms:reference-file>/home/kazmij/www/jaaqob/equalproperties/vendor/sonata-project/admin-bundle/src/Admin/BreadcrumbsBuilder.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="9b7973c15ac699ab45e6b2684973c5fe34329950" resname="breadcrumb.link_context_edit">
+        <source>breadcrumb.link_context_edit</source>
+        <target>Edycja kontekstu</target>
+        <jms:reference-file>/home/kazmij/www/jaaqob/equalproperties/vendor/sonata-project/admin-bundle/src/Admin/BreadcrumbsBuilder.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="9b679169db68a43bfac07c07791f24fa0c9498e1" resname="breadcrumb.link_context_list">
+        <source>breadcrumb.link_context_list</source>
+        <target>Lista kontekstów</target>
+        <jms:reference-file>/home/kazmij/www/jaaqob/equalproperties/vendor/sonata-project/admin-bundle/src/Admin/BreadcrumbsBuilder.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="6d63eaceb14811b53cde8db4e70f6c9a43aa7e50" resname="breadcrumb.link_context_update">
+        <source>breadcrumb.link_context_update</source>
+        <target>Aktualizacja kontekstu</target>
+        <jms:reference-file>/home/kazmij/www/jaaqob/equalproperties/vendor/sonata-project/admin-bundle/src/Admin/BreadcrumbsBuilder.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="db8f0b1faa558c5c37dd09314834ebc73d852c33" resname="breadcrumb.link_tag_batch">
+        <source>breadcrumb.link_tag_batch</source>
+        <target>Akcja grupowa</target>
+        <jms:reference-file>/home/kazmij/www/jaaqob/equalproperties/vendor/sonata-project/admin-bundle/src/Admin/BreadcrumbsBuilder.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="114c81175eda4d8d62700076e05e49ba8d080be9" resname="breadcrumb.link_tag_create">
+        <source>breadcrumb.link_tag_create</source>
+        <target>Nowy tag</target>
+        <jms:reference-file>/home/kazmij/www/jaaqob/equalproperties/vendor/sonata-project/admin-bundle/src/Admin/BreadcrumbsBuilder.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="7dba6568a812ad6cb70cc7bcd56cd74854dfe537" resname="breadcrumb.link_tag_delete">
+        <source>breadcrumb.link_tag_delete</source>
+        <target>Usuń tag</target>
+        <jms:reference-file>/home/kazmij/www/jaaqob/equalproperties/vendor/sonata-project/admin-bundle/src/Admin/BreadcrumbsBuilder.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="5da678bbb1d28085ee5fc8a01576b4c512a12f50" resname="breadcrumb.link_tag_edit">
+        <source>breadcrumb.link_tag_edit</source>
+        <target>Edycja tagu</target>
+        <jms:reference-file>/home/kazmij/www/jaaqob/equalproperties/vendor/sonata-project/admin-bundle/src/Admin/BreadcrumbsBuilder.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="a360da496f4be56c40014e706983eca9c86d2b2e" resname="breadcrumb.link_tag_list">
+        <source>breadcrumb.link_tag_list</source>
+        <target>Lista tagów</target>
+        <jms:reference-file>/home/kazmij/www/jaaqob/equalproperties/vendor/sonata-project/admin-bundle/src/Admin/BreadcrumbsBuilder.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="62c225dd3ae2d6d5282ce3e88f832ba717c18014" resname="breadcrumb.link_tag_update">
+        <source>breadcrumb.link_tag_update</source>
+        <target>Aktualizacja tagu</target>
+        <jms:reference-file>/home/kazmij/www/jaaqob/equalproperties/vendor/sonata-project/admin-bundle/src/Admin/BreadcrumbsBuilder.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="5e59e8f0415911901366b0ea3daff8f8d06e1116" resname="classification.list_mode">
+        <source>classification.list_mode</source>
+        <target>Lista</target>
+      </trans-unit>
+      <trans-unit id="ad8879661c2967528eff92a5bbf1e0f7f8469bf1" resname="classification.tree_mode">
+        <source>classification.tree_mode</source>
+        <target>Drzewo</target>
+      </trans-unit>
+      <trans-unit id="5fece5b52c3c621d73c911a0f54e3f03269e251b" resname="filter.label_context">
+        <source>filter.label_context</source>
+        <target>Kontekst</target>
+        <jms:reference-file>/home/kazmij/www/jaaqob/equalproperties/vendor/sonata-project/doctrine-orm-admin-bundle/src/Builder/DatagridBuilder.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="3ab1d34e932b792ba8b7ed81406f667d143214ba" resname="filter.label_custom_key">
+        <source>filter.label_custom_key</source>
+        <target>Niestandardowy klucz</target>
+        <jms:reference-file>/home/kazmij/www/jaaqob/equalproperties/vendor/sonata-project/doctrine-orm-admin-bundle/src/Builder/DatagridBuilder.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="e3047dfdeaa9b3ffbbdc7f88f32f073c1231305b" resname="filter.label_custom_name">
+        <source>filter.label_custom_name</source>
+        <target>Niestandardowa nazwa</target>
+        <jms:reference-file>/home/kazmij/www/jaaqob/equalproperties/vendor/sonata-project/doctrine-orm-admin-bundle/src/Builder/DatagridBuilder.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="c465eb532f470e8484e4fc8520c88917e3c48e21" resname="filter.label_enabled">
+        <source>filter.label_enabled</source>
+        <target>Włączony</target>
+        <jms:reference-file>/home/kazmij/www/jaaqob/equalproperties/vendor/sonata-project/doctrine-orm-admin-bundle/src/Builder/DatagridBuilder.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="882776942c325f0ec06fc5a2a38f93cb2b183ec5" resname="filter.label_id">
+        <source>filter.label_id</source>
+        <target>ID</target>
+        <jms:reference-file>/home/kazmij/www/jaaqob/equalproperties/vendor/sonata-project/doctrine-orm-admin-bundle/src/Builder/DatagridBuilder.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="5cba34bb8f376e10897073ab69ac49fd4459144e" resname="filter.label_name">
+        <source>filter.label_name</source>
+        <target>Nazwa</target>
+        <jms:reference-file>/home/kazmij/www/jaaqob/equalproperties/vendor/sonata-project/doctrine-orm-admin-bundle/src/Builder/DatagridBuilder.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="a981d96e2e6afa6f09d1109dfcb86934b09fc9ba" resname="form.label_context">
+        <source>form.label_context</source>
+        <target>Kontekst</target>
+        <jms:reference-file>/home/kazmij/www/jaaqob/equalproperties/vendor/sonata-project/admin-bundle/src/Form/FormMapper.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="424a6822e0d527b3bea1af7f0cec4f7afe05c54b" resname="form.label_custom_key">
+        <source>form.label_custom_key</source>
+        <target>Niestandardowy klucz</target>
+        <jms:reference-file>/home/kazmij/www/jaaqob/equalproperties/vendor/sonata-project/admin-bundle/src/Form/FormMapper.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="3e590975bb5a36f1eb18a378ffe51a390399a73e" resname="form.label_custom_name">
+        <source>form.label_custom_name</source>
+        <target>Niestandardowa nazwa</target>
+        <jms:reference-file>/home/kazmij/www/jaaqob/equalproperties/vendor/sonata-project/admin-bundle/src/Form/FormMapper.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="5fd0a3c2da450203a86363cea46341817833c137" resname="form.label_description">
+        <source>form.label_description</source>
+        <target>Opis</target>
+        <jms:reference-file>/home/kazmij/www/jaaqob/equalproperties/vendor/sonata-project/admin-bundle/src/Form/FormMapper.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="96a3c7e8e0cd00818edcebde0c9a9176a99828e6" resname="form.label_enabled">
+        <source>form.label_enabled</source>
+        <target>Włącozny</target>
+        <jms:reference-file>/home/kazmij/www/jaaqob/equalproperties/vendor/sonata-project/admin-bundle/src/Form/FormMapper.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="d0ef1fa2cb37a0d9977e7575c374aa182879e955" resname="form.label_icon">
+        <source>form.label_icon</source>
+        <target>form.label_icon</target>
+        <jms:reference-file>/home/kazmij/www/jaaqob/equalproperties/vendor/sonata-project/admin-bundle/src/Form/FormMapper.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="6c0e2d210eb0c639718b4848483faa1788f13bb1" resname="form.label_id">
+        <source>form.label_id</source>
+        <target>ID</target>
+        <jms:reference-file>/home/kazmij/www/jaaqob/equalproperties/vendor/sonata-project/admin-bundle/src/Form/FormMapper.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="1e689193d1fadf4c4ef6b0cfd3db728480ef654a" resname="form.label_media">
+        <source>form.label_media</source>
+        <target>Media</target>
+        <jms:reference-file>/home/kazmij/www/jaaqob/equalproperties/vendor/sonata-project/admin-bundle/src/Form/FormMapper.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="21a9f4f625e795fbb7238d94dfa97c1d64f407ab" resname="form.label_name">
+        <source>form.label_name</source>
+        <target>Nazwa</target>
+        <jms:reference-file>/home/kazmij/www/jaaqob/equalproperties/vendor/sonata-project/admin-bundle/src/Form/FormMapper.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="afa4f0eca0bdedf638e4409b4d0a11b7de127534" resname="form.label_position">
+        <source>form.label_position</source>
+        <target>Pozycja</target>
+        <jms:reference-file>/home/kazmij/www/jaaqob/equalproperties/vendor/sonata-project/admin-bundle/src/Form/FormMapper.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="a9c1d640450804268f383ea836fdbbbd09790bd3" resname="label_categories">
+        <source>label_categories</source>
+        <target>Kategorie</target>
+        <jms:reference-file>/home/kazmij/www/jaaqob/equalproperties/vendor/sonata-project/admin-bundle/src/Translator/Extractor/JMSTranslatorBundle/AdminExtractor.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="a7fa52fe197e6caed279e8ddb85a497c51f01938" resname="label_collections">
+        <source>label_collections</source>
+        <target>Kolekcje</target>
+        <jms:reference-file>/home/kazmij/www/jaaqob/equalproperties/vendor/sonata-project/admin-bundle/src/Translator/Extractor/JMSTranslatorBundle/AdminExtractor.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="582698d1bd938a72e11b1df3fe8d4692431e539b" resname="label_contexts">
+        <source>label_contexts</source>
+        <target>Konteksty</target>
+        <jms:reference-file>/home/kazmij/www/jaaqob/equalproperties/vendor/sonata-project/admin-bundle/src/Translator/Extractor/JMSTranslatorBundle/AdminExtractor.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="157b98576fa6ad4aa268d0c74394f7adc9271909" resname="label_tags">
+        <source>label_tags</source>
+        <target>Tagi</target>
+        <jms:reference-file>/home/kazmij/www/jaaqob/equalproperties/vendor/sonata-project/admin-bundle/src/Translator/Extractor/JMSTranslatorBundle/AdminExtractor.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="44fefc564f03970fb85fd9d1db7086ff79f7c016" resname="list.label_context">
+        <source>list.label_context</source>
+        <target>Kontekst</target>
+        <jms:reference-file>/home/kazmij/www/jaaqob/equalproperties/vendor/sonata-project/admin-bundle/src/Datagrid/ListMapper.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="9f30fa0e79538b21033e95fdd2217c9dd11bdfc3" resname="list.label_created_at">
+        <source>list.label_created_at</source>
+        <target>Data utworzenia</target>
+        <jms:reference-file>/home/kazmij/www/jaaqob/equalproperties/vendor/sonata-project/admin-bundle/src/Datagrid/ListMapper.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="821d40a136541fcf5b695ab5fdf5bb10dbfb21eb" resname="list.label_custom_key">
+        <source>list.label_custom_key</source>
+        <target>Niestandardowy klucz</target>
+        <jms:reference-file>/home/kazmij/www/jaaqob/equalproperties/vendor/sonata-project/admin-bundle/src/Datagrid/ListMapper.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="72a90ba76a06f30c5daac8a14b71fe15159ce900" resname="list.label_custom_name">
+        <source>list.label_custom_name</source>
+        <target>Niestandardowa nazwa</target>
+        <jms:reference-file>/home/kazmij/www/jaaqob/equalproperties/vendor/sonata-project/admin-bundle/src/Datagrid/ListMapper.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="a50af1c4cdacd60f199e3ec388b2a5baab605dce" resname="list.label_description">
+        <source>list.label_description</source>
+        <target>Opis</target>
+        <jms:reference-file>/home/kazmij/www/jaaqob/equalproperties/vendor/sonata-project/admin-bundle/src/Datagrid/ListMapper.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="6c847e6aed394db187a151d6ded703ce6fa13b8c" resname="list.label_enabled">
+        <source>list.label_enabled</source>
+        <target>Włącozny</target>
+        <jms:reference-file>/home/kazmij/www/jaaqob/equalproperties/vendor/sonata-project/admin-bundle/src/Datagrid/ListMapper.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="0ddac6dabd4a0ad2d7a1f8175f9ccb8549b184fa" resname="list.label_id">
+        <source>list.label_id</source>
+        <target>ID</target>
+        <jms:reference-file>/home/kazmij/www/jaaqob/equalproperties/vendor/sonata-project/admin-bundle/src/Datagrid/ListMapper.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="6ff897b72dbc2db3328a964623cd425f9efdf9ea" resname="list.label_name">
+        <source>list.label_name</source>
+        <target>Nazwa</target>
+        <jms:reference-file>/home/kazmij/www/jaaqob/equalproperties/vendor/sonata-project/admin-bundle/src/Datagrid/ListMapper.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="c1fb870f2205f52ee2c9682bb505061c549a555d" resname="list.label_parent">
+        <source>list.label_parent</source>
+        <target>Rodzic</target>
+        <jms:reference-file>/home/kazmij/www/jaaqob/equalproperties/vendor/sonata-project/admin-bundle/src/Datagrid/ListMapper.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="7f896308c4994afcdb5c404c892801d0ff32df07" resname="list.label_position">
+        <source>list.label_position</source>
+        <target>Pozycja</target>
+        <jms:reference-file>/home/kazmij/www/jaaqob/equalproperties/vendor/sonata-project/admin-bundle/src/Datagrid/ListMapper.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="72dae233427a77ab6cc660a74c56b8bb1e767a84" resname="list.label_slug">
+        <source>list.label_slug</source>
+        <target>Slug</target>
+        <jms:reference-file>/home/kazmij/www/jaaqob/equalproperties/vendor/sonata-project/admin-bundle/src/Datagrid/ListMapper.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="a543c7cac98d6c115ff19d36524c1d81cd5f3f4a" resname="list.label_updated_at">
+        <source>list.label_updated_at</source>
+        <target>Data aktualizacji</target>
+        <jms:reference-file>/home/kazmij/www/jaaqob/equalproperties/vendor/sonata-project/admin-bundle/src/Datagrid/ListMapper.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="81467ac358846d70d4366f927300ea28873c26ce" resname="sonata_classification">
+        <source>sonata_classification</source>
+        <target>Klasyfikcje</target>
+        <jms:reference-file>/home/kazmij/www/jaaqob/equalproperties/vendor/sonata-project/admin-bundle/src/Translator/Extractor/JMSTranslatorBundle/AdminExtractor.php</jms:reference-file>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

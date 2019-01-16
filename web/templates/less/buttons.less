@@ -1,0 +1,157 @@
+.buttons-holder {
+  button {
+    border: none;
+  }
+  &.buttons-holder-center {
+    text-align: center;
+  }
+  &.buttons-holder-flex {
+    display: flex;
+    .button-medium {
+      flex-grow: 1;
+      text-align: center;
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
+  .button + .button {
+    margin-left: 15px;
+  }
+  @media screen and (max-width: 767px) {
+    .button:only-child {
+      width: 100%;
+      text-align: center;
+    }
+  }
+}
+.button {
+  display: inline-block;
+  cursor: pointer;
+  &.button-big {
+    font-size: 14px;
+    line-height: 14px;
+    text-transform: uppercase;
+    padding: 22px 42px;
+    font-weight: 600;
+  }
+  &.button-jumbo {
+    font-size: 21px;
+    line-height: 21px;
+    text-transform: uppercase;
+    padding: 22px 42px;
+    font-weight: 600;
+  }
+  &.button-medium {
+    font-size: 12px;
+    line-height: 12px;
+    text-transform: uppercase;
+    padding: 18px 22px;
+    font-weight: 600;
+  }
+  &.button-small {
+    font-size: 12px;
+    line-height: 12px;
+    text-transform: uppercase;
+    padding: 12px 22px;
+    font-weight: 600;
+  }
+  &.button-mirror {
+    background-image: url(/img/shared/icon-mirror-white.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 20px;
+    vertical-align: top;
+    padding: 0;
+    width: 48px;
+    height: 48px;
+  }
+  &.button-mirror-dark {
+    background-image: url(/img/shared/icon-mirror-black.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 20px auto;
+    vertical-align: top;
+    padding: 0;
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+  }
+  &.button-close-dark {
+    background-image: url(/img/shared/icon-close-black.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 16px auto;
+    vertical-align: top;
+    padding: 0;
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+  }
+  &.button-to-right {
+    float: right;
+  }
+  &.button-back {
+    background-image: url(/img/shared/icon-thin-arrow-left-white.svg);
+    background-repeat: no-repeat;
+    background-position: center left 20px;
+    background-size: auto 12px;
+    padding-left: 45px;
+    font-weight: 300;
+    @media screen and (max-width: 767px) {
+      float: left;
+      margin-top: 30px;
+      margin-bottom: 30px;
+      width: 100%;
+    }
+  }
+  &.button-wide {
+    width: 240px;
+    text-align: center;
+  }
+  &.button-wide2 {
+    width: 220px;
+    text-align: center;
+  }
+  &.button-wide3 {
+    width: 180px;
+    text-align: center;
+  }
+  &.button-with-svg-icon {
+    svg {
+      width: 12px;
+      height: 12px;
+      float: left;
+      margin-left: -20px;
+      margin-right: 15px;
+    }
+  }
+  &.button-filled { 
+    &.button-filled-yellow {
+      background-color: #fdc630;
+      color: #060b14;
+      &:hover {
+        background-color: darken(#fdc630, 10%);
+        text-decoration: none;
+      }
+    }
+    &.button-filled-red {
+      background-color: #db0d15;
+      color: #fff;
+      &:hover {
+        background-color: darken(#db0d15, 10%);
+        text-decoration: none;
+      }
+    }
+    &.button-filled-gray {
+      background-color: #7c889d;
+      color: #fff;
+      &:hover {
+        background-color: darken(#7c889d, 10%);
+        text-decoration: none;
+      }
+      svg {
+        fill: #fff;
+      }
+    }
+  }
+}

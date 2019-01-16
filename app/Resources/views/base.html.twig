@@ -1,0 +1,128 @@
+{% extends 'SonataPageBundle::layout.html.twig' %}
+
+{% set isHome = isHome() %}
+{% set desktop_header_class = isHome ? 'desktop-header-home' : '' %}
+{% set mobile_header_class = isHome ? 'mobile-header-home' : '' %}
+
+{% block sonata_page_head %}
+
+    <head {{ sonata_seo_head_attributes() }}>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <!--[if IE]>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
+        {{ sonata_seo_title(page is defined ? page : null) }}
+        {{ sonata_seo_metadatas(page is defined ? page : null) }}
+
+        {% block page_icons %}
+            <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('favicons/apple-touch-icon.png') }}">
+            <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('favicons/favicon-32x32.png') }}">
+            <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('favicons/favicon-16x16.png') }}">
+            <link rel="manifest" href="{{ asset('favicons/site.webmanifest') }}">
+            <link rel="mask-icon" href="{{ asset('favicons/safari-pinned-tab.svg') }}">
+        {% endblock %}
+
+        {% block sonata_page_stylesheets %}
+            {% block stylesheets %}
+                <!-- CSS -->
+                <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" />
+                <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" />
+                <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/ion-rangeslider/2.2.0/css/ion.rangeSlider.min.css" />
+                <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/ion-rangeslider/2.2.0/css/ion.rangeSlider.skinHTML5.min.css" />
+                <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/Swiper/4.1.6/css/swiper.min.css" />
+                {% stylesheets
+                    'less/styles.less'
+                    filter='uglifycss' filter='cssrewrite' %}
+                    <link href="{{ asset_url }}" type="text/css" rel="stylesheet" media="screen,print"/>
+                {% endstylesheets %}
+            {% endblock %}
+        {% endblock %}
+
+        {% block sonata_page_javascripts %}
+            {% block page_javascripts %} {# Deprecated block #}
+                <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+                <!--[if lt IE 9]>
+                <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+                <![endif]-->
+
+                {% for js in sonata_page.assets.javascripts %}
+                    <script src="{{ asset(js) }}"></script>
+                {% endfor %}
+            {% endblock %}
+
+        {% endblock %}
+
+        {{ sonata_site_head_code() }}
+    </head>
+{% endblock %}
+
+{% block sonata_page_body_tag %}
+    {{ parent() }}
+    {{ sonata_site_body_code() }}
+{% endblock %}
+
+{% block sonata_page_top_bar %}{#Disabled#}{% endblock %}
+
+{% block content %}{% endblock %}
+
+{% block sonata_page_container %}
+    {% block page_header %}
+        {#Main header#}
+        {% include ':partials:header.html.twig' %}
+        {% include ':partials:mobileHeader.html.twig' %}
+
+        {#Page header#}
+        {{ sonata_page_render_container('header') }}
+    {% endblock %}
+
+    {% block page_top %}
+        {#Top content#}
+        {{ sonata_page_render_container('content_top') }}
+
+        {% block flashMessages %}
+            <div class="container flashMessagesContainer"></div>
+        {% endblock %}
+    {% endblock %}
+
+    {% block page_content %}
+        {#Content#}
+        {{ sonata_page_render_container('content') }}
+
+        {% if content is defined %}
+            {{ content|raw }}
+        {% endif %}
+
+    {% endblock %}
+
+    {% block page_bottom %}
+        {#Content bottom#}
+        {{ sonata_page_render_container('content_bottom') }}
+    {% endblock %}
+
+    {% block page_footer %}
+        {#Footer#}
+        {% include ':partials:footer.html.twig' %}
+        {{ sonata_page_render_container('footer') }}
+    {% endblock %}
+{% endblock %}
+
+{% block sonata_page_asset_footer %}
+    <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/ion-rangeslider/2.2.0/js/ion.rangeSlider.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/Swiper/4.1.6/js/swiper.min.js"></script>
+
+    {% javascripts
+        'scripts/js/scripts.js'
+        'scripts/js/custom.js'
+        'scripts/js/input-autogrow.min.js'
+        filter='uglifyjs2' %}
+    <script type="text/javascript" src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+
+    {{ sonata_site_footer_code() }}
+
+    <script>
+        var FLASH_MESSAGES = '{{ url('_application_sonata_main_flash') }}';
+    </script>
+{% endblock %}
+
+

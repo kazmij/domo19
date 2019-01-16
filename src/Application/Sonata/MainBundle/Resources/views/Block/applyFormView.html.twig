@@ -1,0 +1,51 @@
+{% form_theme form 'Form/themeApply.html.twig' %}
+
+<div id="modalApply" class="modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="ajaxLoader hidden"></div>
+            {% include '@ApplicationSonataMain/Block/applyFormViewInner.html.twig' %}
+        </div>
+    </div>
+</div>
+<script>
+    window.addEventListener('load', function () {
+        $(".selectmenu").selectmenu();
+
+        $('body').on('click', '.buttonApply', function (e) {
+            e.preventDefault();
+            $('#modalApply').modal('show');
+            return false;
+        });
+
+        $('body').on('submit', '#modalApply form', function (e) {
+            e.preventDefault();
+            var form = $(this);
+            $('#modalApply .ajaxLoader').removeClass('hidden');
+            $.ajax({
+                dataType: 'json',
+                contentType: false,
+                cache: false,
+                processData: false,
+                method: "POST",
+                url: form.attr('action'),
+                data: new FormData(form[0])
+            })
+                .done(function (json) {
+                    $('#modalApply .ajaxLoader').addClass('hidden');
+                    if (json.success) {
+                        window.location.reload();
+                    } else {
+                        $('.applyFormElement').replaceWith($(json.html));
+                        $('.form-control').each(function (i) {
+                            if ($(this).val()) {
+                                $(this).addClass('valued');
+                            }
+                        })
+                    }
+                });
+
+            return false;
+        });
+    });
+</script>

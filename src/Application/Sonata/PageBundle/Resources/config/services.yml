@@ -1,0 +1,17 @@
+parameters:
+    sonata.page.manager.page.class: Application\Sonata\PageBundle\Entity\PageManager
+    sonata.page.manager.block.class: Application\Sonata\PageBundle\Entity\BlockManager
+    sonata.page.admin.block.class: Application\Sonata\PageBundle\Admin\BlockAdmin
+    sonata.page.admin.page.class: Application\Sonata\PageBundle\Admin\PageAdmin
+    sonata.page.admin.site.class: Application\Sonata\PageBundle\Admin\SiteAdmin
+    sonata.page.admin.shared_block.class: Application\Sonata\PageBundle\Admin\SharedBlockAdmin
+    sonata.page.block.breadcrumb.class: Application\Sonata\PageBundle\Block\BreadcrumbBlockService
+
+
+services:
+    sonata.page.block.breadcrumb:
+        class: '%sonata.page.block.breadcrumb.class%'
+        arguments: [mainMenu, sonata.page.block.breadcrumb, "@sonata.templating", "@knp_menu.menu_provider", "@knp_menu.factory", "@sonata.page.cms_manager_selector"]
+        tags:
+            - { name: sonata.block }
+            - { name: sonata.breadcrumb }

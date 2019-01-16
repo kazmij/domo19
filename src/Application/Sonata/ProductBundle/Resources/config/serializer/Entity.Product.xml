@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<serializer>
+    <class name="Application\Sonata\ProductBundle\Entity\Product" exclusion-policy="all" xml-root-name="product">
+        <property name="title" type="string" expose="true" since-version="1.0" groups="sonata_api_read,sonata_search"/>
+        <property name="subtitle" type="string" expose="true" since-version="1.0" groups="sonata_api_read,sonata_search"/>
+        <property name="description" type="boolean" expose="true" since-version="1.0" groups="sonata_api_read,sonata_search"/>
+        <property name="createdAt" type="DateTime" expose="true" since-version="1.0" groups="sonata_api_read,sonata_search"/>
+        <property name="updatedAt" type="DateTime" expose="true" since-version="1.0" groups="sonata_api_read,sonata_search"/>
+        <property name="enabled" type="string" expose="true" since-version="1.0" groups="sonata_api_read,sonata_search"/>
+    </class>
+</serializer>

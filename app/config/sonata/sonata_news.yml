@@ -1,0 +1,19 @@
+sonata_news:
+    title:        Sonata Project
+    link:         https://sonata-project.org
+    description:  Cool bundles on top of Symfony2
+    salt:         'secureToken'
+    permalink_generator: sonata.news.permalink.date # sonata.news.permalink.collection
+
+    admin:
+        post:
+            class: Application\Sonata\NewsBundle\Admin\PostAdmin
+
+    class:
+        post: Application\Sonata\NewsBundle\Entity\Post
+
+    comment:
+        notification:
+            emails:   [email@example.org, email2@example.org]
+            from:     no-reply@sonata-project.org
+            template: '@SonataNews/Mail/comment_notification.txt.twig'

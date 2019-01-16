@@ -1,0 +1,3 @@
+application_sonata_slider_homepage:
+    path:     /
+    defaults: { _controller: ApplicationSonataSliderBundle:Default:index }

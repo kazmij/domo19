@@ -1,0 +1,6 @@
+#sonata_cache:
+#  caches:
+#    esi:
+#      token: 2608c1d6092888c510bd3baaf0accea19e07ae6fe9ddbee686cb891fa14641fe
+#      servers:
+#        - varnishadm -T 127.0.0.1:2000 {{ COMMAND }} "{{ EXPRESSION }}"

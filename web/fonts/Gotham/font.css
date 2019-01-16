@@ -1,0 +1,45 @@
+@font-face {
+  font-family: 'GothamWebFont';
+  font-weight: 200;
+  src: url('/fonts/Gotham/Gotham-Light.eot'); /* IE9 Compat Modes */
+  src: url('/fonts/Gotham/Gotham-Light.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('/fonts/Gotham/Gotham-Light.woff') format('woff'), /* Pretty Modern Browsers */
+       url('/fonts/Gotham/Gotham-Light.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('/fonts/Gotham/Gotham-Light.svg#svgFontName') format('svg'); /* Legacy iOS */
+}
+@font-face {
+  font-family: 'GothamWebFont';
+  font-weight: 300;
+  src: url('/fonts/Gotham/Gotham-Book.eot'); /* IE9 Compat Modes */
+  src: url('/fonts/Gotham/Gotham-Book.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('/fonts/Gotham/Gotham-Book.woff') format('woff'), /* Pretty Modern Browsers */
+       url('/fonts/Gotham/Gotham-Book.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('/fonts/Gotham/Gotham-Book.svg#svgFontName') format('svg'); /* Legacy iOS */
+}
+@font-face {
+  font-family: 'GothamWebFont';
+  font-weight: 400;
+  src: url('/fonts/Gotham/Gotham-Medium.eot'); /* IE9 Compat Modes */
+  src: url('/fonts/Gotham/Gotham-Medium.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('/fonts/Gotham/Gotham-Medium.woff') format('woff'), /* Pretty Modern Browsers */
+       url('/fonts/Gotham/Gotham-Medium.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('/fonts/Gotham/Gotham-Medium.svg#svgFontName') format('svg'); /* Legacy iOS */
+}
+@font-face {
+  font-family: 'GothamWebFont';
+  font-weight: 600;
+  src: url('/fonts/Gotham/Gotham-Bold.eot'); /* IE9 Compat Modes */
+  src: url('/fonts/Gotham/Gotham-Bold.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('/fonts/Gotham/Gotham-Bold.woff') format('woff'), /* Pretty Modern Browsers */
+       url('/fonts/Gotham/Gotham-Bold.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('/fonts/Gotham/Gotham-Bold.svg#svgFontName') format('svg'); /* Legacy iOS */
+}
+@font-face {
+  font-family: 'GothamWebFont';
+  font-weight: 900;
+  src: url('/fonts/Gotham/Gotham-Black.eot'); /* IE9 Compat Modes */
+  src: url('/fonts/Gotham/Gotham-Black.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('/fonts/Gotham/Gotham-Black.woff') format('woff'), /* Pretty Modern Browsers */
+       url('/fonts/Gotham/Gotham-Black.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('/fonts/Gotham/Gotham-Black.svg#svgFontName') format('svg'); /* Legacy iOS */
+}

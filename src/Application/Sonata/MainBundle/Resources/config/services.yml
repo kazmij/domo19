@@ -1,0 +1,92 @@
+services:
+    sonata.main.controller.api.mailer:
+         class: Application\Sonata\MainBundle\Controller\Api\MailController
+         arguments: ["@service_container"]
+
+    sonata.main.api.form.type.mailer:
+         class: Application\Sonata\MainBundle\Form\Type\ApiMailType
+         tags:
+            - { name: form.type, alias: sonata_main_api_form_mail }
+         arguments: ["@jms_serializer.metadata_factory", "@doctrine", sonata_main_api_form_mail, Application\Sonata\MainBundle\Model\Email, sonata_api_write]
+
+    sonata.main.custom_twig_extension:
+        class: Application\Sonata\MainBundle\Twig\Extension
+        public: true
+        arguments: ["@service_container"]
+        tags:
+            - { name: twig.extension }
+
+    sonata.main.block_service:
+          class: Application\Sonata\MainBundle\Service\Block
+          public: true
+          arguments: ["@service_container"]
+
+    sonata.main.block.contact:
+        class: Application\Sonata\MainBundle\Block\ContactForm
+        arguments: ['Contact form', "@sonata.templating"]
+        calls:
+              - [setContainer, ['@service_container']]
+
+        tags:
+            - { name: sonata.block }
+
+    sonata.main.block.apply:
+        class: Application\Sonata\MainBundle\Block\ApplyForm
+        arguments: ['Apply form', "@sonata.templating"]
+        calls:
+        - [setContainer, ['@service_container']]
+
+        tags:
+        - { name: sonata.block }
+
+    sonata.main.block.buy:
+        class: Application\Sonata\MainBundle\Block\Buy
+        arguments: ['Kup nieruchomość', "@sonata.templating"]
+        calls:
+              - [setContainer, ['@service_container']]
+
+        tags:
+            - { name: sonata.block }
+
+    sonata.main.block.buy.form:
+        class: Application\Sonata\MainBundle\Form\Type\BuyType
+        calls:
+              - [setContainer, ['@service_container']]
+
+        tags:
+            - { name: form.type, alias: sonata_main_block_buy_form }
+
+    sonata.main.block.buy.mini.form:
+        class: Application\Sonata\MainBundle\Form\Type\SearchType
+        calls:
+              - [setContainer, ['@service_container']]
+
+        tags:
+            - { name: form.type, alias: sonata_main_block_buy_mini_form }
+
+    twig.extension.intl:
+        class: Twig_Extensions_Extension_Intl
+        tags:
+            - { name: twig.extension }
+
+    sonata.block.top.content.with.form:
+        class: Application\Sonata\PageBundle\Block\TopWithForm
+        calls:
+              - [setContainer, ['@service_container']]
+        arguments:
+            - ~
+            - '@templating'
+        tags:
+            - { name: sonata.block }
+
+    liip_imagine.filter.loader.watermark2:
+        parent: 'liip_imagine.filter.loader.watermark'
+        tags:
+            - { name: liip_imagine.filter.loader, loader: 'watermark2' }
+
+    Application\Sonata\MainBundle\Listener\ResponseListener:
+        calls:
+            - [ setContainer, [ "@service_container" ] ]
+        tags:
+            #- { name: kernel.event_subscriber, priority: -1001 }
+            - { name: kernel.event_listener, event: kernel.response, priority: -1001 }

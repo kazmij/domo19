@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<serializer>
+    <class name="Application\Sonata\MainBundle\Model\Email" exclusion-policy="all" xml-root-name="email">
+        <property name="fullName" type="string" expose="true" since-version="1.0" groups="sonata_api_write"/>
+        <property name="email" type="string" expose="true" since-version="1.0" groups="sonata_api_write"/>
+        <property name="body" type="string" expose="true" since-version="1.0" groups="sonata_api_write"/>
+        <property name="subject" type="string" expose="true" since-version="1.0" groups="sonata_api_write"/>
+        <property name="status" type="string" expose="true" since-version="1.0" groups="sonata_api_read"/>
+    </class>
+</serializer>

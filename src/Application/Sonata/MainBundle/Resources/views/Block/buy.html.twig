@@ -1,0 +1,316 @@
+{% form_theme form 'Form/buyTheme.html.twig' %}
+
+<main class="search-form-area">
+    {{ form_start(form, {attr: {class: 'center-2' }}) }}
+    <input type="hidden" name="p" value="{{ app.request.get('p', 1) }}"/>
+    <div class="buttons-row">
+        <div class="buttons-group buttons-group--shorter">
+            {% set firstTransactionType = form.transactionType.vars.choices|first %}
+            {% for choice in form.transactionType.vars.choices|slice(0, 4) %}
+                {% set isActiveTransaction %}
+                    {% if form.transactionType.vars.value and form.transactionType.vars.value == choice.value %}
+                        active
+                    {% elseif not form.transactionType.vars.value and choice.value == firstTransactionType.value %}
+                        active
+                    {% endif %}
+                {% endset %}
+                <button data-value="{{ choice.value }}" data-field="transactionType" type="button"
+                        class="buttonForm btn {{ isActiveTransaction|trim }}">{{ choice.label }}</button>
+            {% endfor %}
+            <div class="hidden">
+                {{ form_widget(form.transactionType) }}
+            </div>
+        </div>
+
+        <div class="buttons-group buttons-group--longer">
+            {% set firstBuildingType = form.buildingType.vars.choices|first %}
+            {% for choice in form.buildingType.vars.choices|slice(0, 4) %}
+                {% set isActiveBuilding %}
+                    {% if form.buildingType.vars.value and form.buildingType.vars.value == choice.value %}
+                        active
+                    {% elseif not form.buildingType.vars.value and choice.value == firstBuildingType.value %}
+                        active
+                    {% endif %}
+                {% endset %}
+                <button data-value="{{ choice.value }}" data-field="buildingType" type="button"
+                        class="buttonForm btn {{ isActiveBuilding|trim }}">
+                    <svg height="26px" version="1.1" viewbox="0 0 27 29" width="24px" xmlns="http://www.w3.org/2000/svg"
+                         xmlns:xlink="http://www.w3.org/1999/xlink">icon-mieszkanie Created with Sketch.
+                        <defs></defs>
+                        <g fill="none" fill-rule="evenodd" id="Equal.Properties-Szukanie-zaawansowane" stroke="none"
+                           stroke-width="1" transform="translate(-360.000000, -443.000000)">
+                            <g fill="#173e7c" id="Group" transform="translate(340.000000, 432.000000)">
+                                <g id="icon-mieszkanie" transform="translate(20.000000, 11.000000)">
+                                    <path d="M1.40139818,4.56901398 L3.42394364,4.56901398 L12.06738,4.56901398 L14.0899255,4.56901398 L14.0899255,27.2998434 L1.40139818,27.2998434 L1.40139818,4.56901398 Z M4.12447091,3.1256589 L11.3663618,3.1256589 L11.3663618,1.94651631 L4.12447091,1.94651631 L4.12447091,3.1256589 Z M15.4762527,3.84733644 C15.4762527,3.44875303 15.17778,3.1256589 14.7909436,3.1256589 L12.7683982,3.1256589 L12.7683982,1.22483877 C12.7683982,0.826255359 12.4547073,0.50316123 12.0678709,0.50316123 L3.42394364,0.50316123 C3.03710727,0.50316123 2.72292545,0.826255359 2.72292545,1.22483877 L2.72292545,3.1256589 L0.700870909,3.1256589 C0.314034545,3.1256589 0.000343636364,3.44875303 0.000343636364,3.84733644 L0.000343636364,28.021521 C0.000343636364,28.4201044 0.334652727,28.7437018 0.721489091,28.7437018 L6.20887091,28.7437018 L9.08903455,28.7437018 L14.7757255,28.7437018 C15.1625618,28.7437018 15.4762527,28.4201044 15.4762527,28.021521 L15.4762527,3.84733644 Z"
+                                          id="Fill-1"></path>
+                                    <polygon id="Fill-4"
+                                             points="3.01516364 9.2349562 4.41670909 9.2349562 4.41670909 6.58880522 3.01516364 6.58880522"></polygon>
+                                    <polygon id="Fill-6"
+                                             points="5.70141818 9.2349562 7.10296364 9.2349562 7.10296364 6.58880522 5.70141818 6.58880522"></polygon>
+                                    <polygon id="Fill-7"
+                                             points="8.38816364 9.2349562 9.78970909 9.2349562 9.78970909 6.58880522 8.38816364 6.58880522"></polygon>
+                                    <polygon id="Fill-8"
+                                             points="11.0749091 9.2349562 12.4764545 9.2349562 12.4764545 6.58880522 11.0749091 6.58880522"></polygon>
+                                    <polygon id="Fill-9"
+                                             points="3.01516364 14.6233812 4.4167Oświadczam, że zostałam/em poinformowany o tym, że: dane będą przetwarzane w zgodzie z przepisami prawa w celu  udzielenia odpowiedzi na zapytanie przesłane za pomocą Formularza Kontaktowego, na podstawie art. 6 ust. 1 lit. b) RODO oraz na podstawie ww. zgód, podanie ww. danych jest dobrowolne, jednak niezbędne do otrzymania odpowiedzi oraz że mam prawo do dostępu do treści danych, sprostowania danych, usunięcia danych, ograniczenia przetwarzania danych, wniesienia sprzeciwu wobec przetwarzania danych, żądania przeniesienia danych oraz prawo do wniesienia skargi do właściwego organu nadzorczego, a także o pozostałych kwestiach wynikających z art. 13 RODO, określonych w  Regulaminie Serwisu Internetowego Equal Properties  oraz w Polityce Prywatności. Zapytania oraz żądania dotyczące danych osobowych należy przesyłać na adres e-mail: dane.osobowe@equalproperties.com0909 14.6233812 4.41670909 11.9772302 3.01516364 11.9772302"></polygon>
+                                    <polygon id="Fill-10"
+                                             points="5.70141818 14.6233812 7.10296364 14.6233812 7.10296364 11.9772302 5.70141818 11.9772302"></polygon>
+                                    <polygon id="Fill-11"
+                                             points="8.38816364 14.6233812 9.78970909 14.6233812 9.78970909 11.9772302 8.38816364 11.9772302"></polygon>
+                                    <polygon id="Fill-12"
+                                             points="11.0749091 14.6233812 12.4764545 14.6233812 12.4764545 11.9772302 11.0749091 11.9772302"></polygon>
+                                    <polygon id="Fill-13"
+                                             points="3.01516364 20.0118062 4.41670909 20.0118062 4.41670909 17.3656552 3.01516364 17.3656552"></polygon>
+                                    <polygon id="Fill-14"
+                                             points="5.70141818 20.0118062 7.10296364 20.0118062 7.10296364 17.3656552 5.70141818 17.3656552"></polygon>
+                                    <polygon id="Fill-15"
+                                             points="8.38816364 20.0118062 9.78970909 20.0118062 9.78970909 17.3656552 8.38816364 17.3656552"></polygon>
+                                    <polygon id="Fill-16"
+                                             points="11.0749091 20.0118062 12.4764545 20.0118062 12.4764545 17.3656552 11.0749091 17.3656552"></polygon>
+                                    <polygon id="Fill-17"
+                                             points="3.01516364 25.4007344 4.41670909 25.4007344 4.41670909 22.7545834 3.01516364 22.7545834"></polygon>
+                                    <polygon id="Fill-18"
+                                             points="5.70141818 25.4007344 7.10296364 25.4007344 7.10296364 22.7545834 5.70141818 22.7545834"></polygon>
+                                    <polygon id="Fill-19"
+                                             points="8.38816364 25.4007344 9.78970909 25.4007344 9.78970909 22.7545834 8.38816364 22.7545834"></polygon>
+                                    <polygon id="Fill-20"
+                                             points="11.0749091 25.4007344 12.4764545 25.4007344 12.4764545 22.7545834 11.0749091 22.7545834"></polygon>
+                                    <path d="M15.4913236,9.95718733 L17.5138691,9.95718733 L23.4710509,9.95718733 L25.4935964,9.95718733 L25.4935964,27.3000951 L15.4913236,27.3000951 L15.4913236,9.95718733 Z M18.2148873,8.51433551 L22.7700327,8.51433551 L22.7700327,7.33519292 L18.2148873,7.33519292 L18.2148873,8.51433551 Z M26.8794327,9.23550979 C26.8794327,8.83692637 26.5814509,8.51383225 26.1946145,8.51383225 L24.1720691,8.51383225 L24.1720691,6.61301212 C24.1720691,6.2144287 23.8578873,5.89183784 23.4710509,5.89183784 L17.5138691,5.89183784 C17.1270327,5.89183784 16.8128509,6.2144287 16.8128509,6.61301212 L16.8128509,8.51383225 L14.7907964,8.51383225 C14.40396,8.51383225 14.0902691,8.83692637 14.0902691,9.23550979 L14.0902691,28.0217726 C14.0902691,28.420356 14.4245782,28.7434501 14.8114145,28.7434501 L20.2987964,28.7434501 L20.4927055,28.7434501 L26.1789055,28.7434501 C26.5662327,28.7434501 26.8794327,28.420356 26.8794327,28.0217726 L26.8794327,9.23550979 Z"
+                                          id="Fill-21"></path>
+                                    <polygon id="Fill-22"
+                                             points="17.1052364 14.6233812 18.5062909 14.6233812 18.5062909 11.9772302 17.1052364 11.9772302"></polygon>
+                                    <polygon id="Fill-23"
+                                             points="19.7914909 14.6233812 21.1930364 14.6233812 21.1930364 11.9772302 19.7914909 11.9772302"></polygon>
+                                    <polygon id="Fill-24"
+                                             points="22.4782364 14.6233812 23.8797818 14.6233812 23.8797818 11.9772302 22.4782364 11.9772302"></polygon>
+                                    <polygon id="Fill-25"
+                                             points="17.1052364 20.0118062 18.5062909 20.0118062 18.5062909 17.3656552 17.1052364 17.3656552"></polygon>
+                                    <polygon id="Fill-26"
+                                             points="19.7914909 20.0118062 21.1930364 20.0118062 21.1930364 17.3656552 19.7914909 17.3656552"></polygon>
+                                    <polygon id="Fill-27"
+                                             points="22.4782364 20.0118062 23.8797818 20.0118062 23.8797818 17.3656552 22.4782364 17.3656552"></polygon>
+                                    <polygon id="Fill-28"
+                                             points="17.1052364 25.4002311 18.5062909 25.4002311 18.5062909 22.7540801 17.1052364 22.7540801"></polygon>
+                                    <polygon id="Fill-29"
+                                             points="19.7914909 25.4002311 21.1930364 25.4002311 21.1930364 22.7540801 19.7914909 22.7540801"></polygon>
+                                    <polygon id="Fill-30"
+                                             points="22.4782364 25.4002311 23.8797818 25.4002311 23.8797818 22.7540801 22.4782364 22.7540801"></polygon>
+                                </g>
+                            </g>
+                        </g>
+                    </svg>
+                    <span>{{ choice.label|capitalize }}</span>
+                </button>
+            {% endfor %}
+            <div class="hidden">
+                {{ form_widget(form.buildingType) }}
+            </div>
+        </div>
+
+        <div class="form-check">
+            {{ form_widget(form.marketType) }}
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="form-group col-md-4">
+            {{ form_widget(form.city) }}
+        </div>
+
+        <div class="form-group col-md-4">
+            {{ form_widget(form.precinct) }}
+        </div>
+
+        <div class="col-md-4">
+            <div class="form-group text-wrap">
+                {{ form_widget(form.street) }}
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+
+        <div class="col-lg-4">
+            <div class="row">
+                <div class="col-4 col-md-4">
+                    <p class="col-title">{{ 'Area (m2)'|trans }}:</p>
+                </div>
+                <div class="form-group col-4 col-md-4">
+                    {{ form_widget(form.areaFrom) }}
+                </div>
+
+                <div class="form-group col-4 col-md-4">
+                    {{ form_widget(form.areaTo) }}
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-4">
+            <div class="row">
+                <div class="col-4 col-md-4">
+                    <p class="col-title">{{ 'Price (PLN)'|trans }}:</p>
+                </div>
+                <div class="form-group col-4 col-md-4">
+                    {{ form_widget(form.priceFrom) }}
+                </div>
+
+                <div class="form-group col-4 col-md-4">
+                    {{ form_widget(form.priceTo) }}
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-4">
+            <div class="row">
+                <div class="col-4 col-md-4">
+                    <p class="col-title">{{ 'Rooms'|trans }}:</p>
+                </div>
+                <div class="form-group col-4 col-md-4">
+                    {{ form_widget(form.roomFrom) }}
+                </div>
+
+                <div class="form-group col-4 col-md-4">
+                    {{ form_widget(form.roomTo) }}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-4">
+            <div class="row">
+                <div class="col-4 col-md-4">
+                    <p class="col-title">{{ 'Floor'|trans }}:</p>
+                </div>
+                <div class="form-group col-4 col-md-4">
+                    {{ form_widget(form.floorFrom) }}
+                </div>
+
+                <div class="form-group col-4 col-md-4">
+                    {{ form_widget(form.floorTo) }}
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-4">
+            <div class="row">
+                <div class="col-4 col-md-4">
+                    <p class="col-title">{{ 'Building year'|trans }}:</p>
+                </div>
+                <div class="form-group col-4 col-md-4">
+                    {{ form_widget(form.yearFrom) }}
+                </div>
+
+                <div class="form-group col-4 col-md-4">
+                    {{ form_widget(form.yearTo) }}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="additional center-2" id="more-options-modal">
+        <span class="additional__text">{{ "Additional conditions"|trans }}:</span>
+        <div class="form-check">
+            {{ form_widget(form.additionalGarage) }}
+            {{ form_widget(form.additionalBalcony) }}
+            {{ form_widget(form.buildingElevatornumber) }}
+            {{ form_widget(form.additionalGarden) }}
+            {{ form_widget(form.additionalBasement) }}
+            {{ form_widget(form.buildingAdapted) }}
+        </div>
+    </div>
+
+    <div class="form-bottom-buttons">
+        <button data-toggle-text="{{ ('Show advanced options'|trans ~ ' <img src="/img/icons/icon-gear.svg" alt="" style="margin-left: 6px;">')|json_encode }}"
+                id="more-options" type="button" class="button button-outline">{{ 'Hide advanced options'|trans }}
+            <img src="/img/icons/icon-gear.svg" alt="" style="margin-left: 6px;"></button>
+
+        <div class="form-bottom-reset">
+            <button data-url="{{ app.request.pathInfo }}"
+                    class="button button-gray clearFilters">{{ 'Clear filters'|trans }}</button>
+            <button class="button button-primary"><img alt="" src="/img/icons/icon-search.svg"/> {{ 'Search'|trans }}
+            </button>
+        </div>
+    </div>
+
+    <div class="results">
+        <div class="results-top">
+            <p class="results-top__header">{{ 'Found'|trans }}
+                <strong><span>{{ results.getTotalItemCount() }}</span> {{ 'offers'|trans }}
+                </strong> {{ 'meeting the criteria'|trans }}</p>
+
+            <div class="sort-section">
+                <p class="sort-select">
+                    <span class="span-sort">{{ 'Sort by'|trans }}: </span>
+
+                <div class="">
+                    {{ form_widget(form.sortType) }}
+                </div>
+
+                <svg xmlns="http://www.w3.org/2000/svg" width="10" height="6" viewBox="0 0 10 6">
+                    <path fill="#1E1E1C" fill-rule="evenodd"
+                          d="M4.848 6L0 1.916 1.091 0l3.915 3.217L8.943 0 10 1.916 5.14 6z"/>
+                </svg>
+                </p>
+                <p class="button-group">
+                    <span class="span-sort span-view">{{ 'Per page' }}: </span>
+                    {% set firstPerPage= form.perPage.vars.choices|first %}
+                    {% for choice in form.perPage.vars.choices %}
+                        {% set isActivePerPage %}
+                            {% if form.perPage.vars.value and form.perPage.vars.value == choice.value %}
+                                active
+                            {% elseif not form.perPage.vars.value and choice.value == firstPerPage.value %}
+                                active
+                            {% endif %}
+                        {% endset %}
+                        <button data-value="{{ choice.value }}" data-field="perPage" type="button"
+                                class="buttonForm btn {{ isActivePerPage|trim }}">{{ choice.label }}</button>
+                    {% endfor %}
+                </p>
+                <div class="hidden">
+                    {{ form_widget(form.perPage) }}
+                </div>
+            </div>
+        </div>
+
+        <div class="results-container">
+            {% for item in results %}
+                {% set photo = '' %}
+                {% if item.gallery %}
+                    {% set galleryHasMedias = item.gallery.galleryHasMedias %}
+                    {% if galleryHasMedias.count %}
+                        {% set firstPhoto = galleryHasMedias.first %}
+                        {% set photo %}{% path firstPhoto.media, 'reference' %}{% endset %}
+                    {% endif %}
+                {% endif %}
+                {% set offerNames = [item.city, item.precinct, item.street  ? ('ul. ' ~ item.street) : null, item.province]|arrayFilter %}
+                <div class="item">
+                    <a href="" class="">
+                        <div class="item__img"><img alt="" src="{{ photo | imagine_filter('offer_list') }}"/></div>
+
+                        <h2 class="item__header">{{ offerNames|join(', ') }}</h2>
+
+                        <p class="item__price">{{ item.price|localizedcurrency(item.priceCurrency) }}</p>
+
+                        <div class="item__group">
+                            <p class="item__price-2">{{ item.priceperMeter|localizedcurrency(item.priceCurrency) }}/m2</p>
+
+                            <p class="item__size">{{ item.roomsNumber ? (item.roomsNumber ~ ' ' ~ 'rooms'|trans ~ ', ') }}{{ item.areaTotal|localizednumber }} m²</p>
+                        </div>
+
+                        <p class="item__info">{{ 'Offer updated'|trans }}: {{ item.lastUpdatedDate|date('Y-m-d, H:i:s') }}</p>
+                    </a>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+    {{ form_end(form) }}
+
+    <div class="pagin-wrap">
+        {{ knp_pagination_render(results) }}
+    </div>
+
+</main>
+
+<script src="{{ asset('scripts/js/main.js') }}"></script>
+

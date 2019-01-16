@@ -1,0 +1,10 @@
+sonata_user:
+    security_acl: true
+    manager_type: orm # can be orm or mongodb
+    class:
+        user: Application\Sonata\UserBundle\Entity\User
+        group: Application\Sonata\UserBundle\Entity\Group
+
+    admin:
+        user:
+            class: Application\Sonata\UserBundle\Admin\Entity\UserAdmin

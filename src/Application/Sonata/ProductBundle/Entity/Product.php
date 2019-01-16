@@ -1,0 +1,257 @@
+<?php
+
+namespace Application\Sonata\ProductBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
+use Sonata\ClassificationBundle\Model\CategoryInterface;
+use Symfony\Component\Validator\Constraints as Assert;
+use JMS\Serializer\Annotation as JMS;
+use Gedmo\Mapping\Annotation as Gedmo;
+
+/**
+ * Product
+ *
+ * @ORM\Entity(repositoryClass="Application\Sonata\ProductBundle\Entity\ProductRepository")
+ * @ORM\Table
+ */
+class Product
+{
+
+    public static $PRODUCT_CONTEXT = 'product';
+
+    use \Gedmo\Timestampable\Traits\TimestampableEntity;
+
+    /**
+     * @ORM\Id
+     * @ORM\Column(type="integer")
+     * @ORM\GeneratedValue(strategy="AUTO")
+     * @var integer
+     */
+    protected $id;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank()
+     * @var string
+     */
+    protected $title;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     * @var string
+     */
+    protected $contentFormatter;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank()
+     * @var string
+     */
+    protected $subtitle;
+
+    /**
+     * @ORM\Column(type="text")
+     * @Assert\NotBlank()
+     * @var string
+     */
+    protected $description;
+
+    /**
+     * @ORM\Column(type="text", nullable=true)
+     * @var string
+     */
+    protected $rawContent;
+
+    /**
+     * @ORM\Column(type="boolean", nullable=true)
+     * @var boolean
+     */
+    protected $enabled = false;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Application\Sonata\MediaBundle\Entity\Gallery")
+     * @ORM\JoinColumn(name="gallery_id", referencedColumnName="id")
+     * @var ArrayCollection
+     */
+    protected $gallery;
+
+
+    /**
+     * Get id.
+     *
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set title.
+     *
+     * @param string $title
+     *
+     * @return Product
+     */
+    public function setTitle($title)
+    {
+        $this->title = $title;
+
+        return $this;
+    }
+
+    /**
+     * Get title.
+     *
+     * @return string
+     */
+    public function getTitle()
+    {
+        return $this->title;
+    }
+
+    /**
+     * Set subtitle.
+     *
+     * @param string $subtitle
+     *
+     * @return Product
+     */
+    public function setSubtitle($subtitle)
+    {
+        $this->subtitle = $subtitle;
+
+        return $this;
+    }
+
+    /**
+     * Get subtitle.
+     *
+     * @return string
+     */
+    public function getSubtitle()
+    {
+        return $this->subtitle;
+    }
+
+    /**
+     * Set description.
+     *
+     * @param string $description
+     *
+     * @return Product
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
+
+        return $this;
+    }
+
+    /**
+     * Get description.
+     *
+     * @return string
+     */
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
+    /**
+     * Set enabled.
+     *
+     * @param bool|null $enabled
+     *
+     * @return Product
+     */
+    public function setEnabled($enabled = null)
+    {
+        $this->enabled = $enabled;
+
+        return $this;
+    }
+
+    /**
+     * Get enabled.
+     *
+     * @return bool|null
+     */
+    public function getEnabled()
+    {
+        return $this->enabled;
+    }
+
+    /**
+     * Set contentFormatter.
+     *
+     * @param string|null $contentFormatter
+     *
+     * @return Product
+     */
+    public function setContentFormatter($contentFormatter = null)
+    {
+        $this->contentFormatter = $contentFormatter;
+
+        return $this;
+    }
+
+    /**
+     * Get contentFormatter.
+     *
+     * @return string|null
+     */
+    public function getContentFormatter()
+    {
+        return $this->contentFormatter;
+    }
+
+    /**
+     * Set rawContent.
+     *
+     * @param string|null $rawContent
+     *
+     * @return Product
+     */
+    public function setRawContent($rawContent = null)
+    {
+        $this->rawContent = $rawContent;
+
+        return $this;
+    }
+
+    /**
+     * Get rawContent.
+     *
+     * @return string|null
+     */
+    public function getRawContent()
+    {
+        return $this->rawContent;
+    }
+
+    /**
+     * Set gallery.
+     *
+     * @param \Application\Sonata\MediaBundle\Entity\Gallery|null $gallery
+     *
+     * @return Product
+     */
+    public function setGallery(\Application\Sonata\MediaBundle\Entity\Gallery $gallery = null)
+    {
+        $this->gallery = $gallery;
+
+        return $this;
+    }
+
+    /**
+     * Get gallery.
+     *
+     * @return \Application\Sonata\MediaBundle\Entity\Gallery|null
+     */
+    public function getGallery()
+    {
+        return $this->gallery;
+    }
+}

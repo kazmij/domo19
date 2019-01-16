@@ -1,0 +1,2 @@
+parameters:
+      sonata.news.manager.post.class: Application\Sonata\NewsBundle\Entity\PostManager

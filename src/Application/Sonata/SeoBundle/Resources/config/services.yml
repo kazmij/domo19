@@ -1,0 +1,11 @@
+parameters:
+    sonata.seo.twig.extension.class: Application\Sonata\SeoBundle\Twig\Extension\SeoExtension
+
+services:
+  sonata.seo.twig.extension:
+    class: '%sonata.seo.twig.extension.class%'
+    arguments: ["@sonata.seo.page", '']
+    calls:
+        - [ setContainer, [ "@service_container" ] ]
+    tags:
+        - { name: twig.extension }

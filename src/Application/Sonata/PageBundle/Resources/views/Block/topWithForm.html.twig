@@ -1,0 +1,31 @@
+{% extends sonata_block.templates.block_base %}
+
+{% block block %}
+
+    {% form_theme form 'Form/buyTheme.html.twig' %}
+
+    {% set formView %}
+        <div class="form-wrapper">
+            {{ form_start(form) }}
+                <fieldset>
+                    <div class="form-item select buy">
+                        {{ form_widget(form.transactionType) }}
+                    </div>
+                    <div class="form-item select type-of-property">
+                        {{ form_widget(form.buildingType) }}
+                    </div>
+                    <div class="form-item type-details">
+                        {{ form_widget(form.street) }}
+                    </div>
+                    <div class="form-item buttons account">
+                        <button type="submit"><span><img src="/img/icons/icon-search.svg" alt="" />{{ 'Search'|trans }}</span></button>
+                    </div>
+                </fieldset>
+            {{ form_end(form) }}
+        </div>
+        <div class="advance-search"><a href="{{ path('application_sonata_offer_list') }}">Wyszukiwanie zaawansowane</a>
+    {% endset %}
+
+    {{ settings.content|replace({'__SEARCH_FORM__': formView })|raw }}
+
+{% endblock %}

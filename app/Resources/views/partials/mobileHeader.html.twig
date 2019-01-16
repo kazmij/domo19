@@ -1,0 +1,143 @@
+<section id="mobile-header" class="<?= $mobile_header_class; ?>">
+
+    <nav id="mobile-header-menu-bar">
+        <div id="mobile-header-menu-button">
+            {% include ':svg:mobileHeaderButtonIcon.html.twig' %}
+        </div>
+        <div id="mobile-header-logo-holder">
+            <a href="/">
+                {% include ':svg:mobileHeaderLogo.html.twig' %}
+            </a>
+        </div>
+        <ul class="icons">
+            <li id="">
+                <a href="">
+                    {% include ':svg:mobileHeaderSlidersIcon.html.twig' %}
+                    <div id="mobile-sliders-badge" class="mobile-domo-badge"></div>
+                </a>
+            </li>
+            <li id="mobile-header-closet" class="white-bg">
+                <a href="">
+                    {% include ':svg:mobileHeaderClosetIcon.html.twig' %}
+                    <div id="mobile-closet-badge" class="mobile-domo-badge"></div>
+                </a></li>
+            <li id="mobile-header-search-button" class="yellow-bg">
+                {% include ':svg:mobileHeaderLoupeIcon.html.twig' %}
+            </li>
+        </ul>
+    </nav>
+
+    <nav id="mobile-header-menu">
+
+        <div id="menu-module">
+            <div class="menu-screen main-menu">
+                {% set menu = knp_menu_get('ApplicationSonataMainBundle:Builder:mainMenu', {}, {mobile: 1}) %}
+                {% do menu.setChildrenAttribute('class', 'menu-list') %}
+                {{ knp_menu_render(menu, {'allow_safe_labels': true}) }}
+            </div>
+            <div class="menu-screen menu-list-submenu" data-submenu-name="project-types">
+                {% set menu = knp_menu_get('ApplicationSonataMainBundle:Builder:topCategoriesMenu', {}, {mobile: 1}) %}
+                {% do menu.setChildrenAttribute('class', 'menu-list') %}
+                {{ knp_menu_render(menu, {'allow_safe_labels': true}) }}
+            </div>
+            <div class="menu-screen menu-list-submenu" data-submenu-name="our-services">
+                {% set menu = knp_menu_get('ApplicationSonataMainBundle:Builder:ourServicesMenu', {}, {mobile: 1}) %}
+                {% do menu.setChildrenAttribute('class', 'menu-list') %}
+                {{ knp_menu_render(menu, {'allow_safe_labels': true}) }}
+            </div>
+            <div class="menu-screen menu-list-submenu" data-submenu-name="good-to-know">
+                {% set menu = knp_menu_get('ApplicationSonataMainBundle:Builder:worthKnowingMenu', {}, {mobile: 1}) %}
+                {% do menu.setChildrenAttribute('class', 'menu-list menu-list-submenu') %}
+                {{ knp_menu_render(menu, {'allow_safe_labels': true}) }}
+            </div>
+
+        </div>
+
+        <div class="mobile-phone">
+            <a href="tel:+48530234262"><i class="fa fa-phone" aria-hidden="true"></i> 530 234 262</a>
+        </div>
+
+        <ul id="mobile-social-media">
+            <li class="facebook"><a href="" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+            <li class="google-plus"><a href="" target="_blank"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
+            </li>
+            <li class="instagram"><a href="" target="_blank"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+        </ul>
+
+    </nav>
+
+
+    <form id="mobile-search-box" method="post" action="">
+        <div class="form-item-holder form-item-holder-name">
+            <label>Szukaj po nazwie lub numerze projektu:</label>
+            <input type="text" placeholder="nazwa lub numer projektu" name=""/>
+        </div>
+        <div>
+            <div class="form-item-holder form-item-holder-surface">
+                <label>Powierzchnia użytkowa:</label>
+                <div class="inputs-group">
+                    <input id="search-box-surface-from2" type="text" placeholder="od" name=""/> - <input
+                            id="search-box-surface-to2" type="text" placeholder="do" name=""/> m<sup>2</sup>
+                </div>
+            </div>
+            <div class="form-item-holder form-item-holder-basement">
+                <div class="checkbox-holder">
+                    <label><input type="checkbox" name="" value="true"/><span>piwnica</span></label>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-item-holder form-item-holder-size">
+            <label>Wymiary działki:</label>
+            <div class="inputs-group">
+                <input id="search-box-length2" type="text" placeholder="dług." name=""/> x <input id="search-box-width2"
+                                                                                                  type="text"
+                                                                                                  placeholder="szer."
+                                                                                                  name=""/> m
+            </div>
+        </div>
+        <div class="form-item-holder form-item-holder-garage form-item-holder-transparent">
+            <select name="">
+                <option value="">Garaż</option>
+                <option value="1">Tak</option>
+                <option value="0">Nie</option>
+            </select>
+        </div>
+        <div class="form-item-holder form-item-holder-storey form-item-holder-transparent">
+            <select name="">
+                <option value="">Kondygnacja</option>
+                <option value="opcja 1">Opcja 1</option>
+                <option value="opcja 2">Opcja 2</option>
+            </select>
+        </div>
+        <div class="form-item-holder form-item-holder-angle form-item-holder-transparent">
+            <label>Kąt nachylenia dachu:</label>
+            <input id="range2" name=""/>
+        </div>
+        <div class="buttons-holder">
+            <a href="" class="button button-big button-with-svg-icon button-filled button-filled-gray">
+                {% include ':svg:buttonFilledGray.html.twig' %}
+                Więcej</a>
+            <button type="submit" class="button button-big button-with-svg-icon button-filled button-filled-yellow">
+                {% include ':svg:buttonFilledYellow.html.twig' %}
+                Znajdź
+            </button>
+        </div>
+    </form>
+
+    {% if isHome %}
+        <div id="mobile-home-header">
+            <div class="main-content">
+                <h1>Największa baza projektów na polskim rynku. ponad 19 000 pozycji!</h1>
+                <p>DOMO to więcej niż same projekty - jeżeli tylko chcesz zbudujemy Twój wymarzony dom od podstaw</p>
+                <a href="">Dowiedz się więcej</a>
+            </div>
+
+            <span id="mobile-search-wide-button">
+        {% include ':svg:mobileSearchWide.html.twig' %}
+                Wyszukaj projekt
+        </span>
+        </div>
+    {% endif %}
+
+</section>

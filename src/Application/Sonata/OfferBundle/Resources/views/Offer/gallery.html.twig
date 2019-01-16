@@ -1,0 +1,89 @@
+{% set gallery = offer.gallery %}
+{% if gallery and gallery.galleryHasMedias %}
+    {% set galleryHasMedias = gallery.galleryHasMedias %}
+    <div class="hidden-sm-down">
+        <div class="carousel-gallery container">
+            <div class="swiper-container gallery-top" id="gallery-top">
+                <div class="swiper-wrapper">
+                    {% for galleryHasMedia in galleryHasMedias %}
+                        {% set photo %}{% path galleryHasMedia.media, 'reference' %}{% endset %}
+                        <div class="swiper-slide"
+                             style="background-image: url('{{ photo | imagine_filter('offer_gallery') }}');">
+                            <a href="{{ photo | imagine_filter('1920xY') }}" class="fancybox-show open-modal-btn">
+                                <i>
+                                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                         width="32"
+                                         height="32" viewBox="0 0 32 32">
+                                        <defs>
+                                            <path id="6i70a"
+                                                  d="M924 346a12 12 0 1 1-7.35 21.47l-10.09 10.1a1.5 1.5 0 0 1-2.56-1.07c0-.39.15-.77.44-1.06l10.09-10.09A12 12 0 0 1 924 346m-1.17 13.58H918v-2.6h4.83V352h2.64v4.98h4.84v2.6h-4.84v4.95h-2.64zM924 367a9.01 9.01 0 0 0 0-18 9.01 9.01 0 0 0 0 18"/>
+                                        </defs>
+                                        <g>
+                                            <g clip-path="url(#clip-376D514E-9C2E-4261-9C78-5F8DF70E4B71)"
+                                               transform="translate(-904 -346)">
+                                                <use fill="#fff" xlink:href="#6i70a"/>
+                                            </g>
+                                        </g>
+                                    </svg>
+                                </i>
+                                <span>{{ 'Show'|trans }}</span>
+                            </a>
+                        </div>
+                    {% endfor %}
+                </div>
+                <!-- Add Arrows -->
+
+            </div>
+
+            <div class="swiper-button-next swiper-button-white" id="nextSlide"></div>
+            <div class="swiper-button-prev swiper-button-white" id="prevSlide"></div>
+
+            <div class="thumbnail-gallery">
+                <div class="swiper-container gallery-thumbs" id="gallery-thumbs">
+                    <div class="swiper-wrapper">
+                        {% for galleryHasMedia in galleryHasMedias %}
+                            {% set photo %}{% path galleryHasMedia.media, 'reference' %}{% endset %}
+                            <div class="swiper-slide"><img src="{{ photo | imagine_filter('offer_thumb') }}" alt="">
+                            </div>
+                        {% endfor %}
+                    </div>
+                    <div class="swiper-button-next" id="nextThumb"></div>
+                    <div class="swiper-button-prev" id="prevThumb"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Initialize Swiper -->
+    <script>
+        window.addEventListener('load', function () {
+            var galleryThumbs = new Swiper('.gallery-thumbs', {
+                spaceBetween: 10,
+                slidesPerView: 4,
+                loop: true,
+                freeMode: true,
+                loopedSlides: 5, //looped slides should be the same
+                watchSlidesVisibility: true,
+                watchSlidesProgress: true,
+                navigation: {
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev',
+                }
+            });
+            var galleryTop = new Swiper('.gallery-top', {
+                spaceBetween: 10,
+                loop: true,
+                loopedSlides: 5, //looped slides should be the same
+                navigation: {
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev',
+                },
+                thumbs: {
+                    swiper: galleryThumbs,
+                },
+            });
+        })
+
+    </script>
+
+{% endif %}

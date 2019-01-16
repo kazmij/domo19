@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<constraint-mapping xmlns="http://symfony.com/schema/dic/constraint-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://symfony.com/schema/dic/constraint-mapping         http://symfony.com/schema/dic/services/constraint-mapping-1.0.xsd">
+    <class name="Application\Sonata\PageBundle\Entity\Block">
+        <constraint name="Sonata\CoreBundle\Validator\Constraints\InlineConstraint">
+            <option name="service">sonata.block.manager</option>
+            <option name="method">validate</option>
+        </constraint>
+        <property name="type">
+            <constraint name="NotNull"/>
+        </property>
+        <property name="settings">
+            <constraint name="All">
+                <option name="constraints">
+                    <constraint name="NotBlank" />
+                    <constraint name="NotNull" />
+                    <constraint name="Length">
+                        <option name="min">1</option>
+                    </constraint>
+                </option>
+            </constraint>
+        </property>
+    </class>
+</constraint-mapping>

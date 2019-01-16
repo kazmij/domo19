@@ -1,0 +1,5 @@
+parameters:
+    sonata.media.admin.media.class: Application\Sonata\MediaBundle\Admin\MediaAdmin
+    sonata.media.manager.media.class: Application\Sonata\MediaBundle\Entity\MediaManager
+
+

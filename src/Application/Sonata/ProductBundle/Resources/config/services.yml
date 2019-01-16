@@ -1,0 +1,10 @@
+services:
+#    application_sonata_product.example:
+#        class: Application\Sonata\ProductBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]
+    application_sonata_product.admin.product:
+        class: Application\Sonata\ProductBundle\Admin\ProductAdmin
+        arguments: [~, Application\Sonata\ProductBundle\Entity\Product, ApplicationSonataProductBundle:ProductAdmin]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: Product, label: Product }
+        public: true

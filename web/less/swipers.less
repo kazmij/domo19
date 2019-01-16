@@ -1,0 +1,75 @@
+.projects-items-swiper {
+  .swiper-button-prev {
+    @media screen and (max-width: 767px) {
+      display: none;
+    }
+    width: 60px;
+    height: 60px;
+    background-color: #fdc630;
+    top: auto;
+    bottom: calc(~"100% + 40px");
+    left: auto;
+    right: 115px;
+    background-image: url(/img/shared/icon-arrow-left-black.svg);
+    background-position: center;
+    background-size: 10px;
+    &:hover {
+      background-color: darken(#fdc630, 10%);
+    }
+    &.swiper-button-disabled {
+      background-color: #feebb7;
+      opacity: 1;
+    }
+  }
+  .swiper-button-next {
+    @media screen and (max-width: 767px) {
+      display: none;
+    }
+    width: 60px;
+    height: 60px;
+    background-color: #fdc630;
+    top: auto;
+    bottom: calc(~"100% + 40px");
+    right: 35px;
+    background-image: url(/img/shared/icon-arrow-right-black.svg);
+    background-position: center;
+    background-size: 10px;
+    &:hover {
+      background-color: darken(#fdc630, 10%);
+    }
+    &.swiper-button-disabled {
+      background-color: #feebb7;
+      opacity: 1;
+    }
+  }
+}
+
+.projects-swiper-worth-attention,
+.project-swiper-espiro-property {
+  
+  @media screen and (max-width: 767px) {
+    margin-right: -15px;
+    margin-left: -15px;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+  .swiper-slide {
+    @media screen and (max-width: 767px) {
+      max-width: 260px;
+    }
+  }
+}
+.usefull-informations-swiper {
+  
+  @media screen and (max-width: 767px) {
+    margin-right: -15px;
+    margin-left: -15px;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+  .swiper-slide {
+    @media screen and (max-width: 767px) {
+      max-width: 280px;
+    }
+  }
+}

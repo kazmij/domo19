@@ -1,0 +1,39 @@
+{#
+
+This file is part of the Sonata package.
+
+(c) Thomas Rabaix <thomas.rabaix@sonata-project.org>
+
+For the full copyright and license information, please view the LICENSE
+file that was distributed with this source code.
+
+#}
+
+{% extends 'knp_menu_ordered.html.twig' %}
+
+{% block item %}
+    {% if item.setAttribute('class', 'breadcrumb-item') %}{% endif %}
+    {{ parent() }}
+{% endblock %}
+
+{% block label %}
+    {% set translation_domain = item.getExtra('translation_domain', 'SonataSeoBundle') %}
+    {% if item.uri == '/' %}
+        {% if item.setLabel('<img alt="" src="/img/icons/icon-home.svg" class="icon-home">' ~ item.label) %}{% endif %}
+    {% endif %}
+    {% if options.allow_safe_labels and item.extra('safe_label', false) %}
+        {{- item.label|raw -}}
+    {% elseif translation_domain is same as(false) %}
+        {{- item.label|raw -}}
+    {% else %}
+        {{- item.label|trans(item.getExtra('translation_params', {}), translation_domain)|raw -}}
+    {% endif %}
+{% endblock %}
+
+{% block list %}
+    {% spaceless %}
+        <nav aria-label="breadcrumb" class="center-2">
+            {{ parent() }}
+        </nav>
+    {% endspaceless %}
+{% endblock %}

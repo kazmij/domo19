@@ -1,0 +1,27 @@
+<h4>Formularz konaktowy ze strony equalproperties.com</h4>
+<ul>
+    <li><strong>Imię i Nazwisko</strong>: {{ data.fullName }}</li>
+    <li><strong>Email</strong>: {{ data.email }}</li>
+    <li><strong>Telefon</strong>: {{ data.phone }}</li>
+    <li><strong>Temat</strong>: {{ data.subject|raw }}</li>
+    <li><strong>Treść</strong>:<br/> {{ data.body|raw }}</li>
+    <li><strong>Zaznaczone zgody</strong>:<br/>
+    <ul>
+        {% if data.rule1 %}
+            <li>{{ form.rule1.vars.label|striptags }}</li>
+        {% endif %}
+        {% if data.rule2 %}
+            <li>{{ form.rule2.vars.label|striptags }}</li>
+        {% endif %}
+        {% if data.rule3 %}
+            <li>{{ form.rule3.vars.label|striptags }}</li>
+        {% endif %}
+        {% if data.rule4 %}
+            <li>{{ form.rule4.vars.label|striptags }}</li>
+        {% endif %}
+        {% if data.rule5 %}
+            <li>{{ form.rule5.vars.label|striptags }}</li>
+        {% endif %}
+    </ul>
+    </li>
+</ul>

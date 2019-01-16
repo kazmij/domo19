@@ -1,0 +1,406 @@
+<main>
+
+    <section class="offer-details center-2">
+
+        <div class="offer-details__item">
+
+            <div class="offer-details__top relative">
+                <a href="{{ goBack(path('application_sonata_offer_list')) }}"
+                   class="offer-details__btn button button-outline">{{ 'back'|trans }}</a>
+                <p class="vertical-align-middle">
+                    {{ 'To search results'|trans }}
+                </p>
+            </div>
+
+            <h1 class="offer-details__header default-headline">
+                {{ offer.city ~ (offer.precinct ? (', ' ~ offer.precinct) : '') }}{{ offer.street ? ('<span>' ~ (offer.streetType ? ( offer.streetType ~ ' ') : ('st'|trans)) ~ offer.street ~ '</span>')|raw : '' }}
+            </h1>
+
+            {% set roomsNumber = offer.roomsNumber %}
+            <p class="offer-details__size">{{ roomsNumber is defined and roomsNumber >= 0 ? ('%count% rooms'|transchoice(roomsNumber|pluralizationMode, {'%count%': roomsNumber }) ~ ' ') : '' }}{{ offer.areaTotal|localizednumber }}
+                m²</p>
+
+            <div class="price-container">
+                <div>
+                    <p class="offer-details__price">{{ offer.price|localizedcurrency(offer.priceCurrency) }}</p>
+                    <p class="offer-details__price-2">{{ offer.priceperMeter|localizedcurrency(offer.priceCurrency) }}
+                        /m²</p>
+                </div>
+            </div>
+
+            <h2 class="offer-details__subheader">{{ 'Offer keeper'|trans }}</h2>
+
+            <div class="offer-details__avatar">
+                <!-- <div class="avatar">avatar</div> -->
+                {% if offer.contactEmail %}
+                    <div class="">
+                        <p class="avatar__name">{{ offer.contactFullName }}</p>
+                        <a href="tel:{{ offer.contactPhone }}"
+                           class="avatar__phone">{{ offer.contactPhone }}</a><br/>
+                        <a href="mailto:{{ offer.contactEmail }}"
+                           class="avatar__email">{{ offer.contactEmail }}</a>
+                    </div>
+                {% else %}
+                    <div class="">
+                        <p class="avatar__name">{{ offer.assignedTo ? offer.assignedTo.fullName : '-' }}</p>
+                        <a href="tel:{{ offer.assignedTo.phone }}"
+                           class="avatar__phone">{{ offer.assignedTo ? offer.assignedTo.phone : '-' }}</a><br/>
+                        <a href="mailto:{{ offer.assignedTo.email }}"
+                           class="avatar__email">{{ offer.assignedTo.email }}</a>
+                    </div>
+                {% endif %}
+            </div>
+
+            <div class="offer-details__contact">
+                <p>{{ 'Are you interested in our offer?'|trans }}</p>
+                <a data-scroll-to="#offerContactForm" href="#"
+                   class="button button-primary button-primary--arrow-right">Skontaktuj się z nami</a>
+            </div>
+
+            <p class="offer-details__number">{{ 'Offer number: %number%'|trans({'%number%': offer.offerNumber}) }}
+                , {{ 'updated %date%'|trans({'%date%': offer.lastUpdatedDate|localizeddate('long', 'none')}) }}</p>
+        </div>
+        <div class="offer-details__item">
+            {% include '@ApplicationSonataOffer/Offer/gallery.html.twig' %}
+
+            <div class="main-gallery-mobile">
+                {% set gallery = offer.gallery %}
+                {% if gallery and gallery.galleryHasMedias %}
+                    {% set galleryHasMedias = gallery.galleryHasMedias %}
+                    <div class="swiper-container swiper-container-gallery">
+                        <div class="swiper-wrapper">
+                            {% for galleryHasMedia in galleryHasMedias %}
+                                {% set photo %}{% path galleryHasMedia.media, 'reference' %}{% endset %}
+                                <div class="swiper-slide">
+                                    <img src="{{ photo | imagine_filter('offer_gallery_mobile') }}" alt="">
+                                </div>
+                            {% endfor %}
+                        </div>
+                        <!-- Add Pagination -->
+                        <div class="swiper-pagination"></div>
+                        <button class="button button-primary swiper-button-prev">‹</button>
+                        <button class="button button-primary swiper-button-next">›</button>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+
+    </section>
+
+    <section id="parameters" class="offer desktop-offer center-2">
+
+        <h3 class="secondary-headline">{{ offer.typeName|capitalize }}</h3>
+        <div class="row">
+            <div class="col-md-4">
+                <p>{{ 'Area'|trans }}: <b>{{ offer.areaTotal|localizednumber }} m²</b></p>
+                <p>{{ 'Rooms number'|trans }}: <b>{{ offer.roomsNumber ? offer.roomsNumber : '' }}</b>
+                </p>
+            </div>
+            {% if offer.floorsNumber %}
+                <div class="col-md-4">
+                    <p>{{ 'Floor'|trans }}:
+                        {% if not(offer.floorNumber and offer.floorsNumber) %}
+                            <b>{{ '' }}</b>
+                        {% else %}
+                            {% if offer.floorNumber and offer.floorsNumber %}
+                                <b>{{ offer.floorNumber }} {{ 'from'|trans }} {{ offer.floorsNumber }}</b>
+                            {% else %}
+                                <b>{{ offer.floorsNumber }}</b>
+                            {% endif %}
+                        {% endif %}
+                    </p>
+                    <p>{{ 'Rooms'|trans }}:
+                        <b>{{ offer.descriptionRoom ? offer.descriptionRoom|raw : '' }}</b></p>
+                </div>
+            {% endif %}
+            <div class="col-md-4">
+                <p>{{ 'Ownership'|trans }}: <b>{{ offer.ownership ? offer.ownership : '' }}</b></p>
+                <p>{{ 'Local status'|trans }}: <b>{{ offer.status ? offer.status : '' }}</b></p>
+            </div>
+        </div>
+
+        <h3 class="secondary-headline">{{ 'Building'|trans }}</h3>
+        <div class="row">
+            <div class="col-md-4">
+                <p>{{ 'Building type'|trans }}: <b>{{ offer.typeName|lower }}</b></p>
+                <p>{{ 'Year of building'|trans }}:
+                    <b>{{ offer.buildingYear ? offer.buildingYear : '' }}</b></p>
+            </div>
+            <div class="col-md-4">
+                <p>{{ 'Technology'|trans }}:
+                    <b>{{ offer.buildingMaterial ? offer.buildingMaterial : '' }}</b></p>
+                <p>{{ 'Elevator'|trans }}: <b>{{ offer.elevatorNumber ? 'yes'|trans : 'no'|trans }}</b></p>
+            </div>
+            <div class="col-md-4">
+                <p>{{ 'Floors number'|trans }}:
+                    <b>{{ offer.floorsNumber ? offer.floorsNumber : '' }}</b></p>
+                <p>{{ 'Available date'|trans }}:
+                    <b>{{ offer.availableDate ? offer.availableDate|localizeddate('short', 'none') : '' }}</b>
+                </p>
+            </div>
+        </div>
+
+        <h3 class="secondary-headline">{{ 'Additional rooms'|trans }}</h3>
+        <div class="row">
+            <div class="col-md-4">
+                <p>{{ 'Garages number'|trans }}: <b>{{ offer.additionalGarageNumber }}</b></p>
+                <p>{{ 'Basement'|trans }}: <b>{{ offer.additionalBasement > 0 ? 'yes'|trans : 'no'|trans }}</b></p>
+            </div>
+            <div class="col-md-4">
+                <p>{{ 'Balcony'|trans }}: <b>{{ offer.additionalBalcony > 0 ? 'yes'|trans : 'no'|trans }}</b></p>
+                <p>{{ 'Garden'|trans }}: <b>{{ offer.additionalGarden > 0 ? 'yes'|trans : 'no'|trans }}</b></p>
+            </div>
+            <div class="col-md-4">
+                <p>{{ 'Storage'|trans }}: <b>{{ offer.additionalStorage > 0 ? 'yes'|trans : 'no'|trans }}</b></p>
+                <p>{{ 'Parking'|trans }}: <b>{{ offer.additionalParking > 0 ? 'yes'|trans : 'no'|trans }}</b></p>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="offer mobile-offer">
+        <button class="collapsible">{{ offer.typeName|capitalize }}</button>
+        <div class="content row">
+            <div class="col-md-4">
+                <p>{{ 'Area'|trans }}: <b>{{ offer.areaTotal|localizednumber }} m²</b></p>
+                <p>{{ 'Rooms number'|trans }}: <b>{{ offer.roomsNumber ? offer.roomsNumber : '' }}</b></p>
+            </div>
+            <div class="col-md-4">
+                <p>{{ 'Floor' }}:
+                    {% if not(offer.floorNumber and offer.floorsNumber) %}
+                        <b>{{ '' }}</b>
+                    {% else %}
+                        {% if offer.floorNumber and offer.floorsNumber %}
+                            <b>{{ offer.floorNumber }} {{ 'from'|trans }} {{ offer.floorsNumber }}</b>
+                        {% else %}
+                            <b>{{ offer.floorsNumber }}</b>
+                        {% endif %}
+                    {% endif %}
+                </p>
+                <p>{{ 'Rooms'|trans }}:
+                    <b>{{ offer.descriptionRoom ? offer.descriptionRoom|raw : '' }}</b></p>
+            </div>
+            <div class="col-md-4">
+                <p>{{ 'Ownership'|trans }}: <b>{{ offer.ownership ? offer.ownership : '' }}</b></p>
+                <p>{{ 'Local status'|trans }}: <b>{{ offer.status ? offer.status : '' }}</b></p>
+            </div>
+        </div>
+        <button class="collapsible">{{ 'Building'|trans }}</button>
+        <div class="content row">
+            <div class="col-md-4">
+                <p>{{ 'Building type'|trans }}: <b>{{ offer.typeName|lower }}</b></p>
+                <p>{{ 'Year of building'|trans }}:
+                    <b>{{ offer.buildingYear ? offer.buildingYear : '' }}</b></p>
+            </div>
+            <div class="col-md-4">
+                <p>{{ 'Technology'|trans }}:
+                    <b>{{ offer.buildingMaterial ? offer.buildingMaterial : '' }}</b></p>
+                <p>{{ 'Elevator'|trans }}: <b>{{ offer.elevatorNumber ? 'yes'|trans : 'no'|trans }}</b></p>
+            </div>
+            <div class="col-md-4">
+                <p>{{ 'Floors number'|trans }}:
+                    <b>{{ offer.floorsNumber ? offer.floorsNumber : '' }}</b></p>
+                <p>{{ 'Available date'|trans }}:
+                    <b>{{ offer.availableDate ? offer.availableDate|localizeddate('short', 'none') : '' }}</b>
+                </p>
+            </div>
+        </div>
+        <button class="collapsible">{{ 'Additional rooms'|trans }}</button>
+        <div class="content row">
+            <div class="col-md-4">
+                <p>{{ 'Garages number'|trans }}: <b>{{ offer.additionalGarageNumber }}</b></p>
+                <p>{{ 'Basement'|trans }}: <b>{{ offer.additionalBasement > 0 ? 'yes'|trans : 'no'|trans }}</b></p>
+            </div>
+            <div class="col-md-4">
+                <p>{{ 'Balcony'|trans }}: <b>{{ offer.additionalBalcony > 0 ? 'yes'|trans : 'no'|trans }}</b></p>
+                <p>{{ 'Garden'|trans }}: <b>{{ offer.additionalGarden > 0 ? 'yes'|trans : 'no'|trans }}</b></p>
+            </div>
+            <div class="col-md-4">
+                <p>{{ 'Storage'|trans }}: <b>{{ offer.additionalStorage > 0 ? 'yes'|trans : 'no'|trans }}</b></p>
+                <p>{{ 'Parking'|trans }}: <b>{{ offer.additionalParking > 0 ? 'yes'|trans : 'no'|trans }}</b></p>
+            </div>
+        </div>
+    </section>
+
+    <section id="description" class="description center-2">
+        <h2 class="default-headline">{{ 'Description'|trans }}</h2>
+        <div class="row">
+            <div class="col-md-{{ offer.descriptionRoom ? '6' : '12' }}">
+                <p>{{ offer.description|raw }}</p>
+            </div>
+            {% if offer.descriptionRoom %}
+                <div class="col-md-6">
+                    <h3 class="secondary-headline">{{ 'Rooms'|trans }}</h3>
+                    <p>{{ offer.descriptionRoom ? offer.descriptionRoom|raw : '' }}</p>
+                </div>
+            {% endif %}
+        </div>
+    </section>
+
+    {% if offer.latitude and offer.longitude %}
+        <h2 id="map" class="results-header default-headline center-2">{{ 'Localization'|trans }}</h2>
+
+        <div id="map" class="results-map center-2">
+            <iframe src="https://maps.google.com/maps?q={{ offer.latitude }},{{ offer.longitude }}&hl=es;z=14&amp;output=embed"
+                    height="540px" width="100%" frameborder="0" style="border:0" allowfullscreen></iframe>
+        </div>
+    {% endif %}
+
+
+    <section id="contact" class="offer-contact center-2">
+        {% if offer.contactEmail %}
+            <div class="offer-contact__item adviser">
+                <div class="adviser__img">
+                    {% set img %}
+                        /img/avatar-male.png
+                    {% endset %}
+                    <img src="{{ (img|trim)|imagine_filter('avatar_contact') }}" alt="{{ offer.contactFullName }}"/>
+                </div>
+                <p class="adviser__name">{{ offer.contactFullName }}</p>
+                {#<p class="adviser__type">Dyrektor do spraw sprzedaży</p>#}
+                {% if offer.contactPhone %}
+                    <a href="tel:{{ offer.contactPhone }}"
+                       class="button button-primary u-full-width">{{ offer.contactPhone }}</a>
+                {% endif %}
+                <a class="button button-primary u-full-width"
+                   href="mailto:{{ offer.contactEmail }}">{{ offer.contactEmail|upper }}</a>
+            </div>
+        {% else %}
+            <div class="offer-contact__item adviser">
+                <div class="adviser__img">
+                    {% set img %}
+                        {% if offer.assignedTo.gender == 'm' %}
+                            /img/avatar-male.png
+                        {% elseif offer.assignedTo.gender == 'm' %}
+                            /img/avatar-female.png
+                        {% else %}
+                            /img/avatar-male.png
+                        {% endif %}
+                    {% endset %}
+                    <img src="{{ (img|trim)|imagine_filter('avatar_contact') }}" alt="{{ offer.assignedTo.fullName }}"/>
+                </div>
+                <p class="adviser__name">{{ offer.assignedTo ? offer.assignedTo.fullName : '-' }}</p>
+                {#<p class="adviser__type">Dyrektor do spraw sprzedaży</p>#}
+                {% if offer.assignedTo.phone %}
+                    <a href="tel:{{ offer.assignedTo.phone }}"
+                       class="button button-primary u-full-width">{{ offer.assignedTo.phone }}</a>
+                {% endif %}
+                <a class="button button-primary u-full-width"
+                   href="mailto:{{ offer.assignedTo.email }}">{{ offer.assignedTo.email|upper }}</a>
+            </div>
+        {% endif %}
+
+
+        <div id="offerContactForm" class="offer-contact__item">
+            <h2 class="default-headline">{{ 'Are you interested in our offer?'|trans }} <span
+                        class="u-break-line">{{ 'Contact us now!'|trans }}</span>
+            </h2>
+
+            {% form_theme form 'Form/theme.html.twig' %}
+            {{ form_start(form, { attr: {class: 'offer-contact__form'}} ) }}
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group text-wrap">
+                        {{ form_widget(form.fullName) }}
+                        {{ form_label(form.fullName) }}
+                        {{ form_errors(form.fullName) }}
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group text-wrap">
+                        {{ form_widget(form.email) }}
+                        {{ form_label(form.email) }}
+                        {{ form_errors(form.email) }}
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group text-wrap">
+                        {{ form_widget(form.phone) }}
+                        {{ form_label(form.phone) }}
+                        {{ form_errors(form.phone) }}
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group text-wrap">
+                        {{ form_widget(form.subject) }}
+                        {{ form_label(form.subject) }}
+                        {{ form_errors(form.subject) }}
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group text-wrap">
+                        {{ form_label(form.body) }}
+                    </div>
+                    {{ form_widget(form.body, {attr: {class: 'offer-contact__message'}, value: app.request.get('body') ? app.request.get('body') :
+                        ('To mieszkanie na sprzedaż (ID %offerNumber%) wydaje mi się interesujące. Chętnie poznam więcej szczegółów przed umówieniem wizyty. Pozdrawiam.'|trans({'%offerNumber%': offer.offerNumber})) }) }}
+                    {{ form_errors(form.body) }}
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6 u-flex-column">
+                    <div class="form-check">
+                        {{ form_widget(form.rule1) }}
+                        {{ form_errors(form.rule1) }}
+                    </div>
+                    <div class="form-check">
+                        {{ form_widget(form.rule2) }}
+                        {{ form_errors(form.rule2) }}
+                    </div>
+                </div>
+                <div class="col-md-6 u-flex-column">
+                    <div class="form-check">
+                        {{ form_widget(form.rule3) }}
+                        {{ form_errors(form.rule3) }}
+                    </div>
+                    <div class="form-check">
+                        {{ form_widget(form.rule4) }}
+                        {{ form_errors(form.rule4) }}
+                    </div>
+                </div>
+                <div class="col-md-6 u-flex-column">
+                    <div class="form-check">
+                        {{ form_widget(form.rule5) }}
+                        {{ form_errors(form.rule5) }}
+                    </div>
+                    <div class="form-check">
+
+                    </div>
+                </div>
+                <div class="col-sm-12"></div>
+                {{ form_rest(form) }}
+                <div class="offset-md-10 col-md-12">
+                    <button type="submit"
+                            class="button button-primary button-primary--arrow-right">{{ 'Send'|trans }}</button>
+                </div>
+            </div>
+            {{ form_end(form) }}
+        </div>
+
+
+    </section>
+
+    {% if similarOffers|length %}
+        <section class="results-offer">
+            <h2 class="results-header default-headline center-2">{{ 'Similar offers'|trans }}</h2>
+            <div class="results-container center-2">
+                {% for item in similarOffers %}
+                    {% include 'ApplicationSonataOfferBundle:Offer:offerItem.html.twig' with {item: item} %}
+                {% endfor %}
+            </div>
+        </section>
+    {% endif %}
+</main>
+
+<script>
+    window.addEventListener('load', function () {
+        $(".fancybox-show").fancybox({});
+    });
+</script>

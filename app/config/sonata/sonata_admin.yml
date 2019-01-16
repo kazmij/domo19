@@ -1,0 +1,79 @@
+sonata_admin:
+    title:      'Domo Admin'
+    title_logo: /img/shared/logo-full.svg
+    security:
+        handler: sonata.admin.security.handler.role
+
+        role_admin: ROLE_ADMIN
+        role_super_admin: ROLE_SUPER_ADMIN
+
+        # acl security information
+#        information:
+#            GUEST:    [VIEW, LIST]
+#            STAFF:    [EDIT, LIST, CREATE]
+#            EDITOR:   [OPERATOR, EXPORT]
+#            ADMIN:    [MASTER]
+        # permissions not related to an object instance and also to be available when objects do not exist
+        # the DELETE admin permission means the user is allowed to batch delete objects
+        admin_permissions: [CREATE, LIST, DELETE, UNDELETE, EXPORT, OPERATOR, MASTER]
+
+        # permission related to the objects
+        object_permissions: [VIEW, EDIT, DELETE, UNDELETE, OPERATOR, MASTER, OWNER]
+
+    assets:
+        extra_javascripts:
+            - bundles/sonatapage/sonata-page.back.min.js
+            - bundles/fosckeditor/ckeditor.js
+            - bundles/sonataformatter/vendor/markitup-markitup/markitup/jquery.markitup.js
+            - bundles/sonataformatter/markitup/sets/markdown/set.js
+            - bundles/sonataformatter/markitup/sets/html/set.js
+            - bundles/sonataformatter/markitup/sets/textile/set.js
+            - scripts/admin/scripts.js
+
+        extra_stylesheets:
+            - bundles/sonatapage/sonata-page.back.min.css
+            - bundles/sonataformatter/markitup/skins/sonata/style.css
+            - bundles/sonataformatter/markitup/sets/markdown/style.css
+            - bundles/sonataformatter/markitup/sets/html/style.css
+            - bundles/sonataformatter/markitup/sets/textile/style.css
+
+sonata_block:
+#    http_cache:
+#        listener: true
+    context_manager: sonata.page.block.context_manager
+    default_contexts: [sonata_page_bundle]
+    blocks:
+        sonata.admin.block.admin_list:
+            contexts:   [admin]
+
+        #sonata.admin_doctrine_orm.block.audit:
+        #    contexts:   [admin]
+
+        sonata.block.service.text:
+        sonata.block.service.rss:
+        sonata.formatter.block.formatter:
+        sonata.block.top.content.with.form:
+        sonata.page.block.shared_block:
+        sonata.page.block.breadcrumb:
+        sonata.main.block.contact:
+        sonata.main.block.buy:
+        sonata.main.block.apply:
+        sonata.offer.block.categories:
+
+        # Some specific block from the SonataMediaBundle
+        #sonata.media.block.media:
+        #sonata.media.block.gallery:
+        #sonata.media.block.feature_media:
+
+        # Some block with different templates
+        #acme.demo.block.demo:
+        #    templates:
+        #       - { name: 'Simple', template: '@AcmeDemo/Block/demo_simple.html.twig' }
+        #       - { name: 'Big',    template: '@AcmeDemo/Block/demo_big.html.twig' }
+
+sonata_classification:
+    class:
+        collection:     Application\Sonata\ClassificationBundle\Entity\Collection
+        tag:            Application\Sonata\ClassificationBundle\Entity\Tag
+        category:       Application\Sonata\ClassificationBundle\Entity\Category
+

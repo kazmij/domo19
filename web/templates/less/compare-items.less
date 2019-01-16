@@ -1,0 +1,35 @@
+#compare-items {
+    white-space: nowrap;
+    font-size: 0;
+    overflow: auto;
+  .compare-item {
+    font-size: 13px;
+    display: inline-block;
+    width: calc(~"25% - 30px + 30px / 4");
+    min-width: 260px;
+    &:not(:last-child) {
+      margin-right: 30px;
+    }
+    &:nth-child(1):nth-last-child(3),
+    &:nth-child(2):nth-last-child(2),
+    &:nth-child(3):nth-last-child(1) {
+      width: calc(~"33.33333% - 20px");
+    }
+    &:nth-child(1):nth-last-child(2),
+    &:nth-child(2):nth-last-child(1) {
+      width: calc(~"50% - 15px");
+    }
+    &:nth-child(1) {
+      background-color: blue;
+    }
+    &:nth-child(2) {
+      background-color: yellow;
+    }
+    &:nth-child(3) {
+      background-color: green;
+    }
+    &:nth-child(4) {
+      background-color: orange;
+    }
+  }
+}

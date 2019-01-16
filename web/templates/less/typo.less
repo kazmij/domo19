@@ -1,0 +1,52 @@
+body {
+  font-family: 'GothamWebFont';
+}
+.default-headline {
+  font-size: 24px;
+  @media screen and (max-width: 767px) {
+    font-size: 6vw;
+  }
+  &.default-headline-bigger {
+    font-size: 30px;
+    @media screen and (max-width: 767px) {
+      font-size: 7vw;
+    }
+  }
+  &.default-headline-huge {
+    font-size: 36px;
+    @media screen and (max-width: 767px) {
+      font-size: 8vw;
+    }
+  }
+  font-weight: 600;
+  color: #060b14;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin: 0;
+  margin-bottom: 60px;
+  &.default-headline-single-article {
+    font-size: 36px;
+    text-transform: none;
+  }
+  @media screen and (max-width: 767px) {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    text-align: center;
+  }
+  span {
+  color: #95959e;
+  }
+  small {
+    display: block;
+    font-size: 13px;
+    margin-top: 10px;
+    text-decoration: none;
+    text-transform: none;
+    letter-spacing: 0;
+    font-weight: 300;
+    color: #060b14;
+    strong {
+      font-weight: 500;
+    }
+  }
+}

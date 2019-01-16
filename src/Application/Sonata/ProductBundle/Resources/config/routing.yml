@@ -1,0 +1,3 @@
+application_sonata_product_homepage:
+    path:     /
+    defaults: { _controller: ApplicationSonataProductBundle:Default:index }

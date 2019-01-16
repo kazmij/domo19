@@ -1,0 +1,49 @@
+services:
+  application_sonata_offer.importer:
+    class: Application\Sonata\OfferBundle\Service\ImportOffers
+    calls:
+    - [ setContainer, [ "@service_container" ] ]
+    - [ _construct ]
+    public: true
+
+  application_sonata_offer.manager.offer:
+    class: Application\Sonata\OfferBundle\Entity\OfferManager
+    arguments: ['Application\Sonata\OfferBundle\Entity\Offer', "@doctrine"]
+
+  application_sonata_offer.manager.offer_attribute:
+    class: Application\Sonata\OfferBundle\Entity\OfferAttributeManager
+    arguments: ['Application\Sonata\OfferBundle\Entity\OfferAttribute', "@doctrine"]
+
+  application_sonata_offer.manager.offer_import:
+    class: Application\Sonata\OfferBundle\Entity\OfferImportManager
+    arguments: ['Application\Sonata\OfferBundle\Entity\OfferImport', "@doctrine"]
+
+  application_sonata_offer.admin.offer_import:
+    class: Application\Sonata\OfferBundle\Admin\OfferImportAdmin
+    arguments: [~, Application\Sonata\OfferBundle\Entity\OfferImport, ApplicationSonataOfferBundle:OfferImportAdmin]
+    tags:
+    - { name: sonata.admin, manager_type: orm, group: Offers, label: Import }
+    public: true
+
+  application_sonata_offer.admin.offer_helper:
+    class: Application\Sonata\OfferBundle\Service\Helper
+    calls:
+    - [ setContainer, [ "@service_container" ] ]
+    - [ _construct ]
+    public: true
+
+  sonata.offer.block.categories:
+    class: Application\Sonata\OfferBundle\Block\OfferCategories
+    arguments:
+      - ~
+      - '@templating'
+    calls:
+    - [ setContainer, [ "@service_container" ] ]
+    tags:
+    - { name: sonata.block }
+
+  Application\Sonata\OfferBundle\Doctrine\DoctrineSubscriber:
+    tags:
+    - { name: doctrine.event_subscriber, connection: default }
+
+

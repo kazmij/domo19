@@ -1,0 +1,10 @@
+{% extends get_admin_template('base_list_field', admin.code) %}
+
+{% block field %}
+    {% if object.status == 'new' %}
+        <img data-id="{{ object.id }}" data-status="new" data-href="{{ admin.generateObjectUrl('checkImport', object) }}" class="importProcessing" src="{{ asset('img/ajax-loader.gif') }}" alt="{{ 'Processing'|trans }}"/>
+        <strong>{{ 'Processing'|trans }}</strong>
+    {% else %}
+        {{ object.status }}
+    {% endif %}
+{% endblock %}

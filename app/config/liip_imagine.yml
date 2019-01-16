@@ -1,0 +1,74 @@
+liip_imagine:
+    default_image: /img/news2.jpg
+    filter_sets:
+        cache: ~
+
+        490xY:
+            quality: 90
+            filters:
+                relative_resize: { widen: 490}
+                #watermark: { image: Resources/data/watermark-right-bottom.png, size: 0.3, position: bottomright}
+                watermark2: { image: Resources/data/watermark-top-left.png, size: 0.4, position: topleft}
+                strip: ~
+
+        Xx290:
+            quality: 90
+            filters:
+                relative_resize: { heighten: 290}
+                #watermark: { image: Resources/data/watermark-right-bottom.png, size: 0.3, position: bottomright}
+                watermark2: { image: Resources/data/watermark-top-left.png, size: 0.4, position: topleft}
+                strip: ~
+
+        1920xY:
+            quality: 90
+            filters:
+                relative_resize: { widen: 1920}
+                #watermark: { image: Resources/data/watermark-right-bottom.png, size: 0.3, position: bottomright}
+                watermark2: { image: Resources/data/watermark-top-left.png, size: 0.4, position: topleft}
+                strip: ~
+
+        facebook:
+            quality: 95
+            filters:
+                thumbnail: { size: [1200, 630], mode: outbond, crop_x: 0, crop_y: 0.5, allow_upscale: true }
+                watermark2: { image: Resources/data/watermark-top-left.png, size: 0.4, position: topleft}
+                strip: ~
+
+        avatar:
+            quality: 90
+            filters:
+                thumbnail: { size: [200, 200], mode: outbond, crop_x: 0.5, crop_y: 0, allow_upscale: true }
+                strip: ~
+
+        offer_thumb:
+            quality: 90
+            filters:
+                thumbnail: { size: [150, 150], mode: outbond, crop_x: 0.5, crop_y: 0, allow_upscale: true }
+                strip: ~
+
+        offer_list:
+            quality: 90
+            filters:
+                thumbnail: { size: [580, 350], mode: outbond, crop_x: 0.5, crop_y: 0.5, allow_upscale: true }
+                #watermark: { image: Resources/data/watermark-right-bottom.png, size: 0.3, position: bottomright}
+                watermark2: { image: Resources/data/watermark-top-left.png, size: 0.4, position: topleft}
+                strip: ~
+
+        offer_gallery:
+            quality: 90
+            filters:
+                thumbnail: { size: [850, 650], crop_x: 0.5, crop_y: 0.5, allow_upscale: true }
+                #watermark: { image: Resources/data/watermark-right-bottom.png, size: 0.3, position: bottomright}
+                watermark2: { image: Resources/data/watermark-top-left.png, size: 0.4, position: topleft}
+
+        offer_gallery_mobile:
+            quality: 90
+            filters:
+                thumbnail: { size: [350, 275], crop_x: 0.5, crop_y: 0.5, allow_upscale: true }
+                #watermark: { image: Resources/data/watermark-right-bottom.png, size: 0.3, position: bottomright}
+                watermark2: { image: Resources/data/watermark-top-left.png, size: 0.4, position: topleft}
+
+        avatar_contact:
+            quality: 90
+            filters:
+                thumbnail: { size: [350, 275], crop_x: 0.5, crop_y: 0.5, allow_upscale: true }

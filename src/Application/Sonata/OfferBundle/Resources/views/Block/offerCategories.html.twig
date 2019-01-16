@@ -1,0 +1,19 @@
+<section id="projects-categories" class="container">
+    <header class="row">
+        <h1 class="col-xs-12 default-headline">Kategorie <span>projektów</span></h1>
+    </header>
+    <ul class="row projects-categories-list">
+        {% for category in categories if category.enabled %}
+            {% if category.media %}
+                {% set photo %}{% path category.media, 'reference' %}{% endset %}
+            {% else %}
+                {% set photo = null %}
+            {% endif %}
+            <li class="col-xs-12 col-sm-4 col-md-3 projects-categories-list-item">
+                <a style="{{ photo  ? 'background-image: url('~photo~')' : '' }}" href="{{ path('application_sonata_offer_list', {slug: category.slug}) }}">
+                    <span>{{ category.name }}</span>
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+</section>

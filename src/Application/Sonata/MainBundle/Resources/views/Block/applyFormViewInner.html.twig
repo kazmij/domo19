@@ -1,0 +1,63 @@
+{% form_theme form 'Form/themeApply.html.twig' %}
+            {{ form_start(form, { attr: {class: 'applyFormElement'}} ) }}
+<div class="modal-header">
+    <h5 class="modal-title">Aplikacja na stanowisko Doradca ds. Nieruchomości.</h5>
+    <button type="button" class="close" data-dismiss="modal" aria-label="Zamknij">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+<div class="modal-body">
+        {% if errors is defined and errors %}
+            <h6 class="text-danger">Wystapiły błędy. Popraw je aby wysłać formularz.</h6>
+        {% endif %}
+    <div class="form-group text-wrap">
+        {{ form_widget(form.fullName) }}
+        {{ form_label(form.fullName) }}
+        {{ form_errors(form.fullName) }}
+    </div>
+
+    <div class="form-group text-wrap">
+        {{ form_widget(form.email) }}
+        {{ form_label(form.email) }}
+        {{ form_errors(form.email) }}
+    </div>
+
+    <div class="form-group row text-wrap">
+        <div class="col-12 col-xl-6 u-margin-left">
+            {{ form_widget(form.city) }}
+            {{ form_errors(form.city) }}
+        </div>
+        <div class="col-12 col-xl-6 u-margin-left">
+            {{ form_widget(form.phone) }}
+            {{ form_label(form.phone) }}
+            {{ form_errors(form.phone) }}
+        </div>
+    </div>
+
+    <div class="form-item select subject">
+        {{ form_widget(form.subject) }}
+        {{ form_errors(form.subject) }}
+    </div>
+
+    <div class="form-item">
+        {{ form_label(form.file) }}
+        {{ form_widget(form.file) }}
+        <span class="text-info">Dozwolone typy plików: pdf, doc, docx, odt. Maksymalna wielkość to 5MB.</span>
+        {{ form_errors(form.file) }}
+    </div>
+
+    <div class="form-check row">
+        {{ form_widget(form.rule1) }}
+        {{ form_errors(form.rule1) }}
+        {{ form_widget(form.rule2) }}
+        {{ form_errors(form.rule2) }}
+        {{ form_widget(form.rule3) }}
+        {{ form_errors(form.rule3) }}
+    </div>
+    {{ form_rest(form) }}
+</div>
+<div class="modal-footer">
+    <button type="submit" class="btn btn-primary">Wyślij</button>
+    <button type="button" class="btn btn-secondary" data-dismiss="modal">Zamknij</button>
+</div>
+{{ form_end(form) }}

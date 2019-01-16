@@ -1,0 +1,55 @@
+<?php
+
+/*
+ * This file is part of the Sonata Project package.
+ *
+ * (c) Thomas Rabaix <thomas.rabaix@sonata-project.org>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+namespace Application\Sonata\PageBundle\DependencyInjection;
+
+use Sonata\EasyExtendsBundle\Mapper\DoctrineCollector;
+use Sonata\PageBundle\Model\Template;
+use Symfony\Component\Config\Definition\Processor;
+use Symfony\Component\Config\FileLocator;
+use Symfony\Component\DependencyInjection\ContainerBuilder;
+use Symfony\Component\DependencyInjection\Definition;
+use Symfony\Component\DependencyInjection\Extension\PrependExtensionInterface;
+use Symfony\Component\DependencyInjection\Loader\XmlFileLoader;
+use Symfony\Component\DependencyInjection\Reference;
+use Symfony\Component\HttpKernel\DependencyInjection\Extension;
+use Symfony\Component\DependencyInjection\Loader;
+use Sonata\PageBundle\DependencyInjection\SonataPageExtension as BaseSonataPageExtension;
+
+/**
+ * @author Thomas Rabaix <thomas.rabaix@sonata-project.org>
+ */
+class ApplicationSonataPageExtension extends BaseSonataPageExtension
+{
+
+    /**
+     * @param array                                                   $configs
+     * @param \Symfony\Component\DependencyInjection\ContainerBuilder $container
+     *
+     * @throws \InvalidArgumentException
+     */
+    public function load(array $configs, ContainerBuilder $container)
+    {
+
+        $bundles = $container->getParameter('kernel.bundles');
+
+        $loaderYml = new Loader\YamlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
+        $loaderYml->load('services.yml');
+
+        $loader = new XmlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
+
+        $loader->load('twig.xml');
+
+        if (isset($bundles['FOSRestBundle'], $bundles['NelmioApiDocBundle'])) {
+            $loader->load('api_controllers.xml');
+        }
+    }
+}

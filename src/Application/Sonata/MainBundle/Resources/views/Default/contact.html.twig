@@ -1,0 +1,52 @@
+{% form_theme form 'Form/theme.html.twig' %}
+
+{{ form_start(form, { attr: {class: 'adviser-form'}} ) }}
+
+<div class="form-group text-wrap">
+    {{ form_widget(form.fullName) }}
+    {{ form_label(form.fullName) }}
+    {{ form_errors(form.fullName) }}
+</div>
+
+<div class="form-group row text-wrap">
+    <div class="col-12 col-xl-6 u-margin-left">
+        {{ form_widget(form.email) }}
+        {{ form_label(form.email) }}
+        {{ form_errors(form.email) }}
+    </div>
+    <div class="col-12 col-xl-6 u-margin-left">
+        {{ form_widget(form.phone) }}
+        {{ form_label(form.phone) }}
+        {{ form_errors(form.phone) }}
+    </div>
+</div>
+
+<div class="form-item select subject">
+    {{ form_widget(form.subject) }}
+    {{ form_errors(form.subject) }}
+</div>
+
+<div class="form-group text-wrap">
+    {{ form_widget(form.body) }}
+    {{ form_label(form.body) }}
+    {{ form_errors(form.body) }}
+</div>
+
+<div class="form-check row">
+    {{ form_widget(form.rule1) }}
+    {{ form_errors(form.rule1) }}
+    {{ form_widget(form.rule2) }}
+    {{ form_errors(form.rule2) }}
+    {{ form_widget(form.rule3) }}
+    {{ form_errors(form.rule3) }}
+    {{ form_widget(form.rule4) }}
+    {{ form_errors(form.rule4) }}
+    {{ form_widget(form.rule5) }}
+    {{ form_errors(form.rule5) }}
+</div>
+
+{{ form_rest(form) }}
+
+<button type="submit" class="button button-primary button-primary--arrow-right">Wyślij</button>
+
+{{ form_end(form) }}

@@ -1,0 +1,146 @@
+.gradient {
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#13213c+1,33476b+100 */
+background: #13213c; /* Old browsers */
+background: -moz-linear-gradient(top, #13213c 1%, #33476b 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(top, #13213c 1%,#33476b 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to bottom, #13213c 1%,#33476b 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#13213c', endColorstr='#33476b',GradientType=0 ); /* IE6-9 */
+}
+.jumbo-box {
+  display: flex;
+  align-items: center;
+  float: left;
+  position: relative;
+  .gradient;
+  &.jumbo-box-half {
+    width: calc(~"50% - 18px");
+    & + .jumbo-box-half {
+      margin-left: 36px;
+    }
+  }
+  span {
+    font-size: 28px;
+    line-height: 32px;
+    @media screen and (min-width: 992px) and (max-width: 1199px) {
+    font-size: 24px;
+    line-height: 28px;
+    }
+    @media screen and (max-width: 991px) {
+    font-size: 18px;
+    line-height: 20px;
+    }
+    font-weight: 600;
+    text-transform: uppercase;
+    color: #fff;
+  }
+  transition: 0.3s all;
+  &:hover {
+    background-size: 200%;
+    text-decoration: none;
+  }
+  &.jumbo-box-truck {
+    height: 200px;
+    @media screen and (min-width: 992px) and (max-width: 1199px) {
+      height: 160px;
+    }
+    @media screen and (max-width: 991px) {
+      height: 120px;
+    }
+    @media screen and (max-width: 740px) {
+      width: 260px;
+    }
+    img {
+    float: left;
+    margin-left: 26%;
+    @media screen and (max-width: 991px) {
+      margin-left: 20%;
+    }
+    @media screen and (max-width: 740px) {
+      margin-left: 12%;
+    }
+    width: 18%;
+    @media screen and (max-width: 740px) {
+      width: 20%;
+    }
+    margin-right: 30px;
+    @media screen and (max-width: 740px) {
+      margin-right: 20px;
+    }
+    vertical-align: middle;
+    margin-top: 5px;
+    }
+  }
+  &.jumbo-box-bon {
+    height: 200px;
+    @media screen and (min-width: 992px) and (max-width: 1199px) {
+      height: 160px;
+    }
+    @media screen and (max-width: 991px) {
+      height: 120px;
+    }
+    @media screen and (max-width: 740px) {
+      width: 330px;
+    }
+    img {
+    float: left;
+    margin-left: 10%;
+    width: 18%;
+    margin-right: 30px;
+    vertical-align: middle;
+    margin-top: 0;
+    }
+  }
+  &.jumbo-box-arrow {
+    &:before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      width: 60px;
+      height: 60px;
+      background-color: #fdc630;
+      margin-top: -30px;
+      background-position: center;
+      background-size: cover;
+      @media screen and (max-width: 991px) {
+        display: none;
+      }
+    }
+    &:hover {
+      &:before {
+        background-color: darken(#fdc630, 10%);
+      }
+    }
+    &.jumbo-box-arrow-left {
+      &:before {
+        left: 0;
+        margin-left: -30px;
+        background-image: url(/img/shared/icon-arrow-left-black.svg);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 10px;
+      }
+    }
+    &.jumbo-box-arrow-right {
+      &:before {
+        right: 0;
+        margin-right: -30px;
+        background-image: url(/img/shared/icon-arrow-right-black.svg);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 10px;
+      }
+    }
+  }
+}
+@media screen and (max-width: 991px) {
+#home-jumbo-box-wrapper {
+  overflow: scroll;
+  white-space: nowrap;
+  .jumbo-box {
+    float: none;
+    display: inline-flex;
+    white-space: normal;
+    vertical-align: top;
+  }
+}
+}

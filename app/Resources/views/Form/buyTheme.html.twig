@@ -1,0 +1,25 @@
+{% extends 'bootstrap_4_layout.html.twig' %}
+
+{% block checkbox_widget -%}
+    <label class="form-check-label" for="{{ form.vars.id }}">
+        <input type="checkbox" class="form-check-input" id="{{ form.vars.id }}" {{ block('widget_attributes') }}{% if value is defined %} value="{{ value }}"{% endif %}{% if checked %} checked="checked"{% endif %} ">
+        {{ form.vars.label|trans|capitalize }}
+        <i>&nbsp</i>
+    </label>
+{%- endblock checkbox_widget %}
+
+{% block form_widget_simple -%}
+    {% if type is not defined or type != 'hidden' %}
+        {%- set attr = attr|merge({class: (attr.class|default('') ~ ' ' ~ (type|default('') == 'file' ? '-file' : ''))|trim}) -%}
+    {% endif %}
+    {%- if type is defined and (type == 'range' or type == 'color') %}
+        {# Attribute "required" is not supported #}
+        {%- set required = false -%}
+    {% endif %}
+    {{- parent() -}}
+{%- endblock form_widget_simple %}
+
+{% block choice_widget_collapsed -%}
+    {%- set attr = attr|merge({class: (attr.class|default('') ~ ' ')|trim}) -%}
+    {{- parent() -}}
+{%- endblock choice_widget_collapsed %}

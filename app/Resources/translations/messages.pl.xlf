@@ -1,0 +1,663 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:jms="urn:jms:translation" version="1.2">
+  <file date="2018-10-23T15:40:49Z" source-language="en" target-language="pl" datatype="plaintext" original="not.available">
+    <header>
+      <tool tool-id="JMSTranslationBundle" tool-name="JMSTranslationBundle" tool-version="1.1.0-DEV"/>
+      <note>The source node in most cases contains the sample message as written by the developer. If it looks like a dot-delimitted string such as "form.label.firstname", then the developer has not provided a default message.</note>
+    </header>
+    <body>
+      <trans-unit id="58ee45aeb1dde1b8b8c96e8b3bdf077fe5ffec34" resname=" -- Select City --">
+        <source> -- Select City --</source>
+        <target>Wybierz miasto</target>
+      </trans-unit>
+      <trans-unit id="adf209b3ffa2a708f0f13b140530f316dc39841f" resname=" -- Select Precinct --">
+        <source> -- Select Precinct --</source>
+        <target>Wybierz dzielnicę</target>
+      </trans-unit>
+      <trans-unit id="8b1559fc8a8b1201286a959dc694d23d9a2ee335" resname=" --Select province--">
+        <source> --Select province--</source>
+        <target>Wybierz województwo</target>
+      </trans-unit>
+      <trans-unit id="c3ae8b337b4a7292b333e909cfd805216bb7ab03" resname="%count% rooms">
+        <source>%count% rooms</source>
+        <target>{1} %count% pokój|{2} %count% pokoje|{3} %count% pokoi</target>
+      </trans-unit>
+      <trans-unit id="80a64b27ccf2ab0637f57ad7a21ed828ba6c19e9" resname=") wydaje mi się interesujące. Chętnie poznam więcej szczegółów przed umówieniem wizyty. Pozdrawiam.">
+        <source>) wydaje mi się interesujące. Chętnie poznam więcej szczegółów przed umówieniem wizyty. Pozdrawiam.</source>
+        <target>) wydaje mi się interesujące. Chętnie poznam więcej szczegółów przed umówieniem wizyty. Pozdrawiam.</target>
+      </trans-unit>
+      <trans-unit id="fe81a4ade43c5ffe8f5c2c966f4b571df36713db" resname="- no data-">
+        <source>- no data-</source>
+        <target>- brak danych -</target>
+      </trans-unit>
+      <trans-unit id="356a192b7913b04c54574d18c28d46e6395428ab" resname="1">
+        <source>1</source>
+        <target>1</target>
+      </trans-unit>
+      <trans-unit id="346c75714993fcfa380e4e2ba7a89844d9ea045b" resname="1. Oświadczam, że zostałam/em poinformowany, iż administratorem danych osobowych udostępnionych za pomocą Formularza Kontaktowego jest Equal Properties Sp. z o.o. z siedzibą w Warszawie, pod adresem: Rondo ONZ 1, 00-124 Warszawa, wpisana do rejestru przedsiębiorców Krajowego Rejestru Sądowego prowadzonego przez Sąd Rejonowy dla m. st. Warszawy w Warszawie, XII Wydział Gospodarczy Krajowego Rejestru Sądowego pod numerem KRS:0000698793, posiadająca REGON: 36850562800000, NIP: 5252725768. Pozostałe informacje dotyczące danych osobowych określone są w Regulaminie Serwisu Internetowego Equal Properties Sp. z o.o. oraz w Polityce Prywatności. Zapytania oraz żądania dotyczące danych osobowych należy przesyłać na adres e-mail: dane.osobowe@equalproperties.com">
+        <source>1. Oświadczam, że zostałam/em poinformowany, iż administratorem danych osobowych udostępnionych za pomocą Formularza Kontaktowego jest Equal Properties Sp. z o.o. z siedzibą w Warszawie, pod adresem: Rondo ONZ 1, 00-124 Warszawa, wpisana do rejestru przedsiębiorców Krajowego Rejestru Sądowego prowadzonego przez Sąd Rejonowy dla m. st. Warszawy w Warszawie, XII Wydział Gospodarczy Krajowego Rejestru Sądowego pod numerem KRS:0000698793, posiadająca REGON: 36850562800000, NIP: 5252725768. Pozostałe informacje dotyczące danych osobowych określone są w Regulaminie Serwisu Internetowego Equal Properties Sp. z o.o. oraz w Polityce Prywatności. Zapytania oraz żądania dotyczące danych osobowych należy przesyłać na adres e-mail: dane.osobowe@equalproperties.com</source>
+        <target>1. Oświadczam, że zostałam/em poinformowany, iż administratorem danych osobowych udostępnionych za pomocą Formularza Kontaktowego jest Equal Properties Sp. z o.o. z siedzibą w Warszawie, pod adresem: Rondo ONZ 1, 00-124 Warszawa, wpisana do rejestru przedsiębiorców Krajowego Rejestru Sądowego prowadzonego przez Sąd Rejonowy dla m. st. Warszawy w Warszawie, XII Wydział Gospodarczy Krajowego Rejestru Sądowego pod numerem KRS:0000698793, posiadająca REGON: 36850562800000, NIP: 5252725768. Pozostałe informacje dotyczące danych osobowych określone są w Regulaminie Serwisu Internetowego Equal Properties Sp. z o.o. oraz w Polityce Prywatności. Zapytania oraz żądania dotyczące danych osobowych należy przesyłać na adres e-mail: dane.osobowe@equalproperties.com</target>
+      </trans-unit>
+      <trans-unit id="b1d5781111d84f7b3fe45a0852e59758cd7a87e5" resname="10">
+        <source>10</source>
+        <target>10</target>
+      </trans-unit>
+      <trans-unit id="343e83810a07de1a5df1f3078a94a20ec3e3e387" resname="10 m²">
+        <source>10 m²</source>
+        <target>10 m²</target>
+      </trans-unit>
+      <trans-unit id="310b86e0b62b828562fc91c7be5380a992b2786a" resname="100">
+        <source>100</source>
+        <target>100</target>
+      </trans-unit>
+      <trans-unit id="804ef1a9e494dc03874d63181863d53bf1335e94" resname="100 m²">
+        <source>100 m²</source>
+        <target>100 m²</target>
+      </trans-unit>
+      <trans-unit id="409e9519c66216726447bd4a07d6aed0475338cc" resname="100000">
+        <source>100000</source>
+        <target>100000</target>
+      </trans-unit>
+      <trans-unit id="b27585828a675f5acfef052dd1a8cf0c6c1ee4b0" resname="1000000">
+        <source>1000000</source>
+        <target>1000000</target>
+      </trans-unit>
+      <trans-unit id="7b52009b64fd0a2a49e6d8a939753077792b0554" resname="12">
+        <source>12</source>
+        <target>12</target>
+      </trans-unit>
+      <trans-unit id="13682ac418603aa0966369d46bbf282f562acf47" resname="150">
+        <source>150</source>
+        <target>150</target>
+      </trans-unit>
+      <trans-unit id="67caafa13406f6a0d1e7efcb5971fe1a5b757219" resname="150 m²">
+        <source>150 m²</source>
+        <target>150 m²</target>
+      </trans-unit>
+      <trans-unit id="da4b9237bacccdf19c0760cab7aec4a8359010b0" resname="2">
+        <source>2</source>
+        <target>2</target>
+      </trans-unit>
+      <trans-unit id="0181efb414f4aac207bde4270046a73a7129d222" resname="2. Wyrażam zgodę na przetwarzanie moich danych osobowych przez Equal Properties Sp. z o.o. z siedzibą w Warszawie w celu udzielenia odpowiedzi na zapytanie przesłane za pomocą Formularza Kontaktowego, utworzenia profilu w serwisie internetowym www.gentholding.com oraz dalszego korzystania z funkcjonalności serwisu.">
+        <source>2. Wyrażam zgodę na przetwarzanie moich danych osobowych przez Equal Properties Sp. z o.o. z siedzibą w Warszawie w celu udzielenia odpowiedzi na zapytanie przesłane za pomocą Formularza Kontaktowego, utworzenia profilu w serwisie internetowym www.gentholding.com oraz dalszego korzystania z funkcjonalności serwisu.</source>
+        <target>2. Wyrażam zgodę na przetwarzanie moich danych osobowych przez Equal Properties Sp. z o.o. z siedzibą w Warszawie w celu udzielenia odpowiedzi na zapytanie przesłane za pomocą Formularza Kontaktowego, utworzenia profilu w serwisie internetowym www.gentholding.com oraz dalszego korzystania z funkcjonalności serwisu.</target>
+      </trans-unit>
+      <trans-unit id="91032ad7bbcb6cf72875e8e8207dcfba80173f7c" resname="20">
+        <source>20</source>
+        <target>20</target>
+      </trans-unit>
+      <trans-unit id="81525b0341d48da5b4cc85299d638b8699f06b5e" resname="20 m²">
+        <source>20 m²</source>
+        <target>20 m²</target>
+      </trans-unit>
+      <trans-unit id="9f9af029585ba014e07cd3910ca976cf56160616" resname="200">
+        <source>200</source>
+        <target>200</target>
+      </trans-unit>
+      <trans-unit id="89aac99d7aeabec60e0665c2fd7c33425fa25813" resname="200 m²">
+        <source>200 m²</source>
+        <target>200 m²</target>
+      </trans-unit>
+      <trans-unit id="d8cd7d68c3532d53f623ea1ad64c4d6608ee98ae" resname="200000">
+        <source>200000</source>
+        <target>200000</target>
+      </trans-unit>
+      <trans-unit id="4d134bc072212ace2df385dae143139da74ec0ef" resname="24">
+        <source>24</source>
+        <target>24</target>
+      </trans-unit>
+      <trans-unit id="77de68daecd823babbb58edb1c8e14d7106e83bb" resname="3">
+        <source>3</source>
+        <target>3</target>
+      </trans-unit>
+      <trans-unit id="c4d2a5d5f91b4cd8cd91a62a7de21e324c4f7e16" resname="3. Wyrażam zgodę na otrzymywanie od Equal Properties Sp. z o.o. z siedzibą w Warszawie za pomocą środków komunikacji elektronicznej oraz telekomunikacyjnych urządzeń końcowych informacji o charakterze marketingowym (w tym informacji handlowych) dotyczących Equal Properties Sp. z o.o. z siedzibą w Warszawie.">
+        <source>3. Wyrażam zgodę na otrzymywanie od Equal Properties Sp. z o.o. z siedzibą w Warszawie za pomocą środków komunikacji elektronicznej oraz telekomunikacyjnych urządzeń końcowych informacji o charakterze marketingowym (w tym informacji handlowych) dotyczących Equal Properties Sp. z o.o. z siedzibą w Warszawie.</source>
+        <target>3. Wyrażam zgodę na otrzymywanie od Equal Properties Sp. z o.o. z siedzibą w Warszawie za pomocą środków komunikacji elektronicznej oraz telekomunikacyjnych urządzeń końcowych informacji o charakterze marketingowym (w tym informacji handlowych) dotyczących Equal Properties Sp. z o.o. z siedzibą w Warszawie.</target>
+      </trans-unit>
+      <trans-unit id="22d200f8670dbdb3e253a90eee5098477c95c23d" resname="30">
+        <source>30</source>
+        <target>30</target>
+      </trans-unit>
+      <trans-unit id="f7125bd4f532d2c3b5012baf91ed99f610224a05" resname="30 m²">
+        <source>30 m²</source>
+        <target>30 m²</target>
+      </trans-unit>
+      <trans-unit id="e26973e6ee8ab9cd8cb3f207d1b90f00d2669eff" resname="300">
+        <source>300</source>
+        <target>300</target>
+      </trans-unit>
+      <trans-unit id="7586fdbab7c7f2c5efdf4cc743650b7201ec91f3" resname="300 m²">
+        <source>300 m²</source>
+        <target>300 m²</target>
+      </trans-unit>
+      <trans-unit id="f8682da29c68967737ec3020b31c14a6c60ab378" resname="300000">
+        <source>300000</source>
+        <target>300000</target>
+      </trans-unit>
+      <trans-unit id="fc074d501302eb2b93e2554793fcaf50b3bf7291" resname="36">
+        <source>36</source>
+        <target>36</target>
+      </trans-unit>
+      <trans-unit id="1b6453892473a467d07372d45eb05abc2031647a" resname="4">
+        <source>4</source>
+        <target>4</target>
+      </trans-unit>
+      <trans-unit id="330960d05394a3f917e9a0316fc91b836b7a4a4d" resname="4. Wyrażam zgodę na otrzymywanie od Equal Properties Sp. z o.o. z siedzibą w Warszawie za pomocą środków komunikacji elektronicznej oraz telekomunikacyjnych urządzeń końcowych informacji o charakterze marketingowym (w tym informacji handlowych) dotyczących podmiotów wchodzących w skład grupy kapitałowej Gent Holding Spółka Akcyjna z siedzibą w Warszawie.">
+        <source>4. Wyrażam zgodę na otrzymywanie od Equal Properties Sp. z o.o. z siedzibą w Warszawie za pomocą środków komunikacji elektronicznej oraz telekomunikacyjnych urządzeń końcowych informacji o charakterze marketingowym (w tym informacji handlowych) dotyczących podmiotów wchodzących w skład grupy kapitałowej Gent Holding Spółka Akcyjna z siedzibą w Warszawie.</source>
+        <target>4. Wyrażam zgodę na otrzymywanie od Equal Properties Sp. z o.o. z siedzibą w Warszawie za pomocą środków komunikacji elektronicznej oraz telekomunikacyjnych urządzeń końcowych informacji o charakterze marketingowym (w tym informacji handlowych) dotyczących podmiotów wchodzących w skład grupy kapitałowej Gent Holding Spółka Akcyjna z siedzibą w Warszawie.</target>
+      </trans-unit>
+      <trans-unit id="af3e133428b9e25c55bc59fe534248e6a0c0f17b" resname="40">
+        <source>40</source>
+        <target>40</target>
+      </trans-unit>
+      <trans-unit id="0e4ae1708618a72569ea05e89aa9c0153d5a6ec4" resname="40 m²">
+        <source>40 m²</source>
+        <target>40 m²</target>
+      </trans-unit>
+      <trans-unit id="0a35b8ee00b00cc9a2fb9180617432a1ccbae48a" resname="400000">
+        <source>400000</source>
+        <target>400000</target>
+      </trans-unit>
+      <trans-unit id="ac3478d69a3c81fa62e60f5c3696165a4e5e6ac4" resname="5">
+        <source>5</source>
+        <target>5</target>
+      </trans-unit>
+      <trans-unit id="f83a383c0fa81f295d057f8f5ed0ba4610947817" resname="500">
+        <source>500</source>
+        <target>500</target>
+      </trans-unit>
+      <trans-unit id="98ea1c9d6f529fa537cd3acd8f2e7ba03c6b6028" resname="500 m²">
+        <source>500 m²</source>
+        <target>500 m²</target>
+      </trans-unit>
+      <trans-unit id="15f8d1d1c67d9ad6e4ca5ec313bbae3bc9983e59" resname="500000">
+        <source>500000</source>
+        <target>500000</target>
+      </trans-unit>
+      <trans-unit id="e6c3dd630428fd54834172b8fd2735fed9416da4" resname="60">
+        <source>60</source>
+        <target>60</target>
+      </trans-unit>
+      <trans-unit id="130573b0a935ead77d977e8cd866efa56c48749d" resname="60 m²">
+        <source>60 m²</source>
+        <target>60 m²</target>
+      </trans-unit>
+      <trans-unit id="fe5dbbcea5ce7e2988b8c69bcfdfde8904aabc1f" resname="8">
+        <source>8</source>
+        <target>8</target>
+      </trans-unit>
+      <trans-unit id="b888b29826bb53dc531437e723738383d8339b56" resname="80">
+        <source>80</source>
+        <target>80</target>
+      </trans-unit>
+      <trans-unit id="364fbca7f011d6175991b3be79544ae6315d35ee" resname="80 m²">
+        <source>80 m²</source>
+        <target>80 m²</target>
+      </trans-unit>
+      <trans-unit id="748c6f551f1b2915a8b4172f90e4c958cc8882d1" resname="800000">
+        <source>800000</source>
+        <target>800000</target>
+      </trans-unit>
+      <trans-unit id="97c89a4d6630adeb18fa12ba9976a31413fe293e" resname="Action">
+        <source>Action</source>
+        <target>Akcja</target>
+      </trans-unit>
+      <trans-unit id="c21707bcb95f9bc57d4af6c419c1bc1b35588095" resname="Additional conditions">
+        <source>Additional conditions</source>
+        <target>Dodatkowe kryteria</target>
+      </trans-unit>
+      <trans-unit id="7060be9c1d201283c1c6e31f70ee20c03f62c869" resname="Additional rooms">
+        <source>Additional rooms</source>
+        <target>Dodatkowe pomieszczenia</target>
+      </trans-unit>
+      <trans-unit id="21e094f79c5bc9430d692a1cbc475bfaf2c13c95" resname="Adres E-mail">
+        <source>Adres E-mail</source>
+        <target>Adres E-mail</target>
+      </trans-unit>
+      <trans-unit id="33f6094aae7bd4374de03c6f440b62c200e635b1" resname="An error occured during #%import% processing!">
+        <source>An error occured during #%import% processing!</source>
+        <target>An error occured during #%import% processing!</target>
+      </trans-unit>
+      <trans-unit id="19b97f60cb35a7c21de736ab9325672e2b030f1a" resname="Are you interested in our offer?">
+        <source>Are you interested in our offer?</source>
+        <target>Zainteresowała Cię nasza oferta?</target>
+      </trans-unit>
+      <trans-unit id="2745debaa64a20eedb49d9f14a0b807c87aa2d2a" resname="Area">
+        <source>Area</source>
+        <target>Powierzchnia</target>
+      </trans-unit>
+      <trans-unit id="98820e661c0bf2eb82dc3c028ba5d6ee6e7180ef" resname="Area (m2)">
+        <source>Area (m2)</source>
+        <target>Powierzchnia (m2)</target>
+      </trans-unit>
+      <trans-unit id="38a6c9c68364ac15c0b685143b96d9407fbfaadf" resname="Area ASC">
+        <source>Area ASC</source>
+        <target>Powierzchnia rosnąco</target>
+      </trans-unit>
+      <trans-unit id="17325007184e92a1ba4c9c239607a6847fdfbe4e" resname="Area DESC">
+        <source>Area DESC</source>
+        <target>Powierzchnia malejąco</target>
+      </trans-unit>
+      <trans-unit id="d00c2e68c3100b711d3358739cc6ab3952ac757d" resname="Assigned To">
+        <source>Assigned To</source>
+        <target>Przydzielony do</target>
+      </trans-unit>
+      <trans-unit id="08aa2ab87a26e10589df4b576f8b6387de5eb7c4" resname="Available date">
+        <source>Available date</source>
+        <target>Dostępny od</target>
+      </trans-unit>
+      <trans-unit id="e542160526d605a16bfa4de18c5f4f48d32b16af" resname="Balcony">
+        <source>Balcony</source>
+        <target>Balkon</target>
+      </trans-unit>
+      <trans-unit id="e5e194d20f83f9bed9d94b9b7f3fdc5ec29479d0" resname="Basement">
+        <source>Basement</source>
+        <target>Piwnica</target>
+      </trans-unit>
+      <trans-unit id="9d914bfcf1c5bc9e6b83d3232349cae23d392f30" resname="Building">
+        <source>Building</source>
+        <target>Budynek</target>
+      </trans-unit>
+      <trans-unit id="62dc5274e31aee6cfdddf22ead3c4a1c4cf3d924" resname="Building adapted">
+        <source>Building adapted</source>
+        <target>Przystosowany dla os. niepełnosprawnych</target>
+      </trans-unit>
+      <trans-unit id="680dc5c075757a84360b31bc28c11a4504655f6d" resname="Building type">
+        <source>Building type</source>
+        <target>Typ budynku</target>
+      </trans-unit>
+      <trans-unit id="90c586c0127ab0813d9f90287b6c9ce8d41b72e7" resname="Building year">
+        <source>Building year</source>
+        <target>Rok budowy</target>
+      </trans-unit>
+      <trans-unit id="412226715c56d3a8f898070fe9b9de9fe723ed09" resname="Clear filters">
+        <source>Clear filters</source>
+        <target>Wyczyść filtry</target>
+      </trans-unit>
+      <trans-unit id="1798b3ba42ee08ea09d9720b2d9c0181abbfe3e4" resname="Completed">
+        <source>Completed</source>
+        <target>Completed</target>
+      </trans-unit>
+      <trans-unit id="0fa7c67077e0cd5394ca0ec1b225ae48ef329760" resname="Contact us now!">
+        <source>Contact us now!</source>
+        <target>Skontaktuj się z nami!</target>
+      </trans-unit>
+      <trans-unit id="5db1542e683b0540dc5a4544657851d8020c91d9" resname="Created At">
+        <source>Created At</source>
+        <target>Data utworzenia</target>
+      </trans-unit>
+      <trans-unit id="43de2bcd633716d1b26806c650d486c42d005e8a" resname="Created By">
+        <source>Created By</source>
+        <target>Utworzony przez</target>
+      </trans-unit>
+      <trans-unit id="55f8ebc805e65b5b71ddafdae390e3be2bcd69af" resname="Description">
+        <source>Description</source>
+        <target>Opis</target>
+      </trans-unit>
+      <trans-unit id="af75464d1f3dc963edce2a1f2583345b28e61f42" resname="Elevator">
+        <source>Elevator</source>
+        <target>Winda</target>
+      </trans-unit>
+      <trans-unit id="4c83e89f5d28ecd8f11e6987716ef5aeec9d4748" resname="Enter city, percinct, street...">
+        <source>Enter city, percinct, street...</source>
+        <target>Wpisz miasto, dzielnicę, ulicę...</target>
+      </trans-unit>
+      <trans-unit id="7f2f6a15cf8da2b27e5a4af47b58e7ad71c0b3d9" resname="Error">
+        <source>Error</source>
+        <target>Error</target>
+      </trans-unit>
+      <trans-unit id="7db82f74092fc3160e6bc0d9e9bd4849c5c06c0f" resname="Floor">
+        <source>Floor</source>
+        <target>Piętro</target>
+      </trans-unit>
+      <trans-unit id="d4a68b508d31a277141f9e5d91273888f0ed8d0a" resname="Floors number">
+        <source>Floors number</source>
+        <target>Ilość pięter</target>
+      </trans-unit>
+      <trans-unit id="bbba84135de6b052c2210e74e0cc5b2a9d359ddb" resname="Found">
+        <source>Found</source>
+        <target>Znaleziono</target>
+      </trans-unit>
+      <trans-unit id="d1d3848eb84c1ab5518c0d14799e6fa933568e1a" resname="Found &lt;strong&gt;%count% offers&lt;/strong&gt; meeting the criteria">
+        <source><![CDATA[Found <strong>%count% offers</strong> meeting the criteria]]></source>
+        <target><![CDATA[{1} Znaleziono <strong>%count% ofertę</strong> spełniającą kryteria|{2} Znaleziono <strong>%count% oferty</strong> spełniające kryteria|{3} Znaleziono <strong>%count% ofert</strong> spełniających kryteria]]></target>
+      </trans-unit>
+      <trans-unit id="3f66052a107eaf9bae7cad0f61fb462f47ec2c47" resname="From">
+        <source>From</source>
+        <target>Od</target>
+      </trans-unit>
+      <trans-unit id="2d2047d0d13dc77265007c99e719bd7bfbc6024f" resname="Garages number">
+        <source>Garages number</source>
+        <target>Ilość garaży</target>
+      </trans-unit>
+      <trans-unit id="714d913bba16d0006726051af578536765b39b0e" resname="Garden">
+        <source>Garden</source>
+        <target>Ogród</target>
+      </trans-unit>
+      <trans-unit id="54454d4b5e12c3c48c9fe95e3b25e9447380f04d" resname="Has balcony">
+        <source>Has balcony</source>
+        <target>Taras / Balkon</target>
+      </trans-unit>
+      <trans-unit id="473c84d32f59c6b1625477d7dd544ec2d70ff522" resname="Has basement">
+        <source>Has basement</source>
+        <target>Basen</target>
+      </trans-unit>
+      <trans-unit id="454e9a1668c80dac868be903b15189b53ab9104e" resname="Has elevator">
+        <source>Has elevator</source>
+        <target>Winda</target>
+      </trans-unit>
+      <trans-unit id="a4ceb1cd85aba8e589aa82195b74ff8dc76b0225" resname="Has garage">
+        <source>Has garage</source>
+        <target>Garaż</target>
+      </trans-unit>
+      <trans-unit id="d335b2d998d1ba6b8829d8be2ca5c8de7d56a66d" resname="Has garden">
+        <source>Has garden</source>
+        <target>Ogród</target>
+      </trans-unit>
+      <trans-unit id="0fba6cd8ab70316e5e48c8e9fc4ab557d5646850" resname="Hide advanced options">
+        <source>Hide advanced options</source>
+        <target>Ukryj opcje zaawansowane</target>
+      </trans-unit>
+      <trans-unit id="474ae52625b87d7628ae7b20a499329a99e07119" resname="Id">
+        <source>Id</source>
+        <target>ID</target>
+      </trans-unit>
+      <trans-unit id="6af098ade5067433595202cd59ca482e3f6152ef" resname="Imię i nazwisko">
+        <source>Imię i nazwisko</source>
+        <target>Imię i nazwisko</target>
+      </trans-unit>
+      <trans-unit id="d6fbc9d2bdd580e18ed0bc5805dc26db323d6f5f" resname="Import">
+        <source>Import</source>
+        <target>Import</target>
+      </trans-unit>
+      <trans-unit id="c8ceced36c75f9519077101e0fc8620f3b0d8f5b" resname="Import #%import% has been successfully done!">
+        <source>Import #%import% has been successfully done!</source>
+        <target>Import #%import% has been successfully done!</target>
+      </trans-unit>
+      <trans-unit id="173df362ccf8f715707626edaef2378e01129f82" resname="Import File">
+        <source>Import File</source>
+        <target>Plik importu</target>
+      </trans-unit>
+      <trans-unit id="decd7ca8001063374c7a24698a6adbc6c4552498" resname="Latest">
+        <source>Latest</source>
+        <target>Najnowsze</target>
+      </trans-unit>
+      <trans-unit id="fe7b0703b0d5298e3534d7bc442879693175fa69" resname="Local status">
+        <source>Local status</source>
+        <target>Status lokalu</target>
+      </trans-unit>
+      <trans-unit id="b9fc941160f1b0396956bfd39853ec712bd8d1fb" resname="Localization">
+        <source>Localization</source>
+        <target>Lokalizacja</target>
+      </trans-unit>
+      <trans-unit id="cbac792eed148821f291f7a65d69c0c4d6c5e7e8" resname="Offer Import Batch">
+        <source>Offer Import Batch</source>
+        <target>Akcja grupowa</target>
+      </trans-unit>
+      <trans-unit id="c512be12b07a746ff584c33c533b0ac582da747c" resname="Offer Import Create">
+        <source>Offer Import Create</source>
+        <target>Nowy import</target>
+      </trans-unit>
+      <trans-unit id="0b6dcd3f0b69371fd814135d8b2967a76e9a95f3" resname="Offer Import Delete">
+        <source>Offer Import Delete</source>
+        <target>Usuń</target>
+      </trans-unit>
+      <trans-unit id="4b86b1318f8a258a82f9ae8ee881e94bb42a5421" resname="Offer Import Edit">
+        <source>Offer Import Edit</source>
+        <target>Edycja</target>
+      </trans-unit>
+      <trans-unit id="ba6594c661b5de792e5c26cbcd4f7473d2469c32" resname="Offer Import List">
+        <source>Offer Import List</source>
+        <target>Lista</target>
+      </trans-unit>
+      <trans-unit id="5d51226a0c200451e8dda9194b56aeb77a22a9c5" resname="Offer Import Update">
+        <source>Offer Import Update</source>
+        <target>Aktualizacja</target>
+      </trans-unit>
+      <trans-unit id="c16841166740199ce4cfc67555521c3fc4aea2b1" resname="Offer keeper">
+        <source>Offer keeper</source>
+        <target>Opiekun oferty</target>
+      </trans-unit>
+      <trans-unit id="99e64c74079836f6670bc0a0cbf6cf3a89743f23" resname="Offer number: %number%">
+        <source>Offer number: %number%</source>
+        <target>Nr oferty: %number%</target>
+      </trans-unit>
+      <trans-unit id="cd31d6f2da1e203ec617eaa3ad6a14908ebdf4e3" resname="Offer updated">
+        <source>Offer updated</source>
+        <target>Oferta aktualizowana</target>
+      </trans-unit>
+      <trans-unit id="0f7059395a1a881b9a37dbb78805dcf942f935de" resname="Offers Count">
+        <source>Offers Count</source>
+        <target>Ilość ofert</target>
+      </trans-unit>
+      <trans-unit id="c47bb88fdba7f64b65e09ff995dd260647b5a5fc" resname="Oldest">
+        <source>Oldest</source>
+        <target>Najstarsze</target>
+      </trans-unit>
+      <trans-unit id="3e90e4cbf473c8616cbbe4251b1f383e68383959" resname="Ownership">
+        <source>Ownership</source>
+        <target>Prawo własności</target>
+      </trans-unit>
+      <trans-unit id="aef05c2870c00c67f7950081ae9498d529611030" resname="Parking">
+        <source>Parking</source>
+        <target>Parking</target>
+      </trans-unit>
+      <trans-unit id="e9a13832f76f2848b6ae328a887697cac56d9cb3" resname="Per page">
+        <source>Per page</source>
+        <target>Widok</target>
+      </trans-unit>
+      <trans-unit id="ae2f98a099fe5855c31126233e9c13641ee7fdba" resname="Plan">
+        <source>Plan</source>
+        <target>Plan</target>
+      </trans-unit>
+      <trans-unit id="d8300f3c2401678bebacf04b5fad27a655aaaafc" resname="Potwierdź, że nie jesteś robotem">
+        <source>Potwierdź, że nie jesteś robotem</source>
+        <target>Potwierdź, że nie jesteś robotem</target>
+      </trans-unit>
+      <trans-unit id="50f94286ba30706a19070d3ec0a0c8d34d6cf6eb" resname="Previous">
+        <source>Previous</source>
+        <target>Poprzednie</target>
+      </trans-unit>
+      <trans-unit id="933afc4de03a2cb6a9c06884171c0ab55cf4d1e9" resname="Price (PLN)">
+        <source>Price (PLN)</source>
+        <target>Cena (PLN)</target>
+      </trans-unit>
+      <trans-unit id="351e1d4e47044f141c374618bcd2c0bea80001f0" resname="Price ASC">
+        <source>Price ASC</source>
+        <target>Cena rosnąco</target>
+      </trans-unit>
+      <trans-unit id="c6680466e43334a6f1d0c04293e1608f5f77ff13" resname="Price DESC">
+        <source>Price DESC</source>
+        <target>Cena malejąco</target>
+      </trans-unit>
+      <trans-unit id="e63451d3cf90040c075dc1fe95aa1f7d7528c37f" resname="Processing">
+        <source>Processing</source>
+        <target>Processing</target>
+      </trans-unit>
+      <trans-unit id="3a28d6f078fd35a505195a0f8ec6f59e9801d7c2" resname="Rooms">
+        <source>Rooms</source>
+        <target>Pokoje</target>
+      </trans-unit>
+      <trans-unit id="bfb49b3153ce6b8339eeee436e22ed27624e3486" resname="Rooms number">
+        <source>Rooms number</source>
+        <target>Ilość pokoi</target>
+      </trans-unit>
+      <trans-unit id="bce06414177f72ab70e6387b6af9f8ceef0d6049" resname="Search">
+        <source>Search</source>
+        <target>Szukaj</target>
+      </trans-unit>
+      <trans-unit id="9bc2575c3930437e80555f78757b783c842e8e66" resname="Send">
+        <source>Send</source>
+        <target>Wyślij</target>
+      </trans-unit>
+      <trans-unit id="d97d1ee339e4eeaba8cac91dca37c8b4ec8f5501" resname="Show">
+        <source>Show</source>
+        <target>Pokaż</target>
+      </trans-unit>
+      <trans-unit id="6cb0115b3b8e6dba2181209f16b9ce918a215cbc" resname="Show advanced options">
+        <source>Show advanced options</source>
+        <target>Pokaż opcje zaawansowane</target>
+      </trans-unit>
+      <trans-unit id="5368ed8daa3fef7425678bcb7ef4f7f5d9afbd96" resname="Similar offers">
+        <source>Similar offers</source>
+        <target>Podobne oferty</target>
+      </trans-unit>
+      <trans-unit id="a2a5bdeca9391be1e0cdff1c19895bae7fadc2c2" resname="Sort by">
+        <source>Sort by</source>
+        <target>Sortuj</target>
+      </trans-unit>
+      <trans-unit id="bae7d5be70820ed56467bd9a63744e23b47bd711" resname="Status">
+        <source>Status</source>
+        <target>Status</target>
+      </trans-unit>
+      <trans-unit id="9e092dda4f0e27d0c7686ddd00272079e678b6e6" resname="Storage">
+        <source>Storage</source>
+        <target>Dodatkowy schowek</target>
+      </trans-unit>
+      <trans-unit id="b454109993438542163d132d897313eee1b480fa" resname="Street">
+        <source>Street</source>
+        <target>Ulica</target>
+      </trans-unit>
+      <trans-unit id="d018b082e8a372d9b860417e823c645114337927" resname="Technology">
+        <source>Technology</source>
+        <target>Technologia</target>
+      </trans-unit>
+      <trans-unit id="40314f882822f7fccd78a36ac4c977000e334136" resname="Telefon">
+        <source>Telefon</source>
+        <target>Telefon</target>
+      </trans-unit>
+      <trans-unit id="5594de39c4b9de5485b6d6eec1464805039d4f72" resname="Temat">
+        <source>Temat</source>
+        <target>Temat</target>
+      </trans-unit>
+      <trans-unit id="ae79ea1e9c6391a9ed83a2e18a031b835feec0c9" resname="To">
+        <source>To</source>
+        <target>Do</target>
+      </trans-unit>
+      <trans-unit id="39ea28c6b3300a8273c2b6b0d2b7c02a38a07cf7" resname="To mieszkanie na sprzedaż (ID %offerNumber%) wydaje mi się interesujące. Chętnie poznam więcej szczegółów przed umówieniem wizyty. Pozdrawiam.">
+        <source>To mieszkanie na sprzedaż (ID %offerNumber%) wydaje mi się interesujące. Chętnie poznam więcej szczegółów przed umówieniem wizyty. Pozdrawiam.</source>
+        <target>To mieszkanie na sprzedaż (ID %offerNumber%) wydaje mi się interesujące. Chętnie poznam więcej szczegółów przed umówieniem wizyty. Pozdrawiam.</target>
+      </trans-unit>
+      <trans-unit id="c544b98a19b50b9eff07addabe54b552ca50cdd6" resname="To search results">
+        <source>To search results</source>
+        <target>Do wyników wyszukiwania</target>
+      </trans-unit>
+      <trans-unit id="575da7191fda08ddeaa70c4c70bbf53512a2ca4e" resname="Transaction type">
+        <source>Transaction type</source>
+        <target>Typ transakcji</target>
+      </trans-unit>
+      <trans-unit id="22714274a44dd11e75f243d16cb61d47837a91ed" resname="Updated At">
+        <source>Updated At</source>
+        <target>Data aktualizacji</target>
+      </trans-unit>
+      <trans-unit id="c3161f9e712f33dbf00656572dfcdba14f26ece4" resname="Wiadomość">
+        <source>Wiadomość</source>
+        <target>Wiadomość</target>
+      </trans-unit>
+      <trans-unit id="72d1e22860867e41b0f9fff8ab6a19481a0f3249" resname="Wybierz temat">
+        <source>Wybierz temat</source>
+        <target>Wybierz temat</target>
+      </trans-unit>
+      <trans-unit id="05cfbb6a3b1309ff5ac4107c295e3c83e675e796" resname="Year of building">
+        <source>Year of building</source>
+        <target>Rok budowy</target>
+      </trans-unit>
+      <trans-unit id="61bb8d29b5be7db307cb29005bff087ebe300454" resname="back">
+        <source>back</source>
+        <target>powrót</target>
+      </trans-unit>
+      <trans-unit id="8fac07dc43ec89aec16eb972b07326295d5d3b24" resname="form.label_cache_policy">
+        <source>form.label_cache_policy</source>
+        <target>form.label_cache_policy</target>
+      </trans-unit>
+      <trans-unit id="f986bb9f0c4044e5b8e660f3050e09709c4ed797" resname="form.label_children_class">
+        <source>form.label_children_class</source>
+        <target>form.label_children_class</target>
+      </trans-unit>
+      <trans-unit id="f4580b955a3e7dc0ca3dbf80beb13a1846b65727" resname="form.label_current_class">
+        <source>form.label_current_class</source>
+        <target>form.label_current_class</target>
+      </trans-unit>
+      <trans-unit id="a518fc7468bc011e9f81628ecf8d7c3dbf6b8c85" resname="form.label_first_class">
+        <source>form.label_first_class</source>
+        <target>form.label_first_class</target>
+      </trans-unit>
+      <trans-unit id="2ae5d1cb047aff879f24e7b0004451e5d3eaf0e1" resname="form.label_last_class">
+        <source>form.label_last_class</source>
+        <target>form.label_last_class</target>
+      </trans-unit>
+      <trans-unit id="857cfad4b60272baf9bf0451fe198bca0229b91d" resname="form.label_menu_class">
+        <source>form.label_menu_class</source>
+        <target>form.label_menu_class</target>
+      </trans-unit>
+      <trans-unit id="1805bc4923627700629b1f23f58b726922a1524d" resname="form.label_menu_template">
+        <source>form.label_menu_template</source>
+        <target>form.label_menu_template</target>
+      </trans-unit>
+      <trans-unit id="9be3912088df0fecd841d0dfa2aa1e6f87ca3128" resname="form.label_safe_labels">
+        <source>form.label_safe_labels</source>
+        <target>form.label_safe_labels</target>
+      </trans-unit>
+      <trans-unit id="d2163d032c7f47621b8e5901b37b95a1bbd0a16c" resname="form.label_title">
+        <source>form.label_title</source>
+        <target>form.label_title</target>
+      </trans-unit>
+      <trans-unit id="3c9678ffd9ec40b353777b23f0418bb7fc3c1123" resname="form.label_url">
+        <source>form.label_url</source>
+        <target>form.label_url</target>
+      </trans-unit>
+      <trans-unit id="210f8b7cbd19367b2ca1332f3cd00b7a06f7e0a0" resname="form.new_password">
+        <source>form.new_password</source>
+        <target>form.new_password</target>
+      </trans-unit>
+      <trans-unit id="9c550aa2c68f9be72e8c34c90d6c359178ab9a25" resname="form.new_password_confirmation">
+        <source>form.new_password_confirmation</source>
+        <target>form.new_password_confirmation</target>
+      </trans-unit>
+      <trans-unit id="0b1e95cfd9775191a7224d0a218ae79187e80c1d" resname="from">
+        <source>from</source>
+        <target>od</target>
+      </trans-unit>
+      <trans-unit id="408a0a8b042346eb128a7fc4dc0af1dff44f8002" resname="meeting the criteria">
+        <source>meeting the criteria</source>
+        <target>spełniające kryteria</target>
+      </trans-unit>
+      <trans-unit id="edee9402d198b04ac77dcf5dc9cc3dac44573782" resname="next">
+        <source>next</source>
+        <target>następne</target>
+      </trans-unit>
+      <trans-unit id="fd1286353570c5703799ba76999323b7c7447b06" resname="no">
+        <source>no</source>
+        <target>nie</target>
+      </trans-unit>
+      <trans-unit id="e1fef069219678118a09577ba97a5dac1dd6b190" resname="offers">
+        <source>offers</source>
+        <target>oferty</target>
+      </trans-unit>
+      <trans-unit id="ff9f2d5c9eda0ce81b15a2ee05f0bd749cd5ba91" resname="rooms">
+        <source>rooms</source>
+        <target>pokoje</target>
+      </trans-unit>
+      <trans-unit id="ad202f36b87c4f91e5fd4953816ead174f16adc6" resname="sidemenu.link_edit_post">
+        <source>sidemenu.link_edit_post</source>
+        <target>sidemenu.link_edit_post</target>
+      </trans-unit>
+      <trans-unit id="a0814ac987b5a52b1fb08710bc6efa82f770e933" resname="sidemenu.link_view_comments">
+        <source>sidemenu.link_view_comments</source>
+        <target>sidemenu.link_view_comments</target>
+      </trans-unit>
+      <trans-unit id="9b02d9974c14e623c9ffbed7360beacbf0dcb95f" resname="st">
+        <source>st</source>
+        <target>ul.</target>
+      </trans-unit>
+      <trans-unit id="4574a5fe7440349128ebfa05f339b7a8ea17600f" resname="updated %date%">
+        <source>updated %date%</source>
+        <target>zaktualizowana %date%</target>
+      </trans-unit>
+      <trans-unit id="fb360f9c09ac8c5edb2f18be5de4e80ea4c430d0" resname="yes">
+        <source>yes</source>
+        <target>tak</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

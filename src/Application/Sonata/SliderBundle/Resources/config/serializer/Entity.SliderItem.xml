@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<serializer>
+    <class name="Application\Sonata\SliderBundle\Entity\SliderItem" exclusion-policy="all" xml-root-name="slider_item">
+        <property name="title" type="string" expose="true" since-version="1.0" groups="sonata_api_read,sonata_search"/>
+        <property name="url" type="string" expose="true" since-version="1.0" groups="sonata_api_read,sonata_search"/>
+        <property name="lead" type="string" expose="true" since-version="1.0" groups="sonata_api_read,sonata_search"/>
+        <property name="position" type="integer" expose="true" since-version="1.0" groups="sonata_api_read,sonata_search"/>
+        <!--<property name="image" serialized-name="media_id" type="sonata_media_media_id" expose="true" since-version="1.0" groups="sonata_api_read,sonata_api_write,sonata_search"/>-->
+        <property name="image" expose="true" since-version="1.0" groups="sonata_api_read,sonata_search">
+            <type><![CDATA[Application\Sonata\MediaBundle\Entity\Media]]></type>
+        </property>
+        <property name="enabled" type="boolean" expose="true" since-version="1.0" groups="sonata_api_read,sonata_search"/>
+        <property name="createdAt" type="DateTime" expose="true" since-version="1.0" groups="sonata_api_read,sonata_search"/>
+        <property name="updatedAt" type="DateTime" expose="true" since-version="1.0" groups="sonata_api_read,sonata_search"/>
+    </class>
+</serializer>

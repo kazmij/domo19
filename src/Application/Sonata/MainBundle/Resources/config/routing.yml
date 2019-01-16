@@ -1,0 +1,12 @@
+_application_sonata_main_career:
+  path: /aplikuj
+  defaults: { _controller: ApplicationSonataMainBundle:Default:career }
+
+_application_sonata_main_flash:
+  path: /messages
+  defaults: { _controller: ApplicationSonataMainBundle:Default:flash }
+
+_application_sonata_main_contact:
+  path: /contact
+  defaults: { _controller: ApplicationSonataMainBundle:Default:contact }
+

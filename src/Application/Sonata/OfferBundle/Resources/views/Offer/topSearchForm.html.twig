@@ -1,0 +1,48 @@
+{% form_theme form 'Form/themeTopSearch.html.twig' %}
+
+{{ form_start(form, { attr: {class: isHome() ? '' : 'on-page', id: 'search-box'}} ) }}
+<div class="form-item-holder form-item-holder-name">
+    {{ form_label(form.name) }}
+    {{ form_widget(form.name) }}
+</div>
+<div class="form-item-holder form-item-holder-surface">
+    <label>Powierzchnia użytkowa:</label>
+    <div class="inputs-group">
+        {{ form_widget(form.usableAreaFrom, {attr: {customId: 'search-box-surface-from'}}) }} - {{ form_widget(form.usableAreaTo, {attr: {customId: 'search-box-surface-to'}}) }}
+        m<sup>2</sup>
+    </div>
+</div>
+<div class="form-item-holder form-item-holder-size">
+    <label>Wymiary działki:</label>
+    <div class="inputs-group">
+        {{ form_widget(form.areaFrom, {attr: {customId: 'search-box-length'}}) }} x {{ form_widget(form.areaTo, {attr: {customId: 'search-box-width'}}) }} m
+    </div>
+</div>
+<div class="form-item-holder form-item-holder-basement">
+    <div class="checkbox-holder">
+        {{ form_widget(form.additionalBasement) }}
+    </div>
+</div>
+<div class="form-item-holder form-item-holder-garage form-item-holder-transparent">
+    {{ form_widget(form.additionalGarage) }}
+</div>
+<div class="form-item-holder form-item-holder-storey form-item-holder-transparent">
+    {{ form_widget(form.floor) }}
+</div>
+<div class="form-item-holder form-item-holder-angle form-item-holder-transparent">
+    {{ form_label(form.angleOfInclination) }}
+    {{ form_widget(form.angleOfInclination, {attr: {customId: 'range'}}) }}
+</div>
+{{ form_rest(form) }}
+<div class="buttons-holder">
+    <a href="{{ path('application_sonata_offer_list') }}"
+       class="button button-big button-with-svg-icon button-filled button-filled-gray">
+        {% include ':svg:buttonFilledGray.html.twig' %}
+        Więcej opcji</a>
+    <button type="submit"
+            class="button button-big button-with-svg-icon button-filled button-filled-yellow">
+        {% include ':svg:headerSubmitIcon.html.twig' %}
+        Znajdź projekt
+    </button>
+</div>
+{{ form_end(form) }}

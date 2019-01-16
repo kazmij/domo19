@@ -1,0 +1,15 @@
+application_sonata_offer_list:
+  path: /{slug}
+  defaults: { _controller: ApplicationSonataOfferBundle:Offer:list, slug: lista }
+
+application_sonata_offer_view:
+  path: /{id}/szczegoly
+  defaults: { _controller: ApplicationSonataOfferBundle:Offer:view }
+
+application_sonata_offer_precincts:
+  path: /precincts
+  defaults: { _controller: ApplicationSonataOfferBundle:Offer:precinct }
+
+application_sonata_offer_category_view:
+  path: /
+  defaults: { _controller: ApplicationSonataOfferBundle:OfferCategory:view }

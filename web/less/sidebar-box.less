@@ -1,0 +1,92 @@
+.sidebar-box {
+  background-color: #fff;
+  box-shadow: 0 0 60px 0px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+  margin-bottom: 30px;
+  header {
+    background-color: #060b14;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 60px;
+    h2 {
+      margin: 0;
+      padding: 0;
+      text-decoration: none;
+      text-transform: uppercase;
+      font-size: 15px;
+    }
+  }
+  .sidebar-box-content {
+    .striped {
+      margin: 5px 15px;
+    }
+    @media screen and (max-width: 767px) {
+    display: none;
+      &.expand {
+        display: block;
+      }
+    }
+  }
+  &.sidebar-box-order {
+    header {
+      display: block;
+      background-color: transparent;
+      height: auto;
+      margin-bottom: 20px;
+      .price {
+        color: #3da96b;
+        font-size: 36px;
+        text-align: center;
+        font-weight: 600;
+        margin-top: 30px;
+        margin-bottom: 15px;
+        .old-price {
+          text-decoration: line-through;
+          font-size: 18px;
+          color: #7c889d;
+          text-align: center;
+          display: block;
+          font-weight: 400;
+          margin-bottom: 15px;
+        }
+      }
+      p {
+        margin: 0;
+        padding: 0;
+        text-align: center;
+        font-size: 11px;
+        font-weight: 300;
+        color: #95959e;
+      }
+    }
+    .buttons-holder {
+      padding: 0 15px 15px 15px;
+      .button {
+        width: 100%;
+        text-align: center;
+      }
+    }
+    .about-send {
+      text-align: center;
+      font-size: 12px;
+      color: #060b14;
+      margin-bottom: 15px;
+      span {
+        color: #95959e;
+        font-size: 11px;
+        font-weight: 300;
+        display: block;
+        margin-bottom: 10px;
+      }
+      a {
+        color: #060b14;
+        &:hover {
+          text-decoration: none;
+          color: #fdc630;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,120 @@
+#projects-categories {
+  .projects-categories-list {
+    margin-bottom: 30px;
+    list-style: none;
+    padding: 0;
+    .projects-categories-list-item {
+      margin-bottom: 30px;
+      @media screen and (max-width: 767px) {
+      margin-bottom: 15px;
+      }
+      a {
+        position: relative;
+        display: block;
+        width: 100%;
+        background-size: cover;
+        background-position: center;
+        &:before {
+          content: '';
+          display: block;
+          padding-top: 100%;
+          @media screen and (max-width: 767px) {
+            padding-top: 50%;
+          }
+          background-color: rgba(0,0,0,0.5);
+        }
+        span {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          color: #fff;
+          font-size: 20px;
+          text-transform: uppercase;
+          text-align: center;
+        }
+        &:hover {
+          &:before {
+            background-color: fadeOut(#fdc630, 10%);
+          }
+        }
+      }
+      &.project-categories-list-item-w-promocji {
+        a {
+          background-image: url(/img/products-categories/thumb-w-promocji.png);
+        }
+      }
+      &.project-categories-list-item-parterowe {
+        a {
+          background-image: url(/img/products-categories/thumb-parterowe.png);
+        }
+      }
+      &.project-categories-list-item-z-poddaszem {
+        a {
+          background-image: url(/img/products-categories/thumb-z-poddaszem.png);
+        }
+      }
+      &.project-categories-list-item-pietrowe {
+        a {
+          background-image: url(/img/products-categories/thumb-pietrowe.png);
+        }
+      }
+      &.project-categories-list-item-male {
+        a {
+          background-image: url(/img/products-categories/thumb-male.png);
+        }
+      }
+      &.project-categories-list-item-srednie {
+        a {
+          background-image: url(/img/products-categories/thumb-srednie.png);
+        }
+      }
+      &.project-categories-list-item-wille {
+        a {
+          background-image: url(/img/products-categories/thumb-wille.png);
+        }
+      }
+      &.project-categories-list-item-tradycyjne {
+        a {
+          background-image: url(/img/products-categories/thumb-tradycyjne.png);
+        }
+      }
+      &.project-categories-list-item-nowoczesne {
+        a {
+          background-image: url(/img/products-categories/thumb-nowoczesne.png);
+        }
+      }
+      &.project-categories-list-item-drewniane {
+        a {
+          background-image: url(/img/products-categories/thumb-drewniane.png);
+        }
+      }
+      &.project-categories-list-item-zabudowa-blizniacza {
+        a {
+          background-image: url(/img/products-categories/thumb-zabudowa-blizniacza.png);
+        }
+      }
+      &.project-categories-list-item-tanie-w-budowie {
+        a {
+          background-image: url(/img/products-categories/thumb-tanie-w-budowie.png);
+        }
+      }
+      &.project-categories-list-item-na-waska-dzialke {
+        a {
+          background-image: url(/img/products-categories/thumb-na-waska-dzialke.png);
+        }
+      }
+      &.project-categories-list-item-garaze {
+        a {
+          background-image: url(/img/products-categories/thumb-garaze.png);
+        }
+      }
+      &.project-categories-list-item-reklama {
+      }
+    }
+  } 
+}

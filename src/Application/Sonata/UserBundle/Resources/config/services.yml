@@ -1,0 +1,32 @@
+services:
+      application_sonata_user.custom_twig_extension:
+          class: Application\Sonata\UserBundle\Twig\Extension
+          public: true
+          arguments: ["@service_container"]
+          tags:
+              - { name: twig.extension }
+
+      application_sonata_user.admin.consultant:
+          class: Application\Sonata\UserBundle\Admin\Entity\ConsultantAdmin
+          arguments: [~, Application\Sonata\UserBundle\Entity\User, ApplicationSonataUserBundle:ConsultantAdmin]
+          calls:
+            - [ setUserManager, [ "@fos_user.user_manager" ] ]
+            - [ setTranslationDomain, ['%sonata.user.admin.user.translation_domain%'] ]
+          tags:
+              - { name: sonata.admin, manager_type: orm, group: Offers, label: Consultants }
+          public: true
+
+      application_sonata_user.admin.director:
+          class: Application\Sonata\UserBundle\Admin\Entity\DirectorAdmin
+          arguments: [~, Application\Sonata\UserBundle\Entity\User, ApplicationSonataUserBundle:DirectorAdmin]
+          calls:
+            - [ setUserManager, [ "@fos_user.user_manager" ] ]
+            - [ setTranslationDomain, ['%sonata.user.admin.user.translation_domain%'] ]
+          tags:
+              - { name: sonata.admin, manager_type: orm, group: Offers, label: Directors }
+          public: true
+
+      sonata.user.orm.group_manager:
+           class: Sonata\UserBundle\Entity\GroupManager
+           arguments: ["@fos_user.object_manager", '%fos_user.model.group.class%']
+           public: true

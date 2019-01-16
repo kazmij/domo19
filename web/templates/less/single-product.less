@@ -1,0 +1,67 @@
+#single-project {
+  & > header {
+    @media screen and (max-width: 767px) {
+      margin-top: 30px;
+      margin-bottom: 30px;
+    }
+  }
+    #facebook-like-and-share {
+      margin-bottom: 45px;
+    }
+  #single-project-gallery {
+    position: relative;
+    margin-bottom: 45px;
+
+    #single-project-gallery-main {
+      .swiper-slide {
+        img {
+          width: 100%;
+        }
+      }
+    }
+    .swiper-button-next,
+    .swiper-button-prev {
+      top: calc(~"100% - 58px");
+      background-color: #fdc630;
+      height: 60px;
+      width: 60px;
+      background-size: cover;
+      &:hover {
+        background-color: darken(#fdc630, 10%);
+      }
+    }
+    .swiper-button-next {
+      background-image: url(/img/shared/icon-arrow-right-black.svg);
+      background-position: center;
+      background-size: 10px;
+      right: 0;
+    }
+    .swiper-button-prev {
+      background-image: url(/img/shared/icon-arrow-left-black.svg);
+      background-position: center;
+      background-size: 10px;
+      left: 0;
+    }
+    #single-project-gallery-thumbs {
+    margin-left: 80px;
+    margin-right: 80px;
+    margin-top: 15px;
+      .swiper-slide {
+        display: inline-block;
+        width: 95px;
+        img {
+          width: 100%;
+          cursor: pointer;
+        }
+        &.swiper-slide-active {
+          background-color: #fdc630;
+          img {
+            opacity: 0.3;
+          }
+        }
+      }
+      
+    }
+  }
+  
+}

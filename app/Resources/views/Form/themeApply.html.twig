@@ -1,0 +1,8 @@
+{% extends 'bootstrap_4_layout.html.twig' %}
+
+{% block checkbox_widget -%}
+    <label class="form-check-label col-12" for="{{ form.vars.id }}">
+        <input type="checkbox" {{ block('widget_attributes') }}{% if value is defined %} value="{{ value }}"{% endif %}{% if checked %} checked="checked"{% endif %} />
+        {{ form.vars.label|raw }}
+    </label>
+{%- endblock checkbox_widget %}

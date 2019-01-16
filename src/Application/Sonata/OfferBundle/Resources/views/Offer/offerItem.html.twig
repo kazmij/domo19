@@ -1,0 +1,27 @@
+{% set photo = '' %}
+                {% if item.gallery %}
+                    {% set galleryHasMedias = item.gallery.galleryHasMedias %}
+                    {% if galleryHasMedias.count %}
+                        {% set firstPhoto = galleryHasMedias.first %}
+                        {% set photo %}{% path firstPhoto.media, 'reference' %}{% endset %}
+                    {% endif %}
+                {% endif %}
+                {% set offerNames = [item.city, item.precinct, item.street  ? ('ul. ' ~ item.street) : null, item.province]|arrayFilter %}
+<div class="item">
+    <a href="{{ path_to(item) }}" class="">
+        <div class="item__img"><img alt="" src="{{ photo | imagine_filter('offer_list') }}"/></div>
+
+        <h2 class="item__header">{{ offerNames|join(', ') }}</h2>
+
+        <p class="item__price">{{ item.price|localizedcurrency(item.priceCurrency) }}</p>
+
+        <div class="item__group">
+            <p class="item__price-2">{{ item.priceperMeter|localizedcurrency(item.priceCurrency) }}/m²</p>
+            {% set roomsNumber = item.roomsNumber %}
+            <p class="item__size">{{ roomsNumber is defined and roomsNumber > 0 ? ('%count% rooms'|transchoice(roomsNumber|pluralizationMode, {'%count%': roomsNumber }) ~ ', ') : '' }}{{ item.areaTotal|localizednumber }}
+                m²</p>
+        </div>
+
+        <p class="item__info">{{ 'Offer updated'|trans }}: {{ item.lastUpdatedDate|date('Y-m-d, H:i:s') }}</p>
+    </a>
+</div>

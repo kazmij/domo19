@@ -1,0 +1,22 @@
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+  .desktop-header-menu-bar-item-menu-icon.closed {
+    background-image: url(/img/shared/close-icon.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 30%;
+  }
+  .desktop-header-menu-bar-item-menu-icon.closed #desktop-menu-icon {
+    display: none;
+  }  
+}
+@supports (-ms-accelerator:true) {
+  .desktop-header-menu-bar-item-menu-icon.closed {
+    background-image: url(/img/shared/close-icon.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 30%;
+  }
+  .desktop-header-menu-bar-item-menu-icon.closed #desktop-menu-icon {
+    display: none;
+  }
+}
