@@ -34,6 +34,7 @@ Instalacja i praca lokalna:
 
 Dostęp i praca na serverze:
 ====================================================================
+!!WAŻNE!! Wszelkie akcje robimy z poziomu usera: jaaqobtest w SSH - po info jak to zrobić zapraszam na priv (Paweł)
 1. Adres strony: http://domo2019.goalpage.pl/ nazwa i haslo htaccess: jaaqob/test
 2. Admin http://domo2019.goalpage.pl/ nazwa/hasło: admin/wakcylion19
 3. Katalog na serverze: /home/jaaqobtest/domains/goalpage.pl/public_html/domo2019/domo2019
