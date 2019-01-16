@@ -1,0 +1,8 @@
+#!/bin/bash
+git pull origin master
+php71 bin/console doctrine:schema:update --force
+php71 bin/console cache:clear
+php71 bin/console assets:install
+php71 bin/console assetic:dump
+php71 bin/console sonata:page:cleanup-snapshots --site=all
+php71 bin/console sonata:page:create-snapshots --site=all
