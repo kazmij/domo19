@@ -87,9 +87,6 @@ JMSTranslationBundle_ui:
 #api_login_check:
 #    path: '%base_routes_prefix%/api/login'
 
-iamgine:
-    resource: '@LiipImagineBundle/Resources/config/routing.yaml'
-
 
 application_sonata_offer:
     prefix:   '%base_routes_prefix%/projekty'
@@ -98,4 +95,7 @@ application_sonata_offer:
 _application_sonata_main:
     prefix:   '%base_routes_prefix%/main'
     resource: "@ApplicationSonataMainBundle/Resources/config/routing.yml"
+
+iamgine:
+    resource: '@LiipImagineBundle/Resources/config/routing.yaml'
 

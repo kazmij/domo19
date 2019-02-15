@@ -40,9 +40,9 @@ class Extension extends \Twig_Extension
         $groupDirector = $groupManager->findGroupBy(['id' => Group::GROUP_DIRECTOR_ID]);
         $groupConsultant = $groupManager->findGroupBy(['id' => Group::GROUP_CONSULTANT_ID]);
 
-        if ($user->hasGroup($groupDirector->getName())) {
+        if ($groupDirector && $user->hasGroup($groupDirector->getName())) {
             return $this->container->get('application_sonata_user.admin.director');
-        } elseif ($user->hasGroup($groupConsultant->getName())) {
+        } elseif ($groupConsultant && $user->hasGroup($groupConsultant->getName())) {
             return $this->container->get('application_sonata_user.admin.consultant');
         } elseif($user->hasRole('ROLE_SUPER_ADMIN')) {
             return $this->container->get('sonata.user.admin.user');

@@ -4,6 +4,7 @@ namespace App\DataFixtures;
 
 use Application\Sonata\ClassificationBundle\Entity\Category;
 use Application\Sonata\ClassificationBundle\Entity\Context;
+use Behat\Transliterator\Transliterator;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\Persistence\ObjectManager;
 
@@ -20,6 +21,7 @@ class ProjectsCategoriesFixtures extends Fixture
         foreach($categoriesData as $c) {
             $category = new Category();
             $category->setName($c);
+            $category->setCustomName(Transliterator::urlize($c));
             $category->setEnabled(true);
             $category->setContext($context);
             $manager->persist($category);

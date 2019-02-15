@@ -2,6 +2,7 @@
 
 namespace Application\Sonata\MainBundle\Block;
 
+use Application\Sonata\MainBundle\Model\BuyModel;
 use Application\Sonata\MainBundle\Model\Email;
 use Sonata\FormatterBundle\Block\FormatterBlockService;
 use Symfony\Component\DependencyInjection\ContainerAwareTrait;

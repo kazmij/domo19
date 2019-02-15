@@ -3,8 +3,10 @@
 <section id="category-list" class="container">
     <header class="row with-square">
         <h1 class="col-xs-12 default-headline default-headline-bigger">
-            <a href="{{ path('page_slug', {path: '/'}) }}" class="button button-back button-medium button-to-right button-filled button-filled-gray">Wróć na główną</a>
-            <span>PROJEKTY DOMÓW</span> {{ category ? category.name : ''}}
+            <a href="{{ path('page_slug', {path: '/'}) }}"
+               class="button button-back button-medium button-to-right button-filled button-filled-gray">Wróć na
+                główną</a>
+            <span>PROJEKTY DOMÓW</span> {{ category ? category.name : '' }}
             <small>{{ category ? category.description|raw : '' }}</small>
         </h1>
     </header>
@@ -20,13 +22,15 @@
                             <div class="input-holder input-holder-text">
                                 <label>Powierzchnia użytkowa:</label>
                                 <div class="inputs-group">
-                                    <input id="filters-surface-from" type="text" name="" placeholder="od" /> - <input id="filters-surface-to" type="text" name="" placeholder="do" /> m<sup>2</sup>
+                                    <input id="filters-surface-from" type="text" name="" placeholder="od"/> - <input
+                                            id="filters-surface-to" type="text" name="" placeholder="do"/> m<sup>2</sup>
                                 </div>
                             </div>
                             <div class="input-holder input-holder-text">
                                 <label>Minimalne wymiary działki:</label>
                                 <div class="inputs-group">
-                                    <input id="filters-length" type="text" name="" placeholder="długość" /> x <input id="filters-width" type="text" name="" placeholder="szerokość" /> m
+                                    <input id="filters-length" type="text" name="" placeholder="długość"/> x <input
+                                            id="filters-width" type="text" name="" placeholder="szerokość"/> m
                                 </div>
                             </div>
                             <div class="input-holder input-holder-select">
@@ -60,7 +64,7 @@
                             </div>
                             <div class="input-holder input-holder-range">
                                 <label>Wysokość budynku:</label>
-                                <input id="filter-range-1" name="" />
+                                <input id="filter-range-1" name=""/>
                             </div>
                             <div class="input-holder input-holder-select">
                                 <select name="">
@@ -71,13 +75,15 @@
                             </div>
                             <div class="input-holder input-holder-range">
                                 <label>Kąt nachylenia dachu:</label>
-                                <input id="filter-range-2" name="" />
+                                <input id="filter-range-2" name=""/>
                             </div>
                             <div class="buttons-holder">
-                                <button id="filters-clear" class="button button-medium button-filled button-filled-gray">
+                                <button id="filters-clear"
+                                        class="button button-medium button-filled button-filled-gray">
                                     Wyzeruj
                                 </button>
-                                <button id="filters-clear" class="button button-medium button-filled button-filled-yellow">
+                                <button id="filters-clear"
+                                        class="button button-medium button-filled button-filled-yellow">
                                     Więcej kryteriów
                                 </button>
                             </div>
@@ -88,247 +94,59 @@
             <?php include('partials/checks.php'); ?>
         </div>
         <div class="col-xs-12 col-sm-6 col-md-8">
-            <ul class="row projects-items">
-                <li class="col-xs-12 col-sm-12 col-md-6">
-                    <article class="project-item">
-                        <header>
-                            <h2>Szyper 6 dr-s</h2>
-                        </header>
-                        <div class="content">
-                            <div class="thumb" style="background-image: url(/img/temp/thumb-home-01.png)">
-                                <span class="price">1235 PLN</span>
-                            </div>
-                            <div class="description">
-                                <p>Powierzchnia: <strong>123m<sup>2</sup></strong></p>
-                                <p>Parter + poddasze</p>
-                                <p>Z garażem, dom tradycyjny</p>
-                            </div>
-                        </div>
-                        <footer>
-                            <a href="">Więcej</a>
-                            <a href="" class="item-button item-button-add-to-closet" data-tooltip="Dodaj do schowka"></a>
-                            <a href="" class="item-button item-button-add-to-compare" data-tooltip="Dodaj do porównywarki"></a>
-                            <span class="item-button item-button-share" data-tooltip="Udostępnij"></span>
-                        </footer>
-                    </article>
-                </li>
-                <li class="col-xs-12 col-sm-12 col-md-6">
-                    <article class="project-item">
-                        <header>
-                            <h2>Szyper 6 dr-s</h2>
-                        </header>
-                        <div class="content">
-                            <div class="thumb" style="background-image: url(/img/temp/thumb-home-01.png)">
-                                <span class="price">1235 PLN</span>
-                            </div>
-                            <div class="description">
-                                <p>Powierzchnia: <strong>123m<sup>2</sup></strong></p>
-                                <p>Parter + poddasze</p>
-                                <p>Z garażem, dom tradycyjny</p>
-                            </div>
-                        </div>
-                        <footer>
-                            <a href="">Więcej</a>
-                            <a href="" class="item-button item-button-add-to-closet" data-tooltip="Dodaj do schowka"></a>
-                            <a href="" class="item-button item-button-add-to-compare" data-tooltip="Dodaj do porównywarki"></a>
-                            <span class="item-button item-button-share" data-tooltip="Udostępnij"></span>
-                        </footer>
-                    </article>
-                </li>
-                <li class="col-xs-12 col-sm-12 col-md-6">
-                    <article class="project-item">
-                        <header>
-                            <h2>Szyper 6 dr-s</h2>
-                        </header>
-                        <div class="content">
-                            <div class="thumb" style="background-image: url(/img/temp/thumb-home-01.png)">
-                                <span class="price">1235 PLN</span>
-                            </div>
-                            <div class="description">
-                                <p>Powierzchnia: <strong>123m<sup>2</sup></strong></p>
-                                <p>Parter + poddasze</p>
-                                <p>Z garażem, dom tradycyjny</p>
-                            </div>
-                        </div>
-                        <footer>
-                            <a href="">Więcej</a>
-                            <a href="" class="item-button item-button-add-to-closet" data-tooltip="Dodaj do schowka"></a>
-                            <a href="" class="item-button item-button-add-to-compare" data-tooltip="Dodaj do porównywarki"></a>
-                            <span class="item-button item-button-share" data-tooltip="Udostępnij"></span>
-                        </footer>
-                    </article>
-                </li>
-                <li class="col-xs-12 col-sm-12 col-md-6">
-                    <article class="project-item">
-                        <header>
-                            <h2>Szyper 6 dr-s</h2>
-                        </header>
-                        <div class="content">
-                            <div class="thumb" style="background-image: url(/img/temp/thumb-home-01.png)">
-                                <span class="price">1235 PLN</span>
-                            </div>
-                            <div class="description">
-                                <p>Powierzchnia: <strong>123m<sup>2</sup></strong></p>
-                                <p>Parter + poddasze</p>
-                                <p>Z garażem, dom tradycyjny</p>
-                            </div>
-                        </div>
-                        <footer>
-                            <a href="">Więcej</a>
-                            <a href="" class="item-button item-button-add-to-closet" data-tooltip="Dodaj do schowka"></a>
-                            <a href="" class="item-button item-button-add-to-compare" data-tooltip="Dodaj do porównywarki"></a>
-                            <span class="item-button item-button-share" data-tooltip="Udostępnij"></span>
-                        </footer>
-                    </article>
-                </li>
-                <li class="col-xs-12 col-sm-12 col-md-6">
-                    <article class="project-item">
-                        <header>
-                            <h2>Szyper 6 dr-s</h2>
-                        </header>
-                        <div class="content">
-                            <div class="thumb" style="background-image: url(/img/temp/thumb-home-01.png)">
-                                <span class="price">1235 PLN</span>
-                            </div>
-                            <div class="description">
-                                <p>Powierzchnia: <strong>123m<sup>2</sup></strong></p>
-                                <p>Parter + poddasze</p>
-                                <p>Z garażem, dom tradycyjny</p>
-                            </div>
-                        </div>
-                        <footer>
-                            <a href="">Więcej</a>
-                            <a href="" class="item-button item-button-add-to-closet" data-tooltip="Dodaj do schowka"></a>
-                            <a href="" class="item-button item-button-add-to-compare" data-tooltip="Dodaj do porównywarki"></a>
-                            <span class="item-button item-button-share" data-tooltip="Udostępnij"></span>
-                        </footer>
-                    </article>
-                </li>
-                <li class="col-xs-12 col-sm-12 col-md-6">
-                    <article class="project-item">
-                        <header>
-                            <h2>Szyper 6 dr-s</h2>
-                        </header>
-                        <div class="content">
-                            <div class="thumb" style="background-image: url(/img/temp/thumb-home-01.png)">
-                                <span class="price">1235 PLN</span>
-                            </div>
-                            <div class="description">
-                                <p>Powierzchnia: <strong>123m<sup>2</sup></strong></p>
-                                <p>Parter + poddasze</p>
-                                <p>Z garażem, dom tradycyjny</p>
-                            </div>
-                        </div>
-                        <footer>
-                            <a href="">Więcej</a>
-                            <a href="" class="item-button item-button-add-to-closet" data-tooltip="Dodaj do schowka"></a>
-                            <a href="" class="item-button item-button-add-to-compare" data-tooltip="Dodaj do porównywarki"></a>
-                            <span class="item-button item-button-share" data-tooltip="Udostępnij"></span>
-                        </footer>
-                    </article>
-                </li>
-                <li class="col-xs-12 col-sm-12 col-md-6">
-                    <article class="project-item">
-                        <header>
-                            <h2>Szyper 6 dr-s</h2>
-                        </header>
-                        <div class="content">
-                            <div class="thumb" style="background-image: url(/img/temp/thumb-home-01.png)">
-                                <span class="price">1235 PLN</span>
-                            </div>
-                            <div class="description">
-                                <p>Powierzchnia: <strong>123m<sup>2</sup></strong></p>
-                                <p>Parter + poddasze</p>
-                                <p>Z garażem, dom tradycyjny</p>
-                            </div>
-                        </div>
-                        <footer>
-                            <a href="">Więcej</a>
-                            <a href="" class="item-button item-button-add-to-closet" data-tooltip="Dodaj do schowka"></a>
-                            <a href="" class="item-button item-button-add-to-compare" data-tooltip="Dodaj do porównywarki"></a>
-                            <span class="item-button item-button-share" data-tooltip="Udostępnij"></span>
-                        </footer>
-                    </article>
-                </li>
-                <li class="col-xs-12 col-sm-12 col-md-6">
-                    <article class="project-item">
-                        <header>
-                            <h2>Szyper 6 dr-s</h2>
-                        </header>
-                        <div class="content">
-                            <div class="thumb" style="background-image: url(/img/temp/thumb-home-01.png)">
-                                <span class="price">1235 PLN</span>
-                            </div>
-                            <div class="description">
-                                <p>Powierzchnia: <strong>123m<sup>2</sup></strong></p>
-                                <p>Parter + poddasze</p>
-                                <p>Z garażem, dom tradycyjny</p>
-                            </div>
-                        </div>
-                        <footer>
-                            <a href="">Więcej</a>
-                            <a href="" class="item-button item-button-add-to-closet" data-tooltip="Dodaj do schowka"></a>
-                            <a href="" class="item-button item-button-add-to-compare" data-tooltip="Dodaj do porównywarki"></a>
-                            <span class="item-button item-button-share" data-tooltip="Udostępnij"></span>
-                        </footer>
-                    </article>
-                </li>
-                <li class="col-xs-12 col-sm-12 col-md-6">
-                    <article class="project-item">
-                        <header>
-                            <h2>Szyper 6 dr-s</h2>
-                        </header>
-                        <div class="content">
-                            <div class="thumb" style="background-image: url(/img/temp/thumb-home-01.png)">
-                                <span class="price">1235 PLN</span>
-                            </div>
-                            <div class="description">
-                                <p>Powierzchnia: <strong>123m<sup>2</sup></strong></p>
-                                <p>Parter + poddasze</p>
-                                <p>Z garażem, dom tradycyjny</p>
-                            </div>
-                        </div>
-                        <footer>
-                            <a href="">Więcej</a>
-                            <a href="" class="item-button item-button-add-to-closet" data-tooltip="Dodaj do schowka"></a>
-                            <a href="" class="item-button item-button-add-to-compare" data-tooltip="Dodaj do porównywarki"></a>
-                            <span class="item-button item-button-share" data-tooltip="Udostępnij"></span>
-                        </footer>
-                    </article>
-                </li>
-                <li class="col-xs-12 col-sm-12 col-md-6">
-                    <article class="project-item">
-                        <header>
-                            <h2>Szyper 6 dr-s</h2>
-                        </header>
-                        <div class="content">
-                            <div class="thumb" style="background-image: url(/img/temp/thumb-home-01.png)">
-                                <span class="price">1235 PLN</span>
-                            </div>
-                            <div class="description">
-                                <p>Powierzchnia: <strong>123m<sup>2</sup></strong></p>
-                                <p>Parter + poddasze</p>
-                                <p>Z garażem, dom tradycyjny</p>
-                            </div>
-                        </div>
-                        <footer>
-                            <a href="">Więcej</a>
-                            <a href="" class="item-button item-button-add-to-closet" data-tooltip="Dodaj do schowka"></a>
-                            <a href="" class="item-button item-button-add-to-compare" data-tooltip="Dodaj do porównywarki"></a>
-                            <span class="item-button item-button-share" data-tooltip="Udostępnij"></span>
-                        </footer>
-                    </article>
-                </li>
-            </ul>
-            <ul id="pagination">
-                <li class="prev"><a href=""></a></li>
-                <li class="page current"><a href="">1</a></li>
-                <li class="page"><a href="">2</a></li>
-                <li class="page"><a href="">3</a></li>
-                <li class="page"><a href="">4</a></li>
-                <li class="page"><a href="">5</a></li>
-                <li class="next"><a href=""></a></li>
-            </ul>
+            {% if results.count %}
+                <ul class="row projects-items">
+                    {% for offer in results %}
+                        <li class="col-xs-12 col-sm-12 col-md-6">
+                            <article class="project-item">
+                                <header>
+                                    <h2>{{ offer.getNazwa() }}</h2>
+                                </header>
+                                <div class="content">
+                                    {% set mainPhoto %}{% path offer.mainPhoto, 'reference' %}{% endset %}
+                                    <div class="thumb"
+                                         style="background-image: url('{{ mainPhoto | imagine_filter('offer_list') }}')">
+                                        {% if offer.getKosztOgolny() %}
+                                            <span class="price">{{ offer.getKosztOgolny()|localizedcurrency('PLN') }}</span>
+                                        {% endif %}
+                                    </div>
+                                    <div class="description">
+                                        <p>Powierzchnia: <strong>{{ offer.getPowCalkowita() }}m<sup>2</sup></strong></p>
+                                        <p>
+                                            {% if offer.getParter() %}
+                                                Parter
+                                            {% endif %}
+                                            {% if offer.getPoddasze() %}
+                                                + Poddasze
+                                            {% endif %}
+                                        </p>
+                                        <p>
+                                            {% if offer.getGaraz() %}
+                                                Z garażem,
+                                            {% endif %}
+                                            {% for category in offer.categories %}
+                                                {{ category.name|lower }}{% if not loop.last %}, {% endif %}
+                                            {% endfor %}
+                                        </p>
+                                    </div>
+                                </div>
+                                <footer>
+                                    <a href="{{ path_to(offer) }}">Więcej</a>
+                                    <a href="" class="item-button item-button-add-to-closet"
+                                       data-tooltip="Dodaj do schowka"></a>
+                                    <a href="" class="item-button item-button-add-to-compare"
+                                       data-tooltip="Dodaj do porównywarki"></a>
+                                    <span class="item-button item-button-share" data-tooltip="Udostępnij"></span>
+                                </footer>
+                            </article>
+                        </li>
+                    {% endfor %}
+                </ul>
+
+                {{ knp_pagination_render(results) }}
+            {% else %}
+                <p class="text-danger">Brak projektów...</p>
+            {% endif %}
         </div>
     </div>
 </section>

@@ -75,7 +75,7 @@ class ZipType extends AbstractType implements LoggerAwareInterface
             'required' => true,
             'label' => 'widget_label_binary_content',
             'attr' => [
-                 'accept' => 'application/zip'
+                 'accept' => '.zip,.xml'
             ]
         ]);
     }

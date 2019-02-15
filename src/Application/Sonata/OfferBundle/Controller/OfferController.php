@@ -10,6 +10,8 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Entity;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 
 class OfferController extends Controller
 {
@@ -24,18 +26,13 @@ class OfferController extends Controller
         ];
         $buyModel = new BuyModel();
         $form = $this->container->get('form.factory')->createNamed(null, 'sonata_main_block_buy_form', $buyModel, $formOptions);
-
         $form->handleRequest($request);
 
-        $offersQb = $this->container->get('application_sonata_offer.admin.offer_helper')->getOffersQb($buyModel);
-
-        if ($buyModel->getStreetToCity()) {
-            $query = $request->query->all();
-            $query['city'] = $buyModel->getCity();
-            unset($query['street']);
-
-            return $this->redirectToRoute($request->attributes->get('_route'), $query);
+        if($category) {
+            $buyModel->setCategory($category);
         }
+
+        $offersQb = $this->container->get('application_sonata_offer.admin.offer_helper')->getOffersQb($buyModel);
 
         /* @var $results \Knp\Bundle\PaginatorBundle\Pagination\SlidingPagination */
         $results = $this->container->get('knp_paginator')->paginate($offersQb, $request->get('p', 1), $buyModel->getPerPage(12), [
@@ -52,7 +49,7 @@ class OfferController extends Controller
     /**
      * @param Request $request
      * @param Offer $offer
-     * @Entity("offer", expr="repository.get(id)")
+     * @Entity("offer", expr="repository.findOneBySlug(slug)")
      * @return \Symfony\Component\HttpFoundation\Response
      * @throws \Twig_Error_Loader
      * @throws \Twig_Error_Runtime

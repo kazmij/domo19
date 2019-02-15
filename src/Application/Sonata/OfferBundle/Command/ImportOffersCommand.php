@@ -85,7 +85,7 @@ class ImportOffersCommand extends ContainerAwareCommand
 
             if ($admin) {
                 $finder = new Finder();
-                $files = $finder->in($offersPath)->files()->name('EstiCRM*.zip')->size('>0');
+                $files = $finder->in($offersPath)->files()->name('/\.(xml|zip)$/')->size('>0');
                 /* @var $file \Symfony\Component\Finder\SplFileInfo */
                 foreach ($files as $file) {
                     $fileName = $file->getFilename();

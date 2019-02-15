@@ -3,6 +3,7 @@
 namespace Application\Sonata\OfferBundle\Entity;
 
 use Application\Sonata\MainBundle\Model\RouteableInterface;
+use Application\Sonata\MediaBundle\Entity\Gallery;
 use Application\Sonata\MediaBundle\Entity\Media;
 use Application\Sonata\UserBundle\Entity\User;
 use Doctrine\ORM\Mapping as ORM;
@@ -25,6 +26,20 @@ class Offer implements RouteableInterface
     const ROUTE_NAME = 'application_sonata_offer_view';
 
     const CATEGORIES_CONTEXT = 'project_categories';
+
+    const CATEGORY_PARTEROWE = 'parterowe';
+    const CATEGORY_Z_PODDASZEM = 'z-poddaszem';
+    const CATEGORY_PIETROWE = 'pietrowe';
+    const CATEGORY_MALE = 'male';
+    const CATEGORY_SREDNIE = 'srednie';
+    const CATEGORY_DUZE = 'duze';
+    const CATEGORY_TRADYCYJNE = 'tradycyjne';
+    const CATEGORY_NOWOCZESNE = 'nowoczesne';
+    const CATEGORY_WILLE = 'wille';
+    const CATEGORY_DREWNIANE = 'drewniane';
+    const CATEGORY_ZABUDOWA_BLIZNIACZA = 'zabudowa-blizniacza';
+    const CATEGORY_TANIE_W_BUDOWIE = 'tanie-w-budowie';
+    const CATEGORY_NA_WASKA_DZIALKE = 'na-waska-dzialke';
 
     use \Gedmo\Timestampable\Traits\TimestampableEntity;
 
@@ -90,6 +105,34 @@ class Offer implements RouteableInterface
      */
     protected $updates;
 
+    /**
+     * @ORM\ManyToMany(targetEntity="Application\Sonata\ClassificationBundle\Entity\Category", fetch="EXTRA_LAZY")
+     * @ORM\Cache(usage="NONSTRICT_READ_WRITE")
+     * @var \Doctrine\Common\Collections\ArrayCollection
+     */
+    protected $categories;
+
+    /**
+     * @Gedmo\Slug(fields={"externalId", "id"})
+     * @ORM\Column(type="string")
+     */
+    protected $slug;
+
+    /**
+     * @return mixed
+     */
+    public function getSlug()
+    {
+        return $this->slug;
+    }
+
+    /**
+     * @param mixed $slug
+     */
+    public function setSlug($slug)
+    {
+        $this->slug = $slug;
+    }
 
     /**
      * Constructor
@@ -97,6 +140,7 @@ class Offer implements RouteableInterface
     public function __construct()
     {
         $this->attributes = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->categories = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**
@@ -354,240 +398,24 @@ class Offer implements RouteableInterface
         return false;
     }
 
-    /**
-     * @return bool
-     */
-    public function getCity()
-    {
-        return $this->getAttributeValue(OfferAttribute::LOCATION_CITY_KEY);
-    }
-
-    public function getPrecinct()
-    {
-        return $this->getAttributeValue(OfferAttribute::LOCATION_PRECINCT_KEY);
-    }
-
-    public function getProvince()
-    {
-        return $this->getAttributeValue(OfferAttribute::LOCATION_PROVINCE_KEY);
-    }
-
-    public function getStreet()
-    {
-        return $this->getAttributeValue(OfferAttribute::LOCATION_STREET_KEY);
-    }
-
-    public function getStreetType()
-    {
-        return $this->getAttributeValue(OfferAttribute::LOCATION_STREET_TYPE_KEY);
-    }
-
-    public function getPrice()
-    {
-        return (float)$this->getAttributeValue(OfferAttribute::PRICE_KEY);
-    }
-
-    public function getPriceCurrency()
-    {
-        $currency = $this->getAttributeValue(OfferAttribute::PRICE_CURRENCY_KEY);
-
-        return $currency ? strtoupper($currency) : 'PLN';
-    }
-
-    public function getPricePerMeter()
-    {
-        return (float)$this->getAttributeValue(OfferAttribute::PRICE_PER_METER_KEY);
-    }
-
-    public function getRoomsNumber()
-    {
-        return (int)$this->getAttributeValue(OfferAttribute::ROOMS_NUMBER_KEY);
-    }
-
-    public function getAreaTotal()
-    {
-        return (int)$this->getAttributeValue(OfferAttribute::AREA_SIZE_TOTAL_KEY);
-    }
-
-    public function getOfferNumber()
-    {
-        return trim($this->getAttributeValue(OfferAttribute::OFFER_NUMBER_KEY));
-    }
-
-    public function getTypeName()
-    {
-        return $this->getAttributeValue(OfferAttribute::TYPE_NAME);
-    }
-
-    public function getFloorsNumber()
-    {
-        return $this->getAttributeValue(OfferAttribute::FLOOR_KEY);
-    }
-
-    public function getFloorNumber()
-    {
-        return $this->getAttributeValue(OfferAttribute::APARTMENT_FLOOR_KEY);
-    }
-
-    public function getDescriptionRoom()
-    {
-        return $this->getAttributeValue(OfferAttribute::ROOM_DESCRIPTION_KEy);
-    }
-
-    public function getStatus()
-    {
-        return $this->getAttributeValue(OfferAttribute::APARTMENT_STATUS_KEY);
-    }
-
-    public function getOwnership()
-    {
-        return $this->getAttributeValue(OfferAttribute::APARTMENT_OWNERSHIP_KEY);
-    }
-
-    public function getBuildingYear()
-    {
-        return $this->getAttributeValue(OfferAttribute::BUILDING_YEAR_KEY);
-    }
-
-    public function getBuildingMaterial()
-    {
-        return $this->getAttributeValue(OfferAttribute::BUILDING_MATERIAL_KEY);
-    }
-
-    public function getElevatorNumber()
-    {
-        return $this->getAttributeValue(OfferAttribute::ADDITIONAL_ELEVATOR_KEY);
-    }
-
-    public function getAdditionalGarageNumber()
-    {
-        return (int)$this->getAttributeValue(OfferAttribute::ADDITIONAL_GARAGE_KEY);
-    }
-
-    public function getAdditionalBasement()
-    {
-        return (int)$this->getAttributeValue(OfferAttribute::ADDITIONAL_BASEMENT_KEY);
-    }
-
-    public function getAdditionalBalcony()
-    {
-        return (int)$this->getAttributeValue(OfferAttribute::ADDITIONAL_BALCONY_KEY);
-    }
-
-    public function getAdditionalGarden()
-    {
-        return (int)$this->getAttributeValue(OfferAttribute::ADDITIONAL_GARDEN_KEY);
-    }
-
-    public function getAdditionalStorage()
-    {
-        return (int)$this->getAttributeValue(OfferAttribute::ADDITIONAL_STORAGE_KEY);
-    }
-
-    public function getAdditionalParking()
-    {
-        return (int)$this->getAttributeValue(OfferAttribute::ADDITIONAL_PARKING_KEY);
-    }
-
-    public function getAvailableDate()
-    {
-        $date = \DateTime::createFromFormat('Y-m-d H:i:s', $this->getAttributeValue(OfferAttribute::AVAILABLE_DATE_KEY));
-
-        return $date;
-    }
-
-    public function getDescription()
-    {
-        return $this->getAttributeValue(OfferAttribute::DESCRIPTION_WEBSITE_KEY);
-    }
-
-    public function getLatitude()
-    {
-        return $this->getAttributeValue(OfferAttribute::LATITUDE_KEY);
-    }
-
-    public function getLongitude()
-    {
-        return $this->getAttributeValue(OfferAttribute::LONGITUDE_KEY);
-    }
-
-    public function getOfferTitle()
-    {
-        $title = $this->getAttributeValue(OfferAttribute::DESCRIPTION_WEBSITE_KEY);
-        if (!trim($title)) {
-            $street = $this->getStreetType() ? ($this->getStreetType() . ' ' . $this->getStreet()) : ('ul. ' . $this->getStreet());
-            $names = array_filter([$this->getCity(), $this->getPrecinct(), $street, $this->getProvince()]);
-            $title = implode(', ', $names);
-        }
-
-        return $title;
-    }
-
-    public function getOfferName()
-    {
-        $street = $this->getStreetType() ? ($this->getStreetType() . ' ' . $this->getStreet()) : ('ul. ' . $this->getStreet());
-        $names = array_filter([$this->getCity(), $this->getPrecinct(), $street, $this->getProvince()]);
-        $title = implode(', ', $names);
-
-        return $title;
-    }
-
-    public function getOfferFullName()
-    {
-        $street = $this->getStreetType() ? ($this->getStreetType() . ' ' . $this->getStreet()) : ('ul. ' . $this->getStreet());
-        $names = array_filter([$this->getTypeName(), $this->getCity(), $this->getPrecinct(), $street, $this->getProvince()]);
-        $title = implode(', ', $names);
-
-        return $title;
-    }
-
-    public function getContactFullName()
-    {
-        $fullName = '';
-        $firstName = $this->getAttributeValue(OfferAttribute::CONTACT_NAME_KEY);
-        $lastName = $this->getAttributeValue(OfferAttribute::CONTACT_LASTNAME_KEY);
-
-        if ($firstName || $lastName) {
-            return trim($firstName . ' ' . $lastName);
-        }
-
-        return $fullName;
-    }
-
-    public function getContactEmail()
-    {
-        return $this->getAttributeValue(OfferAttribute::CONTACT_EMAIL_KEY);
-    }
-
-    public function getContactPhone()
-    {
-        $phone = $this->getAttributeValue(OfferAttribute::CONTACT_PHONE_KEY);
-
-        if ($phone) {
-            if (preg_match('/^0048/', $phone)) {
-                $phone = preg_replace('/^0048/', '+48 ', $phone);
-            } elseif (!preg_match('/^\+48/', $phone)) {
-                $phone = $phone = '+48 ' . $phone;
-            } else {
-                $phone = '+' . $phone;
+    public function getMainPhoto() {
+        /* @var $gallery Gallery */
+        $gallery = $this->getGallery();
+        if($gallery->getGalleryHasMedias()) {
+            foreach($gallery->getGalleryHasMedias() as $galleryHasMedia) {
+                if($galleryHasMedia->getMedia()->getCategory()) {
+                    if($galleryHasMedia->getMedia()->getCategory()->getCustomName() == OfferAttribute::WIZUALIZACJE_ATTRIBUTE_KEY) {
+                        return $galleryHasMedia->getMedia();
+                    }
+                }
             }
+
+            return $gallery->getGalleryHasMedias()->last()->getMedia();
         }
 
-        return $phone;
+        return false;
     }
 
-    public function getLastUpdatedDate()
-    {
-        $dateString = $this->getAttributeValue(OfferAttribute::SYSTEM_UPDATE_DATE_KEY);
-
-        $date = \DateTime::createFromFormat('Y-m-d H:i:s', $dateString);
-
-        if (!$date) {
-            $date = $this->getUpdatedAt();
-        }
-
-        return $date;
-    }
 
     public function getRouteName()
     {
@@ -598,7 +426,7 @@ class Offer implements RouteableInterface
     public function getRouteParams()
     {
         return [
-            'id' => $this->getId()
+            'slug' => $this->getSlug()
         ];
     }
 
@@ -648,5 +476,61 @@ class Offer implements RouteableInterface
     public function getUpdates()
     {
         return $this->updates;
+    }
+
+    /**
+     * @param $name
+     * @param $arguments
+     * @return bool
+     * @throws \ReflectionException
+     */
+    public function __call($name, $arguments)
+    {
+        if(preg_match('/^get[A-Z]+/', $name)) {
+            $attributeNames = preg_split('/(?<=\\w)(?=[A-Z])/', str_replace('get', '', $name));
+            $constantName = strtoupper(implode('_', $attributeNames)) . '_ATTRIBUTE_KEY';
+            $reflect = new \ReflectionClass(OfferAttribute::class);
+            if(array_key_exists($constantName, $reflect->getConstants())) {
+                return $this->getAttributeValue($reflect->getConstant($constantName));
+            }
+        }
+
+        return false;
+    }
+
+    /**
+     * Add category.
+     *
+     * @param \Application\Sonata\ClassificationBundle\Entity\Category $category
+     *
+     * @return Offer
+     */
+    public function addCategory(\Application\Sonata\ClassificationBundle\Entity\Category $category)
+    {
+        $this->categories[] = $category;
+
+        return $this;
+    }
+
+    /**
+     * Remove category.
+     *
+     * @param \Application\Sonata\ClassificationBundle\Entity\Category $category
+     *
+     * @return boolean TRUE if this collection contained the specified element, FALSE otherwise.
+     */
+    public function removeCategory(\Application\Sonata\ClassificationBundle\Entity\Category $category)
+    {
+        return $this->categories->removeElement($category);
+    }
+
+    /**
+     * Get categories.
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getCategories()
+    {
+        return $this->categories;
     }
 }

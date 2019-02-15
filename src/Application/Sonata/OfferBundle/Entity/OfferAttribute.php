@@ -11,6 +11,8 @@ use Symfony\Component\Validator\Constraints as Assert;
 use JMS\Serializer\Annotation as JMS;
 use Gedmo\Mapping\Annotation as Gedmo;
 
+//SELECT CONCAT('const ', UPPER(name), '_ATTRIBUTE_KEY = ', name, ';') FROM `classification__category` WHERE context = 'offer'
+
 /**
  * Offer
  *
@@ -21,48 +23,55 @@ use Gedmo\Mapping\Annotation as Gedmo;
  */
 class OfferAttribute
 {
-
+    const NAZWA_ATTRIBUTE_KEY = 'nazwa';
+    const AUTOR_ATTRIBUTE_KEY = 'autor';
+    const PRACOWNIA_ATTRIBUTE_KEY = 'pracownia';
+    const PARTER_ATTRIBUTE_KEY = 'parter';
+    const PODDASZE_ATTRIBUTE_KEY = 'poddasze';
+    const PODDASZE_DO_ADAPTACJI_ATTRIBUTE_KEY = 'poddasze_do_adaptacji';
+    const PIETRO_ATTRIBUTE_KEY = 'pietro';
+    const PODPIWNICZENIE_ATTRIBUTE_KEY = 'podpiwniczenie';
+    const POKOJE_ATTRIBUTE_KEY = 'pokoje';
+    const LAZIENKI_ATTRIBUTE_KEY = 'lazienki';
+    const KOMINEK_ATTRIBUTE_KEY = 'kominek';
+    const PIWNICA_ATTRIBUTE_KEY = 'piwnica';
+    const ENERGOOSZCZEDNY_ATTRIBUTE_KEY = 'energooszczedny';
+    const GARAZ_ATTRIBUTE_KEY = 'garaz';
+    const TECHNOLOGIA_ATTRIBUTE_KEY = 'technologia';
+    const POW_CALKOWITA_ATTRIBUTE_KEY = 'pow_calkowita';
+    const POW_UZYTKOWA_ATTRIBUTE_KEY = 'pow_uzytkowa';
+    const POW_NETTO_ATTRIBUTE_KEY = 'pow_netto';
+    const POW_ZABUDOWY_ATTRIBUTE_KEY = 'pow_zabudowy';
+    const KUBATURA_ATTRIBUTE_KEY = 'kubatura';
+    const POW_GARAZU_ATTRIBUTE_KEY = 'pow_garazu';
+    const POW_DACHU_ATTRIBUTE_KEY = 'pow_dachu';
+    const KAT_NACHYLENIA_DACHU_ATTRIBUTE_KEY = 'kat_nachylenia_dachu';
+    const WYSOKOSC_BUDYNKU_ATTRIBUTE_KEY = 'wysokosc_budynku';
+    const MIN_SZEROKOSC_DZIALKI_ATTRIBUTE_KEY = 'min_szerokosc_dzialki';
+    const MIN_DLUGOSC_DZIALKI_ATTRIBUTE_KEY = 'min_dlugosc_dzialki';
+    const RODZAJ_DACHU_ATTRIBUTE_KEY = 'rodzaj_dachu';
+    const KOSZT_OGOLNY_ATTRIBUTE_KEY = 'koszt_ogolny';
+    const KOSZT_SUROWY_ATTRIBUTE_KEY = 'koszt_surowy';
+    const KOSZT_WYKONCZENIA_ATTRIBUTE_KEY = 'koszt_wykonczenia';
+    const KOSZT_INSTALACJI_ATTRIBUTE_KEY = 'koszt_instalacji';
+    const CENA_ATTRIBUTE_KEY = 'cena';
+    const CENA_PROM_ATTRIBUTE_KEY = 'cena_prom';
+    const OPIS_PROJEKTU_ATTRIBUTE_KEY = 'opis_projektu';
+    const OPIS_TECHNOLOGIA_ATTRIBUTE_KEY = 'opis_technologia';
+    const WYSOKOSC_POMIESZCZEN_ATTRIBUTE_KEY = 'wysokosc_pomieszczen';
+    const RZUT_PARTER_ATTRIBUTE_KEY = 'rzut_parter';
+    const RZUT_PODDASZE_ATTRIBUTE_KEY = 'rzut_poddasze';
+    const RZUT_PIETRO_ATTRIBUTE_KEY = 'rzut_pietro';
+    const RZUTY_INNE_ATTRIBUTE_KEY = 'rzuty_inne';
+    const ID_KLIENTA_ATTRIBUTE_KEY = 'id_klienta';
+    const POMIESZCZENIA_PARTER_ATTRIBUTE_KEY = 'pomieszczenia_parter';
+    const POMIESZCZENIA_PODDASZE_ATTRIBUTE_KEY = 'pomieszczenia_poddasze';
+    const WIZUALIZACJE_ATTRIBUTE_KEY = 'wizualizacje';
+    const ELEWACJE_ATTRIBUTE_KEY = 'elewacje';
+    const USYTUOWANIE_ATTRIBUTE_KEY = 'usytuowanie';
+    const POMIESZCZENIA_INNE_ATTRIBUTE_KEY = 'pomieszczenia_inne';
+    const POMIESZCZENIA_PIETRO_ATTRIBUTE_KEY = 'pomieszczenia_pietro';
     const GALLERY_ATTRIBUTE_KEY = 'pictures';
-    const LOCATION_CITY_KEY = 'locationCityName';
-    const LOCATION_PRECINCT_KEY = 'locationPrecinctName';
-    const LOCATION_PROVINCE_KEY = 'locationProvinceName';
-    const LOCATION_STREET_KEY = 'locationStreetName';
-    const PRICE_KEY = 'price';
-    const PRICE_CURRENCY_KEY = 'priceCurrency';
-    const PRICE_PER_METER_KEY = 'pricePermeter';
-    const ROOMS_NUMBER_KEY = 'apartmentRoomNumber';
-    const AREA_SIZE_TOTAL_KEY = 'areaTotal';
-    const SYSTEM_UPDATE_DATE_KEY = 'updateDate';
-    const FLOOR_KEY = 'buildingFloornumber';
-    const BUILDING_YEAR_KEY = 'buildingYear';
-    const ADDITIONAL_GARAGE_KEY = 'additionalGarage';
-    const ADDITIONAL_BALCONY_KEY = 'additionalBalcony';
-    const ADDITIONAL_ELEVATOR_KEY = 'buildingElevatornumber';
-    const ADDITIONAL_BASEMENT_KEY = 'additionalBasement';
-    const ADDITIONAL_STORAGE_KEY = 'additionalStorage';
-    const ADDITIONAL_GARDEN_KEY = 'additionalGarden';
-    const ADDITIONAL_ADAPTED_KEY = 'buildingAdapted';
-    const LOCATION_STREET_TYPE_KEY = 'locationStreetType';
-    const ADDITIONAL_PARKING_KEY = 'additionalParking';
-    const OFFER_NUMBER_KEY = 'number';
-    const TYPE_NAME = 'typeName';
-    const APARTMENT_FLOOR_KEY = 'apartmentFloor';
-    const ROOM_DESCRIPTION_KEy = 'descriptionRoom';
-    const APARTMENT_STATUS_KEY = 'buildingCondition';
-    const APARTMENT_OWNERSHIP_KEY = 'apartmentOwnership';
-    const BUILDING_MATERIAL_KEY = 'buildingMaterials';
-    const AVAILABLE_DATE_KEY = 'availableDate';
-    const DESCRIPTION_KEY = 'description';
-    const DESCRIPTION_WEBSITE_KEY = 'descriptionWebsite';
-    const LATITUDE_KEY = 'locationLatitude';
-    const LONGITUDE_KEY = 'locationLongitude';
-    const OFFER_TITLE_KEY = 'portalTitle';
-    const OFFER_ACTION = 'action';
-    const CONTACT_EMAIL_KEY = 'contactEmail';
-    const CONTACT_NAME_KEY = 'contactFirstname';
-    const CONTACT_LASTNAME_KEY = 'contactLastname';
-    const CONTACT_PHONE_KEY = 'contactPhone';
-
 
     use \Gedmo\Timestampable\Traits\TimestampableEntity;
 
@@ -76,6 +85,7 @@ class OfferAttribute
 
     /**
      * @ORM\ManyToOne(targetEntity="Application\Sonata\OfferBundle\Entity\Offer", inversedBy="attributes", fetch="EXTRA_LAZY")
+     * @ORM\JoinColumn(name="offer_id", referencedColumnName="id", nullable=false, onDelete="cascade")
      * @var Offer
      */
     protected $offer;

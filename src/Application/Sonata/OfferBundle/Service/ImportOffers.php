@@ -35,8 +35,95 @@ class ImportOffers
     const CONTEXT_DEFINITIONS = 'offer_definitions';
     const CONTEXT_ATTRIBUTES = 'offer';
     const DEFAULT_AUTHOR_ID = 2;
-    const PICTURES_ATTRIBUTE_NAME = 'pictures';
     const OFFER_MEDIA_CONTEXT = 'offer';
+
+    public static $CATEGORIES_MAP = [
+        'parterowe' => [
+            OfferAttribute::PODDASZE_ATTRIBUTE_KEY => 0,
+            OfferAttribute::PIETRO_ATTRIBUTE_KEY => 0
+        ],
+        'z-poddaszem' => [
+            OfferAttribute::PODDASZE_ATTRIBUTE_KEY => 1
+        ],
+        'pietrowe' => [
+            OfferAttribute::PIETRO_ATTRIBUTE_KEY => [
+                'condition' => '>',
+                'value' => 0
+            ]
+        ],
+        'male' => [
+            OfferAttribute::POW_UZYTKOWA_ATTRIBUTE_KEY => [
+                'condition' => '<=',
+                'value' => 100
+            ]
+        ],
+        'srednie' => [
+            OfferAttribute::POW_UZYTKOWA_ATTRIBUTE_KEY => [
+                'condition' => 'between',
+                'values' => [
+                    0 => 100,
+                    1 => 150
+                ]
+            ]
+        ],
+        'duze' => [
+            OfferAttribute::POW_UZYTKOWA_ATTRIBUTE_KEY => [
+                'condition' => 'between',
+                'values' => [
+                    0 => 150,
+                    1 => 200
+                ]
+            ]
+        ],
+        'wille' => [
+            OfferAttribute::POW_UZYTKOWA_ATTRIBUTE_KEY => [
+                'condition' => '>',
+                'value' => 200
+            ]
+        ],
+        'tradycyjne' => [
+            OfferAttribute::OPIS_PROJEKTU_ATTRIBUTE_KEY => [
+                'condition' => 'match',
+                'value' => 'tradycyjny'
+            ]
+        ],
+        'nowoczesne' => [
+            OfferAttribute::OPIS_PROJEKTU_ATTRIBUTE_KEY => [
+                'condition' => 'match',
+                'value' => 'nowoczesny'
+            ]
+        ],
+        'drewniane' => [
+            'condition' => 'or',
+            OfferAttribute::TECHNOLOGIA_ATTRIBUTE_KEY => [
+                'condition' => 'match',
+                'value' => 'drewniany'
+            ],
+            OfferAttribute::OPIS_TECHNOLOGIA_ATTRIBUTE_KEY => [
+                'condition' => 'match',
+                'value' => 'drewniany'
+            ]
+        ],
+        'zabudowa-blizniacza' => [
+            OfferAttribute::OPIS_PROJEKTU_ATTRIBUTE_KEY => [
+                'condition' => 'match',
+                'value' => 'bliźniacza'
+            ]
+        ],
+        'tanie-w-budowie' => [
+            OfferAttribute::KOSZT_OGOLNY_ATTRIBUTE_KEY => [
+                'condition' => '<=',
+                'value' => 300000
+            ]
+        ],
+        'na-waska-dzialke' => [
+            OfferAttribute::MIN_SZEROKOSC_DZIALKI_ATTRIBUTE_KEY => [
+                'condition' => '<=',
+                'value' => 16
+            ]
+        ]
+    ];
+
 
     /**
      * @var CategoryManager
@@ -86,7 +173,7 @@ class ImportOffers
         $this->mediaManager = $this->container->get('sonata.media.manager.media');
         $this->offerAttributeManager = $this->container->get('application_sonata_offer.manager.offer_attribute');
         $this->userManager = $this->container->get('sonata.user.manager.user');
-        $this->em = $this->container->get('doctrine.orm.default_entity_manager');
+        $this->em = $this->container->get('doctrine')->getManager();
     }
 
     /**
@@ -97,7 +184,6 @@ class ImportOffers
      */
     public function import(OfferImport $offerImport): void
     {
-
         if (!$offerImport->getImportFile()) {
             throw new InvalidArgumentException('File is not set in import!');
         }
@@ -113,19 +199,24 @@ class ImportOffers
 
         $file = new File($filePath);
 
-        if ($file->getMimeType() !== 'application/zip' && $file->getMimeType() !== 'text/zip') {
-            throw new InvalidArgumentException('Invalid file mime type. Must be application/zip instead of ' . $file->getMimeType());
+        if (!in_array($file->getMimeType(), [
+            'application/zip',
+            'application/xml'
+        ])) {
+            throw new InvalidArgumentException('Invalid file mime type. Must be application/zip or application/xml instead of ' . $file->getMimeType());
         }
 
-        $importFiles = $this->unzipAndValidateFile($filePath);
-
-        if ($importFiles['definition']) {
-            $this->importDefinitions($importFiles['definition']);
+        if (in_array($file->getMimeType(), [
+            'application/zip'
+        ])) {
+            $importFiles = $this->unzipAndValidateFile($filePath);
+        } else {
+            $importFiles['offers'][] = $filePath;
         }
 
         if (count($importFiles['offers'])) {
             foreach ($importFiles['offers'] as $offerFilePath) {
-                $this->importOffers($offerImport, $offerFilePath, $importFiles['images']);
+                $this->importOffers($offerImport, $offerFilePath, isset($importFiles['images']) ? $importFiles['images'] : []);
             }
         }
     }
@@ -137,7 +228,7 @@ class ImportOffers
      * @param array $images
      * @param User|null $assignedTo
      */
-    public function importOffers(OfferImport $offerImport, $filePath, array $images, User $assignedTo = null)
+    public function importOffers(OfferImport $offerImport, $filePath, array $images = [])
     {
         if (!file_exists($filePath)) {
             throw new InvalidArgumentException('Offers file is not exist!');
@@ -154,7 +245,6 @@ class ImportOffers
         $container = $this->container;
         $context = $this->contextManager->find(self::CONTEXT_ATTRIBUTES);
         $rootContextCategories = $this->categoryManager->getRootCategoriesForContext($context);
-        $em = $container->get('doctrine.orm.default_entity_manager');
 
         if ($rootContextCategories) {
             $rootCategory = $rootContextCategories[0];
@@ -167,16 +257,21 @@ class ImportOffers
             $authorUser = $this->userManager->find(self::DEFAULT_AUTHOR_ID);
         }
 
-        foreach ($xml->offer as $offer) {
+        $xx = 0;
+        foreach ($xml->projekt as $offer) {
+            $output->write('.');
+//            $xx++;
+//            if ($xx >= 10) break;
+
             $offerObject = null;
-            if (isset($offer->id)) {
-                $offerObject = $this->offerManager->findOneBy(['externalId' => (string)$offer->id]);
+            if (isset($offer->id_klienta)) {
+                $offerObject = $this->offerManager->findOneBy(['externalId' => (string)$offer->id_klienta]);
             }
 
             if (!$offerObject) {
                 $offerObject = new Offer();
-                if (isset($offer->id)) {
-                    $offerObject->setExternalId((string)$offer->id);
+                if (isset($offer->id_klienta)) {
+                    $offerObject->setExternalId((string)$offer->id_klienta);
                 }
             }
             //set offer to import relation
@@ -188,56 +283,83 @@ class ImportOffers
 
             if (!$offerObject->getId()) {
                 $offerObject->setCreatedBy($offerImport->getCreatedBy() ? $offerImport->getCreatedBy() : $authorUser);
-                $em->persist($offerObject);
+                $this->em->persist($offerObject);
             }
 
             foreach ($offer->children() as $attributeName => $child) {
-                if (!strlen((string)$child) && $attributeName !== self::PICTURES_ATTRIBUTE_NAME) { //empty attribute - remove if exist and skip it
-                    if ($offerObject->getId()) {
-                        $categoryAttribute = $this->getCategoryAttribute($attributeName, $child);
-                        $offerAttributes = $offerObject->getAttributes()->filter(function ($entry) use ($categoryAttribute) {
-                            return $entry->getAttribute() ? ($entry->getAttribute()->getId() == $categoryAttribute->getId()) : false;
-                        });
+//                if (!strlen((string)$child) && !in_array($attributeName, [
+//                        OfferAttribute::WIZUALIZACJE_ATTRIBUTE_KEY,
+//                        OfferAttribute::ELEWACJE_ATTRIBUTE_KEY,
+//                        OfferAttribute::USYTUOWANIE_ATTRIBUTE_KEY,
+//                        OfferAttribute::RZUT_PARTER_ATTRIBUTE_KEY,
+//                        OfferAttribute::RZUT_PIETRO_ATTRIBUTE_KEY,
+//
+//
+//                        OfferAttribute::RZUT_PODDASZE_ATTRIBUTE_KEY,
+//                        OfferAttribute::RZUTY_INNE_ATTRIBUTE_KEY
+//                    ])) { //empty attribute - remove if exist and skip it
+//                    if ($offerObject->getId()) {
+//                        $categoryAttribute = $this->getCategoryAttribute($attributeName, $child);
+//                        $offerAttributes = $offerObject->getAttributes()->filter(function ($entry) use ($categoryAttribute) {
+//                            return $entry->getAttribute() ? ($entry->getAttribute()->getId() == $categoryAttribute->getId()) : false;
+//                        });
+//
+//                        if ($offerAttributes->count() > 0 && $offerAttributes->first()) {
+//                            $this->em->remove($offerAttributes->first());
+//                            $this->em->flush();
+//                        }
+//                    }
+//                    continue;
+//                }
 
-                        if ($offerAttributes->count() > 0 && $offerAttributes->first()) {
-                            $this->em->remove($offerAttributes->first());
-                            $this->em->flush();
+                $isPhotoAttribute = in_array($attributeName, [
+                    OfferAttribute::WIZUALIZACJE_ATTRIBUTE_KEY,
+                    OfferAttribute::ELEWACJE_ATTRIBUTE_KEY,
+                    OfferAttribute::USYTUOWANIE_ATTRIBUTE_KEY,
+                    OfferAttribute::RZUT_PARTER_ATTRIBUTE_KEY,
+                    OfferAttribute::RZUT_PIETRO_ATTRIBUTE_KEY,
+                    OfferAttribute::RZUT_PODDASZE_ATTRIBUTE_KEY,
+                    OfferAttribute::RZUTY_INNE_ATTRIBUTE_KEY
+                ]);
+
+                if ($isPhotoAttribute) {
+                    $categoryPhotoAttribute = $this->getCategoryAttribute($attributeName, $child);
+                    $attributeName = OfferAttribute::GALLERY_ATTRIBUTE_KEY;
+                    $categoryAttribute = $this->getCategoryAttribute($attributeName, $child);
+                    $offerAttribute = null;
+                    if ($offerObject->getId()) {
+
+                        $offerAttribute = $this->offerAttributeManager->findOneBy([
+                            'offer' => $offerObject->getId(),
+                            'attribute' => $categoryAttribute->getId()
+                        ]);
+                    }
+                    if (!$offerAttribute) {
+                        $offerAttribute = new OfferAttribute();
+                        $offerAttribute->setAttribute($categoryAttribute);
+                        $offerAttribute->setOffer($offerObject);
+                        $offerObject->addAttribute($offerAttribute);
+                    }
+
+
+                    $pictures = [];
+                    if (isset($child->link)) {
+                        $pictures = (array)$child->link;
+                        $tmp = [];
+                        foreach ($pictures as $picture) {
+                            $tmp[basename((string)$picture)] = (string)$picture;
+                        }
+                        $pictures = $tmp;
+                    } else {
+                        $imageUrl = (string)$child;
+                        if (filter_var($imageUrl, FILTER_VALIDATE_URL)) {
+                            $pictures[basename($imageUrl)] = $imageUrl;
                         }
                     }
-                    continue;
-                }
-
-                if($attributeName == OfferAttribute::OFFER_ACTION && (string) $child == 'delete') {
-                    if($offerObject->getId()) {
-                        $this->em->remove($offerObject);
-                    }
-                    continue 2;
-                }
-
-                $categoryAttribute = $this->getCategoryAttribute($attributeName, $child);
-                $offerAttribute = null;
-                if ($offerObject->getId()) {
-                    $offerAttribute = $this->offerAttributeManager->findOneBy([
-                        'offer' => $offerObject->getId(),
-                        'attribute' => $categoryAttribute->getId()
-                    ]);
-                }
-                if (!$offerAttribute) {
-                    $offerAttribute = new OfferAttribute();
-                    $offerAttribute->setAttribute($categoryAttribute);
-                    $offerAttribute->setOffer($offerObject);
-                    $offerObject->addAttribute($offerAttribute);
-                }
-
-                if ($attributeName == self::PICTURES_ATTRIBUTE_NAME) {
-                    $pictures = (array)$child;
-                    $pictures = isset($pictures['picture']) ? $pictures['picture'] : [];
-                    if (!is_array($pictures)) {
-                        $pictures = array($pictures);
-                    }
-                    $picturesKeys = array_flip($pictures);
 
                     if ($pictures) {
+                        $picturesKeys = array_keys($pictures);
+
                         if ($offerAttribute->getGallery()) {
                             $gallery = $offerAttribute->getGallery();
                             $galleryHasMedias = $gallery->getGalleryHasMedias();
@@ -245,8 +367,8 @@ class ImportOffers
                             foreach ($galleryHasMedias as $galleryHasMedia) {
                                 $mediaImage = $galleryHasMedia->getMedia();
 
-                                if (!in_array($mediaImage->getName(), array_keys($images))) {
-                                    if($galleryHasMedia->getMedia()) {
+                                if (!in_array($mediaImage->getName(), $picturesKeys)) {
+                                    if ($galleryHasMedia->getMedia()) {
                                         $this->em->remove($galleryHasMedia->getMedia());
                                     }
                                     $this->em->remove($galleryHasMedia);
@@ -257,21 +379,31 @@ class ImportOffers
                                 }
                             }
 
-                            foreach ($images as $imageKey => $image) {
-                                if (isset($picturesKeys[$imageKey])) {
+                            foreach ($pictures as $imageName => $imageUrl) {
+                                if (@getimagesize($imageUrl)) {
                                     $mediaImage = $this->mediaManager->findOneBy([
-                                        'name' => $imageKey,
+                                        'name' => $imageName,
                                         'context' => $context->getId(),
                                         'providerName' => 'sonata.media.provider.image'
                                     ]);
                                     if (!$mediaImage) {
+                                        $imageUrlTmp = tempnam(sys_get_temp_dir(), 'offer_' . time()) . '.jpg';
+                                        $fp = fopen($imageUrlTmp, "w");
+                                        fwrite($fp, file_get_contents($imageUrl));
+                                        fclose($fp);
+
+                                        if (!filesize($imageUrlTmp)) {
+                                            continue;
+                                        }
+
                                         $mediaImage = new Media();
                                         $mediaImage->setEnabled(true);
-                                        $mediaImage->setName($imageKey);
+                                        $mediaImage->setName($imageName);
                                         $mediaImage->setProviderName('sonata.media.provider.image');
-                                        $mediaImage->setBinaryContent($image);
+                                        $mediaImage->setBinaryContent($imageUrlTmp);
                                         $mediaImage->setContext($context);
-                                        $mediaImage->setCategory($rootCategory);
+                                        $mediaImage->setCategory($categoryPhotoAttribute);
+                                        $this->em->persist($mediaImage);
                                     }
                                     $galleryHasMedia = new GalleryHasMedia();
                                     $galleryHasMedia->setEnabled(true);
@@ -281,7 +413,6 @@ class ImportOffers
                                     $mediaImage->addGalleryHasMedia($galleryHasMedia);
                                     $gallery->addGalleryHasMedia($galleryHasMedia);
 
-                                    $this->em->persist($mediaImage);
                                     $this->em->persist($galleryHasMedia);
                                 }
                             }
@@ -291,22 +422,33 @@ class ImportOffers
                             $gallery->setContext(self::OFFER_MEDIA_CONTEXT);
                             $gallery->setName('Offer ' . $offerObject->getExternalId());
 
-                            foreach ($pictures as $positionKey => $picture) {
-                                if (isset($images[$picture])) {
+                            $positionKey = 0;
+                            foreach ($pictures as $imageName => $imageUrl) {
+                                if (@getimagesize($imageUrl)) {
                                     $mediaImage = $this->mediaManager->findOneBy([
-                                        'name' => $picture,
+                                        'name' => $imageName,
                                         'context' => $context->getId(),
                                         'providerName' => 'sonata.media.provider.image'
                                     ]);
 
                                     if (!$mediaImage) {
+                                        $imageUrlTmp = tempnam(sys_get_temp_dir(), 'offer_' . time()) . '.jpg';
+                                        $fp = fopen($imageUrlTmp, "w");
+                                        fwrite($fp, file_get_contents($imageUrl));
+                                        fclose($fp);
+
+                                        if (!filesize($imageUrlTmp)) {
+                                            continue;
+                                        }
+
                                         $mediaImage = new Media();
                                         $mediaImage->setEnabled(true);
-                                        $mediaImage->setName($picture);
+                                        $mediaImage->setName($imageName);
                                         $mediaImage->setContext($context);
-                                        $mediaImage->setCategory($rootCategory);
+                                        $mediaImage->setCategory($categoryPhotoAttribute);
                                         $mediaImage->setProviderName('sonata.media.provider.image');
-                                        $mediaImage->setBinaryContent($images[$picture]);
+                                        $mediaImage->setBinaryContent($imageUrlTmp);
+                                        $this->em->persist($mediaImage);
                                     }
                                     $galleryHasMedia = new GalleryHasMedia();
                                     $galleryHasMedia->setEnabled(true);
@@ -316,29 +458,41 @@ class ImportOffers
                                     $mediaImage->addGalleryHasMedia($galleryHasMedia);
                                     $gallery->addGalleryHasMedia($galleryHasMedia);
 
-                                    $this->em->persist($mediaImage);
                                     $this->em->persist($galleryHasMedia);
+                                    $positionKey++;
                                 }
+                                $this->em->persist($gallery);
                             }
-                            $this->em->persist($gallery);
                         }
 
                         $offerAttribute->setGallery($gallery);
                     }
-                } else {
-                    $attributeValue = (string)$child;
-                    if ($child->attributes()) {
-                        if (isset($child->attributes()->dictionary)) {
-                            $dictionary = (string)$child->attributes()->dictionary;
+                } else { //Normal attributes
+                    $categoryAttribute = $this->getCategoryAttribute($attributeName, $child);
+                    $offerAttribute = null;
+                    if ($offerObject->getId()) {
 
-                            $categoryAttributeValue = $this->getCategoryAttributeValue($dictionary, $attributeValue);
-                            if ($categoryAttributeValue) {
-                                $offerAttribute->setAttributeValue($categoryAttributeValue);
-                            }
-                        }
+                        $offerAttribute = $this->offerAttributeManager->findOneBy([
+                            'offer' => $offerObject->getId(),
+                            'attribute' => $categoryAttribute->getId()
+                        ]);
                     }
+                    if (!$offerAttribute) {
+                        $offerAttribute = new OfferAttribute();
+                        $offerAttribute->setAttribute($categoryAttribute);
+                        $offerAttribute->setOffer($offerObject);
+                        $offerObject->addAttribute($offerAttribute);
+                    }
+
+                    if($child->count()) {
+                        $childArr = $this->getChildArr($child);
+                        $attributeValue = json_encode($childArr);
+                    } else {
+                        $attributeValue = (string)$child;
+                    }
+
                     if (!$offerAttribute->getAttributeValue()) {
-                        if(is_numeric($attributeValue)) {
+                        if (is_numeric($attributeValue)) {
                             $offerAttribute->setValueNumeric($attributeValue);
                             $offerAttribute->setValue(null);
                         } else {
@@ -349,12 +503,146 @@ class ImportOffers
                 }
 
                 if (!$offerAttribute->getId()) {
-                    $em->persist($offerAttribute);
+                    $this->em->persist($offerAttribute);
+                }
+
+                $this->setOfferCategories($offerObject);
+
+                $this->em->flush();
+            }
+        }
+    }
+
+    private function getChildArr($node, $result = []) {
+        if($node->count()) {
+            foreach($node->children() as $key => $value) {
+                if($value->count()) {
+                    $result[] = $this->getChildArr($value);
+                } else {
+                    $result[$value->getName()] = (string) $value;
                 }
             }
-
-            $em->flush();
+        } else {
+            $result[$node->getName()] = (string) $node;
         }
+
+        return $result;
+    }
+
+    public function setOfferCategories(Offer $offer)
+    {
+        $categoryManager = $this->container->get('sonata.classification.manager.category');
+
+        if (!($offer->getAttributeValue(OfferAttribute::PODDASZE_ATTRIBUTE_KEY) && $offer->getAttributeValue(OfferAttribute::PIETRO_ATTRIBUTE_KEY))) {
+            $category = $categoryManager->findOneBy(['customName' => Offer::CATEGORY_PARTEROWE]);
+            if ($category) {
+                if(!$offer->getCategories()->contains($category)) {
+                    $offer->addCategory($category);
+                }
+            }
+        }
+
+        if ($offer->getAttributeValue(OfferAttribute::PODDASZE_ATTRIBUTE_KEY)) {
+            $category = $categoryManager->findOneBy(['customName' => Offer::CATEGORY_Z_PODDASZEM]);
+            if ($category) {
+                if(!$offer->getCategories()->contains($category)) {
+                    $offer->addCategory($category);
+                }
+            }
+        }
+
+        if ($offer->getAttributeValue(OfferAttribute::PIETRO_ATTRIBUTE_KEY)) {
+            $category = $categoryManager->findOneBy(['customName' => Offer::CATEGORY_PIETROWE]);
+            if ($category) {
+                if(!$offer->getCategories()->contains($category)) {
+                    $offer->addCategory($category);
+                }
+            }
+        }
+
+        if ($offer->getAttributeValue(OfferAttribute::POW_UZYTKOWA_ATTRIBUTE_KEY) <= 100) {
+            $category = $categoryManager->findOneBy(['customName' => Offer::CATEGORY_MALE]);
+            if ($category) {
+                if(!$offer->getCategories()->contains($category)) {
+                    $offer->addCategory($category);
+                }
+            }
+        }
+
+        if ($offer->getAttributeValue(OfferAttribute::POW_UZYTKOWA_ATTRIBUTE_KEY) > 100 && $offer->getAttributeValue(OfferAttribute::POW_UZYTKOWA_ATTRIBUTE_KEY) <= 150) {
+            $category = $categoryManager->findOneBy(['customName' => Offer::CATEGORY_SREDNIE]);
+            if ($category) {
+                if(!$offer->getCategories()->contains($category)) {
+                    $offer->addCategory($category);
+                }
+            }
+        }
+
+        if ($offer->getAttributeValue(OfferAttribute::POW_UZYTKOWA_ATTRIBUTE_KEY) > 150 && $offer->getAttributeValue(OfferAttribute::POW_UZYTKOWA_ATTRIBUTE_KEY) <= 200) {
+            $category = $categoryManager->findOneBy(['customName' => Offer::CATEGORY_DUZE]);
+            if ($category) {
+                if(!$offer->getCategories()->contains($category)) {
+                    $offer->addCategory($category);
+                }
+            }
+        }
+
+        if (preg_match('/tradycyjn/im', $offer->getAttributeValue(OfferAttribute::OPIS_PROJEKTU_ATTRIBUTE_KEY))) {
+            $category = $categoryManager->findOneBy(['customName' => Offer::CATEGORY_TRADYCYJNE]);
+            if ($category) {
+                if(!$offer->getCategories()->contains($category)) {
+                    $offer->addCategory($category);
+                }
+            }
+        }
+
+        if (preg_match('/nowoczesn/im', $offer->getAttributeValue(OfferAttribute::OPIS_PROJEKTU_ATTRIBUTE_KEY))) {
+            $category = $categoryManager->findOneBy(['customName' => Offer::CATEGORY_NOWOCZESNE]);
+            if ($category) {
+                if(!$offer->getCategories()->contains($category)) {
+                    $offer->addCategory($category);
+                }
+            }
+        }
+
+        if (preg_match('/drewnian/im', $offer->getAttributeValue(OfferAttribute::OPIS_TECHNOLOGIA_ATTRIBUTE_KEY)) ||
+            preg_match('/drewnian/im', $offer->getAttributeValue(OfferAttribute::TECHNOLOGIA_ATTRIBUTE_KEY))) {
+            $category = $categoryManager->findOneBy(['customName' => Offer::CATEGORY_DREWNIANE]);
+            if ($category) {
+                if(!$offer->getCategories()->contains($category)) {
+                    $offer->addCategory($category);
+                }
+            }
+        }
+
+        if (preg_match('/bliźniacz/im', $offer->getAttributeValue(OfferAttribute::OPIS_PROJEKTU_ATTRIBUTE_KEY))) {
+            $category = $categoryManager->findOneBy(['customName' => Offer::CATEGORY_ZABUDOWA_BLIZNIACZA]);
+            if ($category) {
+                if(!$offer->getCategories()->contains($category)) {
+                    $offer->addCategory($category);
+                }
+            }
+        }
+
+        if ($offer->getAttributeValue(OfferAttribute::KOSZT_OGOLNY_ATTRIBUTE_KEY) <= 300000) {
+            $category = $categoryManager->findOneBy(['customName' => Offer::CATEGORY_TANIE_W_BUDOWIE]);
+            if ($category) {
+                if(!$offer->getCategories()->contains($category)) {
+                    $offer->addCategory($category);
+                }
+            }
+        }
+
+        if ($offer->getAttributeValue(OfferAttribute::MIN_SZEROKOSC_DZIALKI_ATTRIBUTE_KEY) <= 16) {
+            $category = $categoryManager->findOneBy(['customName' => Offer::CATEGORY_NA_WASKA_DZIALKE]);
+            if ($category) {
+                if(!$offer->getCategories()->contains($category)) {
+                    $offer->addCategory($category);
+                }
+            }
+        }
+
+        //@toDO garaż!!!!!!!!
     }
 
     /**
@@ -440,6 +728,7 @@ class ImportOffers
             $rootContextCategories = $this->categoryManager->getRootCategoriesForContext($context);
             $categoryAttribute = new Category();
             $categoryAttribute->setName($attributeName);
+            $categoryAttribute->setCustomName($attributeName);
             $categoryAttribute->setSlug(Urlizer::urlize($attributeName, '-'));
             if ($rootContextCategories) {
                 $rootCategory = $rootContextCategories[0];
@@ -462,127 +751,6 @@ class ImportOffers
 
 
         return $categoryAttribute;
-    }
-
-    /**
-     * Import dictionary definitions
-     *
-     * @param $filePath
-     * @return bool
-     */
-    public function importDefinitions($filePath)
-    {
-        if (!file_exists($filePath)) {
-            throw new InvalidArgumentException('Definition file is not exist!');
-        }
-
-        $file = new File($filePath);
-
-        if ($file->getMimeType() !== 'application/xml' && $file->getMimeType() !== 'text/xml') {
-            throw new InvalidArgumentException('Definition file has invalid format!');
-        }
-
-        $xml = simplexml_load_file($filePath);
-        $container = $this->container;
-        $context = $this->contextManager->find(self::CONTEXT_DEFINITIONS);
-        $rootContextCategories = $this->categoryManager->getRootCategoriesForContext($context);
-        $em = $container->get('doctrine.orm.default_entity_manager');
-
-        $output = new ConsoleOutput();
-
-        if ($rootContextCategories) {
-            $rootCategory = $rootContextCategories[0];
-        } else {
-            throw new InvalidArgumentException('Root context category is not set!');
-        }
-
-        if ($xml->children()) {
-            $position = 0;
-            foreach ($xml->children() as $attributeName => $child) {
-                $createNew = false;
-                $category = $this->categoryManager->findOneBy([
-                    'slug' => Urlizer::urlize($attributeName, '-'),
-                    'context' => self::CONTEXT_DEFINITIONS
-                ]);
-                if (!$category) {
-                    $category = new Category();
-                    $createNew = true;
-                }
-                $category->setName($attributeName);
-                $category->setSlug(Urlizer::urlize($attributeName, '-'));
-                $category->setParent($rootCategory);
-                $category->setContext($context);
-                $category->setPosition($position);
-                $category->setEnabled(true);
-
-                if ($createNew) {
-                    $em->persist($category);
-                }
-
-                if ($child->children()) {
-                    $childPosition = 0;
-                    foreach ($child->children() as $valueName => $value) {
-                        $createNewValue = false;
-                        $customKey = null;
-                        $categoryValue = null;
-                        if ($value->attributes()) {
-                            if (isset($value->attributes()->key)) {
-                                $customKey = $value->attributes()->key;
-                                $categoryValue = $this->categoryManager->findOneBy([
-                                    'name' => (string)$value,
-                                    'parent' => $category->getId(),
-                                    'customName' => Urlizer::urlize($attributeName, '-'),
-                                    'customKey' => $customKey,
-                                    'context' => self::CONTEXT_DEFINITIONS
-                                ]);
-                            }
-                        }
-
-                        if (!$categoryValue) {
-                            $categoryValue = $this->categoryManager->findOneBy([
-                                'name' => (string)$value,
-                                'parent' => $category->getId(),
-                                'customName' => Urlizer::urlize($attributeName, '-'),
-                                'context' => self::CONTEXT_DEFINITIONS
-                            ]);
-                        }
-
-                        if (!$categoryValue) {
-                            $categoryValue = new Category();
-                            $createNewValue = true;
-                        }
-
-                        $categoryValue->setName($value);
-                        $categoryValue->setParent($category);
-                        $categoryValue->setContext($context);
-                        $categoryValue->setPosition($childPosition);
-                        $categoryValue->setEnabled(true);
-                        $categoryValue->setCustomName(Urlizer::urlize($attributeName, '-'));
-                        if ($customKey) {
-                            $categoryValue->setCustomKey($customKey);
-                        }
-
-
-                        if ($createNewValue) {
-                            $em->persist($categoryValue);
-                        }
-                    }
-                }
-
-                $em->flush();
-
-                $position++;
-
-                $output->writeln('Definitions ' . $attributeName . ' has been imported.');
-            }
-
-            $output->writeln('All attributes definitions have been imported or updated.');
-
-        } else {
-            $output->writeln('It is not valid XMl file... you must provide valid XML file');
-        }
-
-        return true;
     }
 
     /**

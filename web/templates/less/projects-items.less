@@ -1,5 +1,9 @@
 ul {
   &.projects-items {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
     list-style: none;
     padding: 0;
     li {
@@ -11,6 +15,7 @@ ul {
   .project-item {
     background-color: #fff;
     border: 1px solid #e0e0e0;
+    height: 100%;
     header {
       background-color: #7c889d;
       color: #fff;

@@ -1,5 +1,5 @@
 liip_imagine:
-    default_image: /img/news2.jpg
+    default_image: /img/temp/temp-single-product.png
     filter_sets:
         cache: ~
 
@@ -49,9 +49,10 @@ liip_imagine:
         offer_list:
             quality: 90
             filters:
-                thumbnail: { size: [580, 350], mode: outbond, crop_x: 0.5, crop_y: 0.5, allow_upscale: true }
+                relative_resize: { widen: 400}
+                #thumbnail: { size: [400, 350], mode: outbond, crop_x: 0.5, crop_y: 0.5, allow_upscale: true }
                 #watermark: { image: Resources/data/watermark-right-bottom.png, size: 0.3, position: bottomright}
-                watermark2: { image: Resources/data/watermark-top-left.png, size: 0.4, position: topleft}
+#                watermark2: { image: Resources/data/watermark-top-left.png, size: 0.4, position: topleft}
                 strip: ~
 
         offer_gallery:

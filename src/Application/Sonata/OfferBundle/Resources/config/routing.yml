@@ -3,7 +3,7 @@ application_sonata_offer_list:
   defaults: { _controller: ApplicationSonataOfferBundle:Offer:list, slug: lista }
 
 application_sonata_offer_view:
-  path: /{id}/szczegoly
+  path: /{slug}/szczegoly
   defaults: { _controller: ApplicationSonataOfferBundle:Offer:view }
 
 application_sonata_offer_precincts:

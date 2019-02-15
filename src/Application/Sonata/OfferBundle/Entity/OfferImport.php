@@ -50,7 +50,7 @@ class OfferImport
      * @ORM\ManyToMany(targetEntity="Application\Sonata\OfferBundle\Entity\Offer", inversedBy="imports", fetch="EXTRA_LAZY", cascade={"persist"}, fetch="EXTRA_LAZY")
      * @ORM\JoinTable(name="offer_to_import",
      *      joinColumns={@ORM\JoinColumn(name="import_id", referencedColumnName="id")},
-     *      inverseJoinColumns={@ORM\JoinColumn(name="offer_id", referencedColumnName="id")}
+     *      inverseJoinColumns={@ORM\JoinColumn(name="offer_id", referencedColumnName="id", onDelete="cascade")}
      *      )
      *
      * @var ArrayCollection of Offer

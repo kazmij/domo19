@@ -2,6 +2,7 @@
 
 namespace Application\Sonata\MainBundle\Model;
 
+use Application\Sonata\ClassificationBundle\Entity\Category;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 
@@ -54,6 +55,27 @@ class BuyModel {
      * @var string
      */
     protected $place;
+
+    /**
+     * @return Category
+     */
+    public function getCategory()
+    {
+        return $this->category;
+    }
+
+    /**
+     * @param Category $category
+     */
+    public function setCategory($category)
+    {
+        $this->category = $category;
+    }
+
+    /**
+     * @var Category
+     */
+    protected $category;
 
     /**
      * @return string
