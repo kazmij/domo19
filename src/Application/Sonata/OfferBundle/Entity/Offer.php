@@ -401,7 +401,7 @@ class Offer implements RouteableInterface
     public function getMainPhoto() {
         /* @var $gallery Gallery */
         $gallery = $this->getGallery();
-        if($gallery->getGalleryHasMedias()) {
+        if($gallery && $gallery->getGalleryHasMedias()) {
             foreach($gallery->getGalleryHasMedias() as $galleryHasMedia) {
                 if($galleryHasMedia->getMedia()->getCategory()) {
                     if($galleryHasMedia->getMedia()->getCategory()->getCustomName() == OfferAttribute::WIZUALIZACJE_ATTRIBUTE_KEY) {
